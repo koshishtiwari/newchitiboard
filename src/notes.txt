@@ -1,0 +1,7 @@
+// this is a note for myself
+the global object is the @config in hbs
+                        @config.custom.testfield1 -- will give us the value of the field with the name testfield1 which was defined in customConfig[] in config.json file. These defined fields do not appear in post editor rather act as a setting inside theme setting tab in Pubii UI.
+                        the customElements[] is the actual html tags made available in post editor.
+
+
+TODO: customELements ma define vaesko field haru post editor ma check garnu
