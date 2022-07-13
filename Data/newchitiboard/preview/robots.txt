@@ -1,0 +1,3 @@
+User-agent: *
+Disallow:
+Sitemap: file:///C:\Users\koshi\Documents\Publii\sites\newchitiboard\preview/sitemap.xml
