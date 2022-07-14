@@ -93,6 +93,11 @@
          }
          
     ],
+    "postConfig":[
+        {
+            "name":"something"
+        }
+    ],
 
     "files": {
         "responsiveImages": {
