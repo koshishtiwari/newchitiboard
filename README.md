@@ -3,6 +3,7 @@
 ## minor and major updates
 'root/src' folder under the brance dev_theme 
 
+
 current--v :: 1.0.x
 
 TODO: put the src.zip in every minor releases into the 'root/build' folder 
@@ -11,3 +12,4 @@ TODO: put the src.zip in every minor releases into the 'root/build' folder
 'root/Data/newchitiboard/input/themes/src' under the branch dev_theme--patches 
 
 current--v :: 1.0.10
+
