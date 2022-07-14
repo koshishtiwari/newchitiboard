@@ -5,7 +5,7 @@
     "synced": false,
     "logo": {
         "color": 1,
-        "icon": "web-pizza"
+        "icon": "web-bell"
     },
     "domain": "",
     "language": "en-gb",
@@ -21,14 +21,14 @@
         "sitemapEnabled": 1,
         "sitemapAddTags": 1,
         "sitemapAddAuthors": 1,
-        "sitemapAddHomepage": 1,
+        "sitemapAddHomepage": false,
         "sitemapAddExternalImages": 0,
         "sitemapExcludedFiles": "",
         "usePageTitleInsteadItemName": false,
-        "openGraphEnabled": 1,
+        "openGraphEnabled": false,
         "openGraphImage": "",
         "openGraphAppId": "",
-        "twitterCardsEnabled": 1,
+        "twitterCardsEnabled": false,
         "twitterCardsType": "summary",
         "twitterUsername": "",
         "metaTitle": "%sitename",
@@ -72,8 +72,8 @@
             "showFullText": 1,
             "numberOfPosts": 10,
             "showFeaturedImage": 1,
-            "enableRss": 1,
-            "enableJson": 1,
+            "enableRss": false,
+            "enableJson": false,
             "showOnlyFeatured": 0,
             "excludeFeatured": 0
         },
@@ -86,7 +86,7 @@
             "errorPage": "404.html",
             "searchPage": "search.html"
         },
-        "ampIsEnabled": 0,
+        "ampIsEnabled": false,
         "ampPrimaryColor": "#039be5",
         "ampImage": "",
         "ampShare": 1,
@@ -208,5 +208,5 @@
             "outputDirectory": ""
         }
     },
-    "theme": "simple"
+    "theme": "src"
 }

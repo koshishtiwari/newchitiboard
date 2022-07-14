@@ -1,0 +1,55 @@
+// this is a note for myself
+the global object is the @config in hbs
+                        @config.custom.testfield1 -- will give us the value of the field with the name testfield1 which was defined in customConfig[] in config.json file. These defined fields do not appear in post editor rather act as a setting inside theme setting tab in Pubii UI.
+                        the customElements[] is the actual html tags made available in post editor.
+
+
+TODO: customELements ma define vaesko field haru post editor ma check garnu
+
+
+
+color haru sabei --------------------
+
+low-green - #252b2c, -- darker text back
+accent-brick - #7e5342, --accent
+grey-bato - #aca794, --lighter text back
+olive-green -#3b4442, ---primary
+sky-blue - #688990      --secondary
+
+
+/* Object */
+{"Charleston Green":"252b2c","Coffee":"7e5342","Grullo":"aca794","Outer Space Crayola":"3b4442","Steel Teal":"688990"}
+
+/* Extended Array */
+[{"name":"Charleston Green","hex":"252b2c",
+                            "rgb":[37,43,44],
+                            "cmyk":[16,2,0,83],
+                            "hsb":[189,16,17],
+                            "hsl":[189,9,16],
+                            "lab":[17,-2,-2]},
+{"name":"Coffee","hex":"7e5342",
+                "rgb":[126,83,66],
+                "cmyk":[0,34,48,51],
+                "hsb":[17,48,49],
+                "hsl":[17,31,38],
+                "lab":[40,16,17]},
+{"name":"Grullo","hex":"aca794",
+                "rgb":[172,167,148],
+                "cmyk":[0,3,14,33],
+                "hsb":[47,14,67],
+                "hsl":[47,13,63],
+                "lab":[68,-2,10]},
+{"name":"Outer Space Crayola","hex":"3b4442",
+                                "rgb":[59,68,66],
+                                "cmyk":[13,0,3,73],
+                                "hsb":[167,13,27],
+                                "hsl":[167,7,25],
+                                "lab":[28,-4,0]},
+{"name":"Steel Teal","hex":"688990",
+                    "rgb":[104,137,144],
+                    "cmyk":[28,5,0,44],
+                    "hsb":[191,28,56],
+                    "hsl":[191,16,49],
+                    "lab":[55,-10,-8]}]
+
+-------------------------------------- colors
