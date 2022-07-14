@@ -3,7 +3,7 @@
     "version": "1.0.8",
     "author": "Jeigsaw <https://codepen.io/Jeigsaw/>",
     "menus": {
-        "mainMenu": "Main menu"
+        "mainMenu": "Top Nav"
     },
     "renderer": {
         "relatedPostsNumber": 3,
@@ -57,13 +57,41 @@
         }
     ],
     "customConfig": [
+        
         {
-            "name": "primaryColor",
-            "label": "Primary color",
-            "group": "colors",
-            "value": "#334499",
-            "type": "colorpicker"
-        }
+            "name": "favicon",
+            "label": "Upload a favicon",
+            "group": "Site",
+            "note": "The favicon should be png or ico file (16x16px)",
+            "value": "",
+            "type": "smallupload",
+            "upload": true
+        },
+        {
+            "name": "faviconType",
+            "label": "Favicon Image format",
+            "group": "Site",
+            "value": "image/x-icon",
+            "type": "select",
+            "options": [
+                {
+                    "label": ".ico",
+                    "value": "image/x-icon"
+                },
+                {
+                    "label": ".png",
+                    "value": "image/png"
+                }]
+        },
+        {
+            "name": "heroImage",
+            "label": "Upload a Hero Image for the Landing Page",
+            "group": "hero_section",
+            "value": "",
+            "type": "upload",
+            "upload": true
+         }
+         
     ],
 
     "files": {
@@ -163,6 +191,31 @@
                         "height": "auto"
                     }
                 }
+            },
+            "optionImages": {
+                "sizes": "(max-width: 1600px) 100vw, 1600px",
+                "dimensions": {
+                    "xs": {
+                        "width": 300,
+                        "height": 255,
+                        "crop": true
+                    },
+                    "sm": {
+                        "width": 480,
+                        "height": "auto"
+                    },
+                    "md": {
+                        "width": 768,
+                        "height": "auto"
+                    },
+                    "lg": {
+                        "width": 1024,
+                        "height": "auto"
+                    },
+                    "xl": {
+                        "width": 1360,
+                        "height": "auto"
+                    }                }
             }
         }
     },

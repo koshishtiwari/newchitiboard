@@ -1,0 +1,36 @@
+{{!-- html and the head tags -> to be used in all pages --}}
+<!DOCTYPE html>
+<html lang="{{ @website.language }}">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        {{#if title}}
+            <title>{{title}}</title>
+        {{else}}
+            <title>{{@website.name}}</title>
+        {{/if}}
+
+        {{!-- meta tags --}}
+        {{metaDescription}}
+        {{metaRobots}} 
+        {{canonicalLink}}
+        {{ampLink}}
+
+        {{!-- favicon --}}
+		{{#if @config.custom.faviconUpload}}
+	        <link rel="shortcut icon" href="{{@config.custom.faviconUpload}}" type="{{@config.custom.faviconExtension}}" />
+        {{/if}}
+        
+        {{!-- font links --}}
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Quicksand&family=Roboto+Slab&display=swap" rel="stylesheet">
+
+        {{!-- css links --}}
+        <link rel="stylesheet" href="{{css "style.css" }}">
+        		
+        {{{@headCustomCode}}}
+    </head>
+    <body>
+        {{{@bodyCustomCode}}}
