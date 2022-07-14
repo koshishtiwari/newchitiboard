@@ -16,4 +16,4 @@ let themeHelpers = {
 
 
 // export the themeHelpers
-module.exports = themeHelpers;
+// module.exports = themeHelpers;
