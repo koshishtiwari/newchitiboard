@@ -13,13 +13,13 @@
         "createContentStructure": true,
         "createTagPages": true,
         "createAuthorPages": true,
-        "createTagsList": true,
+        "createTagsList": false,
         "createSearchPage": false,
         "create404page": true
     },
     "supportedFeatures": {
         "blockEditor": false,
-        "tagsList": true,
+        "tagsList": false,
         "tagPages": true,
         "tagImages": false,
         "authorPages": true,
