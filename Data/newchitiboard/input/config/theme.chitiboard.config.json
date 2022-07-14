@@ -4,9 +4,11 @@
         "tagsPostsPerPage": 5,
         "authorsPostsPerPage": 4,
         "excerptLength": 45,
-        "logo": "media/website/accent.jpeg"
+        "logo": ""
     },
-    "customConfig": {},
+    "customConfig": {
+        "primaryColor": "#E1ADAD"
+    },
     "postConfig": {},
     "defaultTemplates": {
         "post": ""

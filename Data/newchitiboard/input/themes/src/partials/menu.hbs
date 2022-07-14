@@ -1,0 +1,22 @@
+{{!-- the top nav --}}
+<nav class="topNav">
+    <ul class="topNav-menu">
+        {{#each items}}
+            <li class="topNav-menu-item" >
+
+            {{#if link}}
+               <a href="{{menuUrl}}"
+                  {{#if title}}
+                     title="{{title}}"
+                  {{/if}}
+                >
+                  {{label}}
+                </a>
+            {{/if}}
+
+            </li>
+
+        {{/each}}
+
+    </ul>
+</nav>

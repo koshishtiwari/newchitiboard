@@ -1,1 +1,62 @@
-[]
+[
+    {
+        "name": "Top Nav",
+        "position": "mainMenu",
+        "items": [
+            {
+                "id": 1657771357128,
+                "label": "About us",
+                "title": "about us",
+                "type": "post",
+                "target": "_self",
+                "rel": "",
+                "link": 2,
+                "cssClass": "",
+                "isHidden": false,
+                "items": []
+            },
+            {
+                "id": 1657771379444,
+                "label": "Post",
+                "title": "A new post",
+                "type": "post",
+                "target": "_self",
+                "rel": "",
+                "link": 4,
+                "cssClass": "",
+                "isHidden": false,
+                "items": []
+            }
+        ]
+    },
+    {
+        "name": "testMenu",
+        "position": "",
+        "items": [
+            {
+                "id": 1657771546533,
+                "label": "oho",
+                "title": "oho",
+                "type": "separator",
+                "target": "_self",
+                "rel": "",
+                "link": "",
+                "cssClass": "",
+                "isHidden": false,
+                "items": []
+            },
+            {
+                "id": 1657771578073,
+                "label": "tester",
+                "title": "oyo",
+                "type": "post",
+                "target": "_self",
+                "rel": "",
+                "link": 3,
+                "cssClass": "",
+                "isHidden": false,
+                "items": []
+            }
+        ]
+    }
+]
