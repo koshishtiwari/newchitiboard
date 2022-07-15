@@ -208,5 +208,5 @@
             "outputDirectory": ""
         }
     },
-    "theme": "simple"
+    "theme": "src"
 }

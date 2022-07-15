@@ -1,0 +1,249 @@
+{
+    "name": "ChitiBoard",
+    "version": "1.1.0",
+    "author": "Jeigsaw <https://codepen.io/Jeigsaw/>",
+    "menus": {
+        "mainMenu": "Top Nav"
+    },
+    "renderer": {
+        "relatedPostsNumber": 3,
+        "renderRelatedPosts": true,
+        "renderSimilarPosts": false,
+        "renderPrevNextPosts": true,
+        "createContentStructure": true,
+        "createTagPages": true,
+        "createAuthorPages": true,
+        "createTagsList": false,
+        "createSearchPage": false,
+        "create404page": true
+    },
+    "supportedFeatures": {
+        "blockEditor": false,
+        "tagsList": false,
+        "tagPages": true,
+        "tagImages": false,
+        "authorPages": true,
+        "authorImages": true,
+        "searchPage": true,
+        "errorPage": true,
+        "customComments": true
+    },
+    "config": [
+
+        {
+            "name": "logo",
+            "label": "Chiti logo",
+            "value": "",
+            "type": "upload",
+            "upload": true
+        },
+        {
+            "name": "postsPerPage",
+            "label": "Posts per page",
+            "value": 5,
+            "type": "number"
+        },
+        {
+            "name": "tagsPostsPerPage",
+            "label": "Tags posts per page",
+            "value": 5,
+            "type": "number"
+        },
+        {
+            "name": "excerptLength",
+            "label": "Excerpt length",
+            "value": 45,
+            "type": "number"
+        }
+    ],
+    "customConfig": [
+        
+        {
+            "name": "favicon",
+            "label": "Upload a favicon",
+            "group": "Site",
+            "note": "The favicon should be png or ico file (16x16px)",
+            "value": "",
+            "type": "smallupload",
+            "upload": true
+        },
+        {
+            "name": "faviconType",
+            "label": "Favicon Image format",
+            "group": "Site",
+            "value": "image/x-icon",
+            "type": "select",
+            "options": [
+                {
+                    "label": ".ico",
+                    "value": "image/x-icon"
+                },
+                {
+                    "label": ".png",
+                    "value": "image/png"
+                }]
+        },
+        {
+            "name": "heroImage",
+            "label": "Upload a Hero Image for the Landing Page",
+            "group": "Hero Section",
+            "value": "",
+            "type": "upload",
+            "upload": true
+         },
+         {
+            "name": "heroText",
+            "label": "Add a text to go along with Hero Image",
+            "group": "Hero Section",
+            "value": "A Big Heading",
+            "type": "text"
+         }
+         
+    ],
+    "postConfig":[
+    ],
+
+    "files": {
+        "responsiveImages": {
+            "contentImages": {
+                "sizes": "100vw",
+                "dimensions": {
+                    "xs": {
+                        "width": 300,
+                        "height": "auto"
+                    },
+                    "sm": {
+                        "width": 480,
+                        "height": "auto"
+                    },
+                    "md": {
+                        "width": 768,
+                        "height": "auto"
+                    },
+                    "lg": {
+                        "width": 1024,
+                        "height": "auto"
+                    },
+                    "xl": {
+                        "width": 1360,
+                        "height": "auto"
+                    },
+                    "2xl": {
+                        "width": 1600,
+                        "height": "auto"
+                    }
+                }
+            },
+            "featuredImages": {
+                "sizes": {
+                    "post": "(max-width: 1600px) 100vw, 1600px"
+                },
+
+                "dimensions": {
+                    "xs": {
+                        "width": 300,
+                        "height": "auto",
+                        "group": "post,amp"
+                    },
+                    "sm": {
+                        "width": 480,
+                        "height": "auto",
+                        "group": "post,amp"
+                    },
+                    "md": {
+                        "width": 768,
+                        "height": "auto",
+                        "group": "post,amp"
+                    },
+                    "lg": {
+                        "width": 1024,
+                        "height": "auto",
+                        "group": "post"
+                    },
+                    "xl": {
+                        "width": 1360,
+                        "height": "auto",
+                        "group": "post"
+                    },
+                    "2xl": {
+                        "width": 1600,
+                        "height": "auto",
+                        "group": "post"
+                    }
+                }
+            },
+            "authorImages": {
+                "sizes": "100vw",
+                "dimensions": {
+                    "xs": {
+                        "width": 300,
+                        "height": "auto"
+                    },
+                    "sm": {
+                        "width": 480,
+                        "height": "auto"
+                    },
+                    "md": {
+                        "width": 768,
+                        "height": "auto"
+                    },
+                    "lg": {
+                        "width": 1024,
+                        "height": "auto"
+                    },
+                    "xl": {
+                        "width": 1360,
+                        "height": "auto"
+                    },
+                    "2xl": {
+                        "width": 1600,
+                        "height": "auto"
+                    }
+                }
+            },
+            "optionImages": {
+                "sizes": "(max-width: 1600px) 100vw, 1600px",
+                "dimensions": {
+                    "xs": {
+                        "width": 300,
+                        "height": 255,
+                        "crop": true
+                    },
+                    "sm": {
+                        "width": 480,
+                        "height": "auto"
+                    },
+                    "md": {
+                        "width": 768,
+                        "height": "auto"
+                    },
+                    "lg": {
+                        "width": 1024,
+                        "height": "auto"
+                    },
+                    "xl": {
+                        "width": 1360,
+                        "height": "auto"
+                    }                }
+            }
+        }
+    },
+
+    "customElements": [
+        {
+            "label": "Custom Element name in Post Editor",
+            "cssClasses": "class_name_to_add_to_this_html_tag",
+            "tag": "html_tag_name_to_wrap_it"
+        },
+        {
+            "label": "Bold Text",
+            "cssClasses": "text_bold",
+            "tag": "span"
+        }
+
+    ],
+
+    "postTemplates": {
+        "aboutPage": "About Page"
+    }
+}
