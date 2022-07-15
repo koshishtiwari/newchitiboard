@@ -3,13 +3,73 @@
 {{!-- html and head tags --}}
 {{> head}}
 
-{{!-- header-the top bar and nav --}}
-{{> header}}
+<body>
+    {{{@bodyCustomCode}}}
+    {{!-- header-the top bar and nav --}}
+    {{> header}}
 
-{{!-- main landing post contents --}}
-<main>
+    {{!-- main landing page contents --}}
+    <main>
+        {{!-- posts --}}
+        <div class="wrapper">
+            {{#post}}
+            <article class="pagePost">
+                <h2 class="postTitle">
+                    {{title}}
+                </h2>
+                <figure class="postImg">
+                    {{#if featuredImage}}
 
-</main>
+                    <img src="{{url}}" alt="{{alt}}">
+                    {{#checkIfAny caption credits}}
+                    <figcaption>{{caption}} 
+                        <span>{{credits}}</span>
+                    </figcaption>
+                    {{/checkIfAny}}
 
-{{!-- footer partials --}}
-{{> footer}}
+                    {{/if}}
+                </figure>
+
+                {{!-- feed Title and excerpt --}}
+                <div class="postText">
+                    {{text}}
+                </div>
+
+                {{!-- author info --}}
+                {{!-- make this flex --}}
+                <div class="postMeta">
+                    {{#author}}
+                    {{#if avatar}}
+                    <img src="{{avatarImage.url}}" alt="{{avatarImage.alt}}">
+                    {{/if}}
+                    <div class="postMetaText">
+                        <h4>{{name}}</h4>
+                        {{/author}}
+                        <h5>{{createdAt}}</h5>
+                    </div>
+                </div>
+            </article>
+                
+
+            {{!-- commenting --}}
+            {{#if @config.post.displayComments}}
+            <div class="wrapper">
+                <div class="postComments">
+                    {{{@commentsCustomCode}}}
+                </div>
+            </div>
+            {{/if}}
+
+        {{/post}}
+        </div>
+
+    </main>
+
+    
+
+    {{!-- footer partials --}}
+    {{> footer}}
+
+</body>
+
+

@@ -92,11 +92,20 @@
             "upload": true
          },
          {
-            "name": "heroText",
-            "label": "Add a text to go along with Hero Image",
+            "name": "heroTitle",
+            "label": "Add a Title to go along with Hero Image",
             "group": "Hero Section",
             "value": "A Big Heading",
             "type": "text"
+         },
+         {
+            "name": "heroText",
+            "label": "Add a brief description of Hero Image",
+            "group": "Hero Section",
+            "value": "A Big Heading",
+            "type": "textarea",
+            "rows": 50,
+            "cols": 100
          }
          
     ],

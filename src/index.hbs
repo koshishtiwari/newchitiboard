@@ -3,25 +3,75 @@
 {{!-- html and head tags --}}
 {{> head}}
 
-{{!-- header-the top bar and nav --}}
-{{> header}}
+<body>
+    {{{@bodyCustomCode}}}
 
-{{!-- main landing page contents --}}
-<main>
-    {{!-- hero section --}}
-    {{#if @config.custom.heroImage}}
-        <div class="heroImgWrap">
-            <img class="heroImg" src="{{@config.custom.heroImage}}" alt="Hero Image">
+    {{!-- main landing page contents --}}
+    <main>
+        {{!-- hero section --}}
+        {{#if @config.custom.heroImage}}
+            <div class="heroImg" style="background-image: url({{@config.custom.heroImage}});" aria-label="Hero Image">
+                {{!-- header-the top bar and nav --}}
+                {{> header}}
 
-            {{#if @config.custom.heroImage}}
-            <h2 class="heroText">{{@config.custom.heroText}}</h2>
-            {{/if}}
+                <div class="heroTextWrap" aria-label="Caption for the Hero Image">
+                    {{#if @config.custom.heroTitle}}
+                    <h2 class="heroTitle"> {{@config.custom.heroTitle}}</h2>
+                    {{/if}}
+                    {{#if @config.custom.heroText}}
+                    <p class="heroText">{{@config.custom.heroText}}</h2>
+                    {{/if}}
+                </div>
+            </div>
+        {{/if}}
+
+        {{!-- post feed --}}
+        <div class="wrapper">
+            <section class="postFeeds">
+                {{#each posts}}
+                <article class="feedPosts" {{#if isFeatured}}class="featFeedPosts"{{/if}}>
+                    {{#if isFeatured}}
+                        <figure class="feedPostImg">
+                            {{#if featuredImage}}
+
+                            <img src="{{url}}" alt="{{alt}}">
+                            {{#checkIfAny caption credits}}
+                            <figcaption>{{caption}} 
+                                <span>{{credits}}</span>
+                            </figcaption>
+                            {{/checkIfAny}}
+
+                            {{/if}}
+                        </figure>
+                    {{else}}
+                        {{!-- feed Title and excerpt --}}
+                        <div class="feedPostText">
+                            <h2 class="feedPostTitle">
+                                <a href="{{url}}">{{title}}</a>
+                            </h2>
+                            <div class="feedPostExcerpt">
+                            {{#if hasCustomExcerpt}}
+                                {{{ excerpt }}}
+                            {{else}}
+                                <p>{{{ excerpt }}}</p>
+                            {{/if}}
+                            </div>
+                        </div>
+                    {{/if}}
+
+                    <a href="{{url}}" class="feedPostReadmore">
+                        Read more...</a>
+                </article>
+                {{/each}}
+
+                {{!-- featured posts --}}
+            </section>
+
         </div>
-    {{/if}}
 
-    {{!-- featured posts --}}
+    </main>
 
-</main>
+    {{!-- footer partials --}}
+    {{> footer}}
 
-{{!-- footer partials --}}
-{{> footer}}
+</body>

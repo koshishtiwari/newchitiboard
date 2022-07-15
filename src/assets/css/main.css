@@ -1,7 +1,7 @@
 /* globals variables */
 :root {
     --primaryOlive : hsl(167deg,7%,25%);
-    --secondarySky :  hsl(191deg,16%,49%);
+    --secondarySky :  hsl(195deg 29% 58%);;
     --accentBrick : hsl(17deg,31%,38%);
     --darkField : hsl(189deg,9%,16%);
     --lightField : hsl(47deg,13%,63%);
@@ -13,6 +13,13 @@
 
 *{
     box-sizing: border-box;
+}
+ 
+*:after, :before {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 *::selection{
@@ -37,18 +44,28 @@ p{
 }
 
 /* body wrapper */
-.bodyWrapper{
+.wrapper{
     padding: 0 20px;
     margin: 0 auto;
 }
+
 /* header section */
 header.pageHeader{
     display: flex;
+    position: relative;
+    z-index: 99;
     padding: 10px 15px;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid var(--secondarySky);
+}
+
+.heroImg header.pageHeader{
+    border: none;
+    background: var(--bgColor);
+    top: 15px;
+    border-radius: var(--borderRadius);
 }
 
 /* Branding */
@@ -63,6 +80,7 @@ header.pageHeader{
 .siteLogo img{
     width: 17%;
     min-width: 44px;
+    max-width: 220px;
 }
 .siteLogo .siteTitle{
     font-size: 1.5em;
@@ -95,6 +113,43 @@ header.pageHeader{
 }
 
 
+/* Hero Image in front page */
+.heroImg{
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+}
+.heroImg::after {
+    content: "";
+    display: block;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    background: linear-gradient(to bottom,transparent 0,rgb(63 58 58 / 98%) 127%);
+}
+
+.heroTextWrap{
+    position: relative;
+    top: 60vh;
+    padding-left: 50px;
+    z-index: 22;
+}
+.heroTitle{
+    color: hsl(47deg 37% 94%);
+    font-size: 3.5em;
+    line-height: 1.3em;
+    margin: 0;
+}
+p.heroText{
+    color: hsl(49deg 4% 75%);
+    font-size: 1.2em;
+
+}
+
+
+
 
 /* footer section */
 footer.pageFooter{
@@ -116,9 +171,15 @@ footer.pageFooter{
     .siteLogo img {
         width: 25%;
     }
+
+    .heroTextWrap{
+        top: 45vh;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
 }
 @media screen and (min-width: 1024px) {
-    .bodyWrapper{
+    .wrapper{
         width: 75vw;
     }
 }
