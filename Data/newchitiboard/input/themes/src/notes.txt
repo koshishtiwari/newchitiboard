@@ -7,6 +7,9 @@ the global object is the @config in hbs
 TODO: customELements ma define vaesko field haru post editor ma check garnu
 
 
+post config[] to show things only in post editor
+
+
 
 color haru sabei --------------------
 
