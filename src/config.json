@@ -86,10 +86,17 @@
         {
             "name": "heroImage",
             "label": "Upload a Hero Image for the Landing Page",
-            "group": "hero_section",
+            "group": "Hero Section",
             "value": "",
             "type": "upload",
             "upload": true
+         },
+         {
+            "name": "heroText",
+            "label": "Add a text to go along with Hero Image",
+            "group": "Hero Section",
+            "value": "",
+            "type": "text"
          }
          
     ],
