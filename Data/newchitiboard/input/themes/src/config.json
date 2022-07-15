@@ -95,12 +95,22 @@
             "name": "heroText",
             "label": "Add a text to go along with Hero Image",
             "group": "Hero Section",
+<<<<<<< HEAD
             "value": "A Big Heading",
+=======
+            "value": "",
+>>>>>>> b793c722e3c52a554af84bb11d0130495e635f22
             "type": "text"
          }
          
     ],
     "postConfig":[
+<<<<<<< HEAD
+=======
+        {
+            "name":"something"
+        }
+>>>>>>> b793c722e3c52a554af84bb11d0130495e635f22
     ],
 
     "files": {
