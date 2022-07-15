@@ -8,6 +8,18 @@
 
 {{!-- main landing page contents --}}
 <main>
+    {{!-- hero section --}}
+    {{#if @config.custom.heroImage}}
+        <div class="heroImgWrap">
+            <img class="heroImg" src="{{@config.custom.heroImage}}" alt="Hero Image">
+
+            {{#if @config.custom.heroImage}}
+            <h2 class="heroText">{{@config.custom.heroText}}</h2>
+            {{/if}}
+        </div>
+    {{/if}}
+
+    {{!-- featured posts --}}
 
 </main>
 
