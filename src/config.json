@@ -1,6 +1,6 @@
 {
     "name": "ChitiBoard",
-    "version": "1.0.10",
+    "version": "1.1.0",
     "author": "Jeigsaw <https://codepen.io/Jeigsaw/>",
     "menus": {
         "mainMenu": "Top Nav"
@@ -95,15 +95,12 @@
             "name": "heroText",
             "label": "Add a text to go along with Hero Image",
             "group": "Hero Section",
-            "value": "",
+            "value": "A Big Heading",
             "type": "text"
          }
          
     ],
     "postConfig":[
-        {
-            "name":"something"
-        }
     ],
 
     "files": {
