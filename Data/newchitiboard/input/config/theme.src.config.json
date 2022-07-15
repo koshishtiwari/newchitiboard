@@ -6,10 +6,7 @@
         "excerptLength": 45,
         "logo": ""
     },
-    "customConfig": {
-        "heroImage": "media/website/Marsyangdi_river_-_Annapurna_Circuit_Nepal_-_panoramio.jpg",
-        "heroText": "Marsyangdi river"
-    },
+    "customConfig": {},
     "postConfig": {},
     "defaultTemplates": {
         "post": ""

@@ -17,12 +17,12 @@
             },
             {
                 "id": 1657771379444,
-                "label": "Post",
-                "title": "A new post",
+                "label": "Contact",
+                "title": "contact us",
                 "type": "post",
                 "target": "_self",
                 "rel": "",
-                "link": 4,
+                "link": 5,
                 "cssClass": "",
                 "isHidden": false,
                 "items": []
