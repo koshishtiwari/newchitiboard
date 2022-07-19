@@ -29,26 +29,29 @@
         <div class="wrapper">
             <section class="postFeeds">
                 {{#each posts}}
-                <article class="feedPosts" {{#if isFeatured}}class="featFeedPosts"{{/if}}>
-                    {{#if isFeatured}}
-                        <figure class="feedPostImg">
-                            {{#if featuredImage}}
-
-                            <img src="{{url}}" alt="{{alt}}">
-                            {{#checkIfAny caption credits}}
-                            <figcaption>{{caption}} 
-                                <span>{{credits}}</span>
-                            </figcaption>
-                            {{/checkIfAny}}
-
-                            {{/if}}
-                        </figure>
-                    {{else}}
+                <article class="feedPosts {{#if isFeatured}} starFeedPosts{{/if}}">
+                    
                         {{!-- feed Title and excerpt --}}
                         <div class="feedPostText">
                             <h2 class="feedPostTitle">
                                 <a href="{{url}}">{{title}}</a>
                             </h2>
+
+                            {{#if isFeatured}}
+                                <figure class="feedPostImg">
+                                    {{#if featuredImage}}
+
+                                    <img src="{{url}}" alt="{{alt}}">
+                                    {{#checkIfAny caption credits}}
+                                    <figcaption>{{caption}} 
+                                        <span>{{credits}}</span>
+                                    </figcaption>
+                                    {{/checkIfAny}}
+
+                                    {{/if}}
+                                </figure>
+                            {{else}}
+
                             <div class="feedPostExcerpt">
                             {{#if hasCustomExcerpt}}
                                 {{{ excerpt }}}
@@ -59,7 +62,7 @@
                         </div>
                     {{/if}}
 
-                    <a href="{{url}}" class="feedPostReadmore">
+                    <a href="{{url}}" class="feedPostRdmore">
                         Read more...</a>
                 </article>
                 {{/each}}

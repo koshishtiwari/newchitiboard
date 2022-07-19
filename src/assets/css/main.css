@@ -1,13 +1,13 @@
-/* globals variables */
+/* globals */
 :root {
     --primaryOlive : hsl(167deg,7%,25%);
-    --secondarySky :  hsl(195deg 29% 58%);;
-    --accentBrick : hsl(17deg,31%,38%);
-    --darkField : hsl(189deg,9%,16%);
+    --secondarySky :  hsl(196deg 32% 65%);
+    --accentBrick : hsl(15deg 29% 51%);
+    --darkField : hsl(24deg 3% 30%);
     --lightField : hsl(47deg,13%,63%);
     --bgColor : hsl(126deg 100% 99%);
-    --lightText : hsl(167deg 13% 67%);
-    --darkText : hsl(167deg 1% 35%);
+    --lightText : hsl(33deg 9% 81%);
+    --darkText : hsl(30deg 6% 33%);
     --borderRadius: 2px;
 }
 
@@ -24,7 +24,7 @@
 
 *::selection{
     color: var(--lightText);
-    background: var(--primaryOlive);
+    background: var(--darkField);
     border-radius: var(--borderRadius);
 }
 
@@ -37,10 +37,35 @@ body{
 h1, h2, h3, h4, h5,h6{
     color: var(--primaryOlive);
     font-family: 'Domine', serif;
+    line-height: 1.4em;
+    margin: 0;
 }
 
 p{
     color: var(--darkText);
+}
+
+img{
+    width: 100%;
+}
+
+a{
+    text-decoration: none;
+    color: var(--darkText);
+}
+a:hover{
+    color: var(--accentBrick);
+}
+
+/* global figcaption */
+figcaption{
+    padding: 0px 5px;
+    font-style: italic;
+    color: hsl(0deg 0% 54%);
+}
+figcaption span{
+    color: var(--secondarySky);
+    font-size: 0.85em;
 }
 
 /* body wrapper */
@@ -58,12 +83,12 @@ header.pageHeader{
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid var(--secondarySky);
+    border-bottom: 1px solid var(--lightText);
 }
 
 .heroImg header.pageHeader{
     border: none;
-    background: var(--bgColor);
+    background: hsl(126deg 100% 99% / 97%);
     top: 15px;
     border-radius: var(--borderRadius);
 }
@@ -93,13 +118,15 @@ header.pageHeader{
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+    align-items: center;
     gap: 8px;
     text-align: center;
 }
 .topNav-menu a.topNav-menu-item{
     padding: 12px;
     text-decoration: none;
-    color: var(--secondarySky);
+    color: hsl(196deg 17% 51%);
+    font-size: 1.1em;
     border-radius: var(--borderRadius);
     flex-grow: 1;
     min-width: 90px;
@@ -112,6 +139,7 @@ header.pageHeader{
     transition: all 0.2s ease-out;
 }
 
+/* Landing Page styles */
 
 /* Hero Image in front page */
 .heroImg{
@@ -134,6 +162,7 @@ header.pageHeader{
     position: relative;
     top: 60vh;
     padding-left: 50px;
+    padding-right: 15px;
     z-index: 22;
 }
 .heroTitle{
@@ -148,7 +177,63 @@ p.heroText{
 
 }
 
+/* Post feed section */
 
+.postFeeds{
+    margin: 15px 0;
+    display: grid;
+    align-items: baseline;
+    row-gap: 1.6rem;
+    column-gap: 1.6rem;
+    grid-template-areas: 
+    'starFeed...'
+    'starFeed...';
+
+}
+
+/* articles */
+article.feedPosts{
+    border-bottom: 2px solid var(--secondarySky);
+    border-radius: 5px;
+    padding: 1.3rem 1.5rem;
+    background: hsl(0deg 0% 100%);
+    box-shadow: 2px 2px 13px #bebebe52;
+    transition: all 0.2s ease-in;
+}
+
+/* featured article post */
+article.starFeedPosts{
+    grid-area: starFeed;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    border: none;
+    box-shadow: none;
+}
+
+/* featured image in featured article */
+.feedPostImg{
+    margin: 25px 0;
+    text-align: center;
+}
+
+.feedPostImg img{
+    max-width: 787px;
+}
+
+.feedPostText .feedPostTitle a{
+    
+}
+.feedPostText .feedPostTitle a:hover{
+    text-decoration: none;
+}
+
+.feedPostRdmore{
+    font-size: 0.9em;
+}
+.feedPostRdmore:hover{
+    text-decoration: underline;
+    font-size: 0.9em;
+}
 
 
 /* footer section */
@@ -161,9 +246,41 @@ footer.pageFooter{
     color: var(--accentBrick);
 }
 
+/* Regular Post styles */
+article.pagePost{
+    padding: 25px 0;
+}
+
+.postImg{
+    text-align: center;
+    margin: 25px 0;
+}
+
+.postMeta{
+    border: 1px solid var(--secondarySky);
+    padding: 10px;
+    border-radius: var(--borderRadius);
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    column-gap: 10px;
+    align-items: center;
+}
+.postMeta img{
+    max-width: 100px;
+}
+
+.postMetaText p{
+    margin: 0;
+    color: hsl(0deg 0% 43%);
+}
+
 /* media queries */
 /* put these in overridesjs */
 @media screen and (max-width: 426px) {
+    .topNav-menu a.topNav-menu-item{
+        font-size: 1em;
+    }
     .siteLogo .siteTitle{
         display: none;
     }
@@ -178,8 +295,22 @@ footer.pageFooter{
         padding-right: 10px;
     }
 }
+
+/* post vertical on mobiles */
+@media screen and (max-width: 680px) {
+    .postFeeds{
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+/* for larger screens */
 @media screen and (min-width: 1024px) {
     .wrapper{
         width: 75vw;
+    }
+
+    .postMeta{
+        max-width: 35vw;
     }
 }
