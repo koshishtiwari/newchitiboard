@@ -1,17 +1,21 @@
 {{!-- the header all pages--}}
+<div class="wrapper">
 <header class="pageHeader">
     <a class="siteLogo" href="{{@website.url}}">
 
         {{!-- switch img and text as necessary --}}
         {{#if @website.logo}}
-            <img src="{{@website.logo}}" alt="{{@website.name}}" width="{{@website.logoSize.width}}" height="{{@website.logoSize.height}}">
-        {{else}}
-            {{@website.name}}
+            <img src="{{@website.logo}}" alt="{{@website.name}}">
         {{/if}}
+        <p class="siteTitle">
+            {{@website.name}}
+        </p>
 
     </a>
+    {{!-- put search bar here --}}
 
     {{!-- the top Menu partials --}}
-         {{> menu menus.mainMenu}}
+    {{> menu menus.mainMenu}}
 
 </header>
+</div>

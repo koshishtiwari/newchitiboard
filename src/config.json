@@ -1,6 +1,6 @@
 {
     "name": "ChitiBoard",
-    "version": "1.0.10",
+    "version": "1.1.2",
     "author": "Jeigsaw <https://codepen.io/Jeigsaw/>",
     "menus": {
         "mainMenu": "Top Nav"
@@ -18,13 +18,13 @@
         "create404page": true
     },
     "supportedFeatures": {
-        "blockEditor": false,
+        "blockEditor": true,
         "tagsList": false,
         "tagPages": true,
         "tagImages": false,
         "authorPages": true,
         "authorImages": true,
-        "searchPage": true,
+        "searchPage": true, 
         "errorPage": true,
         "customComments": true
     },
@@ -86,17 +86,30 @@
         {
             "name": "heroImage",
             "label": "Upload a Hero Image for the Landing Page",
-            "group": "hero_section",
+            "group": "Hero Section",
             "value": "",
             "type": "upload",
             "upload": true
+         },
+         {
+            "name": "heroTitle",
+            "label": "Add a Title to go along with Hero Image",
+            "group": "Hero Section",
+            "value": "A Big Heading",
+            "type": "text"
+         },
+         {
+            "name": "heroText",
+            "label": "Add a brief description of Hero Image",
+            "group": "Hero Section",
+            "value": "A Big Heading",
+            "type": "textarea",
+            "rows": 50,
+            "cols": 100
          }
          
     ],
     "postConfig":[
-        {
-            "name":"something"
-        }
     ],
 
     "files": {
@@ -240,6 +253,6 @@
     ],
 
     "postTemplates": {
-        "aboutPage": "About Page"
+        "about": "About Page"
     }
 }

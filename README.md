@@ -14,7 +14,7 @@ current--v :: 1.1.x
 ## patches and bug fixes
 'root/Data/newchitiboard/input/themes/src' under the branch dev_theme--patches as dev_theme-p_ver
 
-current--v :: 1.1.0
+current--v :: 1.1.2
 
 
 
