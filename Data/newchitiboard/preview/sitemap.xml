@@ -1,19 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/xsl" href="file:///C:\Users\koshi\Documents\Code\newchitiboard\newchitiboard\Data\newchitiboard\preview/sitemap.xsl"?>
+<?xml-stylesheet type="text/xsl" href="file:///C:\Users\koshi\Documents\Code\newchitiboard\Data\newchitiboard\preview/sitemap.xsl"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
 <url>
-<loc>file:///C:\Users\koshi\Documents\Code\newchitiboard\newchitiboard\Data\newchitiboard\preview/</loc>
-</url>
-<url>
-<loc>file:///C:\Users\koshi\Documents\Code\newchitiboard\newchitiboard\Data\newchitiboard\preview/about-us.html</loc>
-<lastmod>2022-07-13T22:13:48-04:00</lastmod>
-</url>
-<url>
-<loc>file:///C:\Users\koshi\Documents\Code\newchitiboard\newchitiboard\Data\newchitiboard\preview/news-2.html</loc>
-<lastmod>2022-07-14T00:13:14-04:00</lastmod>
-</url>
-<url>
-<loc>file:///C:\Users\koshi\Documents\Code\newchitiboard\newchitiboard\Data\newchitiboard\preview/news.html</loc>
-<lastmod>2022-07-13T23:29:27-04:00</lastmod>
+<loc>file:///C:\Users\koshi\Documents\Code\newchitiboard\Data\newchitiboard\preview/</loc>
 </url>
 </urlset>
