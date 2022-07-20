@@ -7,7 +7,7 @@ import { FIREBASE_APP } from './index';
 
 export function dashBoard(){
     // all the dahsBoardy thing
-    const dataField = document.querySelector('.data');
+    const dataField = document.getElementById('postsData');
 
     const database = getFirestore();
 
@@ -28,7 +28,7 @@ export function dashBoard(){
                 // creating divs
                 const postItem = el(".dash-document");
 
-                const postTitle = el("h1", post.title, {id:"dash-docTitle"});
+                const postTitle = el("h3", post.title, {id:"dash-docTitle"});
                 const postText = el("p", post.text, {id:"dash-docText"});
                 const postAuthor = el("p", post.author, {id:"dash-docAuthor"});
 

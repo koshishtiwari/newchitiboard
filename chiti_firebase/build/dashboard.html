@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Chitiboard | Firebase</title>
+    <title>Chitiboard | DashBoard</title>
 
     <!-- fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,16 +18,45 @@
 
   </head>
   <body>
-    <div class="wrapper">
-        <h1>Dahsboard</h1>
-        <p>Your creations</p>
-        <div class="data">
-            <div class="dash-table">
+        <!-- header -->
+        <header class="dash-header">
+            <div class="dash"></div>
+            <nav class="topBtns">
+                <button>Render</button>
+                <button>User</button>
+            </nav>
+        </header>
         
-            </div>
-        </div>
+        <!-- main -->   
+        <main class="dash-main">
+            <p class="dash-mainInfo">All Posts</p>
+            <section class="dataContainer">
+                <!-- changeable data div -->
+                <div class="data" id="postsData">
+                    <div class="dash-table"></div>
+                </div>
+
+            </section>
+        </main>
+
+        <!-- sidebar -->
+        <aside class="dash-sidebar">
+            <h2>Dashboard</h2>
+            <ul>
+                <li>One</li>
+                <li>Two</li>
+                <li>Three</li>
+            </ul>
+
+        </aside>
+
+        <!-- footer -->
+        <footer>
+            <p>(o_o)</p>
+        </footer>
         
-    </div>
+        
+    
      
 
     <script type ="module" src="main.js" ></script>
