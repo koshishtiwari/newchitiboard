@@ -1,0 +1,24 @@
+/* styles for dashboard */
+body{
+    background-color: var(--lightText);
+}
+
+.dash-table{
+    display: flex;
+    flex-direction: column;
+    align-content: flex-start;
+    row-gap: 10px;
+    margin-top: 20px;
+}
+
+.dash-document{
+    background-color: var(--bgColor);
+    border-radius: var(--borderRadius);
+    border: 4px;
+    padding: 10px 35px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    row-gap: 5px;
+}
+

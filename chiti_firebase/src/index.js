@@ -2,6 +2,11 @@
 import {initializeApp} from 'firebase/app';
 import { getFirestore, collection, doc, getDocs, addDoc, deleteDoc, updateDoc, onSnapshot } from 'firebase/firestore';
 
+// the dashBoard functions
+import { dashBoard } from './dashboard';
+
+
+// main business
 // chitiboard firebase console config
 const firebaseConfig = {
     apiKey: "AIzaSyCDgaQPtZxiqU56QPGYPZ4M-3Cd4-hTXMU",
@@ -11,9 +16,9 @@ const firebaseConfig = {
     messagingSenderId: "462130296630",
     appId: "1:462130296630:web:abcf3b0774f95b2f96e597"
 };
-
+export let FIREBASE_APP;
 // init firebase 
-initializeApp(firebaseConfig);
+FIREBASE_APP = initializeApp(firebaseConfig);
 
 
 /** 
@@ -51,17 +56,17 @@ const posts = collection(database, 'posts');
 //     })
 
 // Real time get data from the collections-- this runs once and whenever the data changes in the back
-onSnapshot(posts, (docSnapshot)=>{
+// onSnapshot(posts, (docSnapshot)=>{
 
-    // console.log(docSnapshot.docs); // array of the documents that are caught in this snapshot
-    // array to store posts data
-    let postsArray = [];
+//     // console.log(docSnapshot.docs); // array of the documents that are caught in this snapshot
+//     // array to store posts data
+//     let postsArray = [];
 
-    docSnapshot.docs.forEach((doc)=>{
-        postsArray.push({...doc.data(), id: doc.id}); // each document objs in posts array
-        console.log(postsArray);
-    })
-});
+//     docSnapshot.docs.forEach((doc)=>{
+//         postsArray.push({...doc.data(), id: doc.id}); // each document objs in posts array
+//         console.log(postsArray);
+//     })
+// });
 
 // adding the documents -- add a document to the collection defined as posts --also returns a promise
 // addDoc(posts, {
@@ -100,3 +105,5 @@ onSnapshot(posts, (docSnapshot)=>{
 // .catch(err=>{
 //     console.log(err.message);
 // })
+
+dashBoard();
