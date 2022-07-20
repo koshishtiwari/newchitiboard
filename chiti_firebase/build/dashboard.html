@@ -20,20 +20,34 @@
   <body>
         <!-- header -->
         <header class="dash-header">
-            <div class="dash"></div>
+            <p id="dashTitle">Posts</p>
             <nav class="topBtns">
                 <button>Render</button>
-                <button>User</button>
+                <div id="userInfo">
+                    <img width="20px" height="20px">
+                    <p id="userName">REtok</p>
+                </div>
             </nav>
         </header>
         
         <!-- main -->   
         <main class="dash-main">
-            <p class="dash-mainInfo">All Posts</p>
+            <!-- meta of the data -->
+            <section class="dash-dataInfo">
+                <p id="datainfoType">All Posts (<span id="datainfoCount">6</span>)</p>
+                <div class="dataOp">
+                    <button class="btnAccent dataOpBtn" id="addPost">Compose new</button>
+                </div>
+            </section>
+
+            <!-- the actual data -->
             <section class="dataContainer">
+                </div>
                 <!-- changeable data div -->
                 <div class="data" id="postsData">
-                    <div class="dash-table"></div>
+                    <div class="dash-table">
+                        <div id="dataLoading"></div>
+                    </div>
                 </div>
 
             </section>
@@ -41,7 +55,7 @@
 
         <!-- sidebar -->
         <aside class="dash-sidebar">
-            <h2>Dashboard</h2>
+            <h2>dashback</h2>
             <ul>
                 <li>One</li>
                 <li>Two</li>

@@ -30,15 +30,25 @@ body{
         'footer footer';
     overflow: hidden;
     column-gap: 5px;
+    background-color: hsl(196deg 21% 93%);
 }
 
 button{
     padding: 15px;
-    border: 1px solid var(--secondarySky);
     cursor: pointer;
-    color: var(--secondarySky);
+    background-color: var(--secondarySky);
+    color: #f0fbff;
     border-radius: var(--borderRadius);
-    background-color: transparent;
+    border: none;
+    transition: all 0.1s ease-in;
+}
+button:hover{
+    transform: scale(1.05);
+    transition: all 0.2s ease-out;
+}
+.btnAccent{
+    background-color: var(--accentBrick);
+    color: hsl(15deg 100% 96%);
 }
 
 /* header section */
@@ -49,11 +59,35 @@ header.dash-header{
     grid-area: header;
     display: flex;
     flex-direction: row;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: center;
 }
 
-
+.dash-header .topBtns{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    column-gap: 12px;
+}
+#dashTitle{
+    font-size: 2em;
+    color: hsl(196deg 13% 49%);
+}
+/* the user icon in topbar */
+#userInfo{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    column-gap: 5px;
+    padding: 10px;
+    border-radius: var(--borderRadius);
+    cursor: pointer;
+}
+#userInfo img{
+    border-radius: 50%;
+    background: coral;
+}
 /* sidebar */
 aside.dash-sidebar{
     grid-area: aside;
@@ -68,6 +102,7 @@ aside.dash-sidebar{
 
 .dash-sidebar h2{
     margin-top: 8px;
+    color: hsl(196deg 59% 83%);
 }
 /* main section */
 .dash-main{
@@ -76,6 +111,28 @@ aside.dash-sidebar{
     padding-right: 1px;
 }
 
+/* the meta of the data styles */
+.dash-dataInfo{
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: flex-start;
+    column-gap: 20px;
+}
+
+.dataOpBtn{
+    padding: 8px 10px;
+}
+
+#dataLoading{
+    height: 70vh;
+    width: 80vw;
+    margin: 0 auto;
+    background-color: #eeeeee;
+}
+
+
+/* the main data */
 .dash-main .dataContainer{
     overflow-y: scroll;
     height: 77vh;
@@ -104,7 +161,6 @@ aside.dash-sidebar{
     flex-direction: column;
     justify-content: space-evenly;
     row-gap: 5px;
-    border: 1px solid var(--lightField);
 }
 
 /* footer */

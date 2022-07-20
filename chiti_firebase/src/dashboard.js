@@ -8,6 +8,7 @@ import { FIREBASE_APP } from './index';
 export function dashBoard(){
     // all the dahsBoardy thing
     const dataField = document.getElementById('postsData');
+    const loadingData = document.getElementById('dataLoading');
 
     const database = getFirestore();
 
@@ -40,6 +41,7 @@ export function dashBoard(){
             const postsAll = el(".dash-table");
             setChildren(postsAll, postNodes)
             dataField.replaceChild(postsAll, oldPostAll);
+            
         });
 
 
