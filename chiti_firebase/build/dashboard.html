@@ -22,7 +22,8 @@
         <header class="dash-header">
             <p id="dashTitle">Posts</p>
             <nav class="topBtns">
-                <button>Render</button>
+                <a href="./index.html" target="_blank" rel="noopener"><button>Live</button></a>
+                <button id="signBtn" class="btnAccent">Sign in</button> 
                 <div id="userInfo">
                     <img width="20px" height="20px">
                     <p id="userName">REtok</p>
@@ -80,10 +81,24 @@
             <p>(o_o)</p>
         </footer>
         
+        <section class="modal">
+            <div class="signModal">
+                <h3>Sign in</h3>
+                <form id="signForm">
+                    <label for="emailInput">Email</label>
+                    <input type="email" name="emailInput" placeholder="ratablanca@prada.gn">
+                    <label for="passInput">Password</label>
+                    <input type="password" name="passInput">
+                    <button>Let's go</button>
+                    <button class="btnAccentHollow">Cancel</button>
+                </form>
+            </div>
+        </section>
         
     
      
 
     <script type ="module" src="main.js" ></script>
+    <script src="script.js"></script>
   </body>
 </html>

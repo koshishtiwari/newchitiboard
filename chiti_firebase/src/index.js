@@ -1,6 +1,7 @@
 // imports
 import {initializeApp} from 'firebase/app';
-import { getFirestore, collection, doc, getDocs, addDoc, deleteDoc, updateDoc, onSnapshot } from 'firebase/firestore';
+import { getFirestore, collection, doc, getDocs, getDoc, addDoc, deleteDoc, updateDoc, onSnapshot, serverTimestamp, orderBy } from 'firebase/firestore';
+
 
 // the dashBoard functions
 import { dashBoard } from './dashboard';
@@ -36,10 +37,13 @@ const posts = collection(database, 'posts');
 // the teams collection 
 // and others
 
+// queries in the database
+// const queryPosts = query(posts, orderBy('createdAt'));
+
 /** the documents in the collection  */
 
 // getin the document ---this returns a promise
-// getDocs(posts)
+// getDocs(queryPosts)
 //     .then((docSnapshot)=> {
 //         // console.log(docSnapshot.docs); // array of the documents
 //         // array to store posts data
@@ -56,7 +60,7 @@ const posts = collection(database, 'posts');
 //     })
 
 // Real time get data from the collections-- this runs once and whenever the data changes in the back
-// onSnapshot(posts, (docSnapshot)=>{
+// onSnapshot(queryPosts, (docSnapshot)=>{
 
 //     // console.log(docSnapshot.docs); // array of the documents that are caught in this snapshot
 //     // array to store posts data
@@ -72,7 +76,8 @@ const posts = collection(database, 'posts');
 // addDoc(posts, {
 //     author: 'author name',
 //     text: 'text of the posts',
-//     title: 'give a title man'
+//     title: 'give a title man',
+//      createdAt: serverTimestamp()
 // })
 // .then(()=>{
 //     // if the docs are added succesfully
@@ -83,6 +88,17 @@ const posts = collection(database, 'posts');
 
 // the document reference
 // const post1 = doc(database, 'posts', docid)
+
+// fetching the document
+// getDoc(post1)
+//     .then((docSnapshot)=>{
+//         // doc fetched succesfully
+//         // the data := docSnapshot.data();
+//         // the id := docSnapshot.id;
+//     })
+//     .catch(err=>{
+//         console.log(err.message)
+//     })
 
 // deleting the document post1 is defined above as a doc reference --also a promise 
 // deleteDoc(post1)
