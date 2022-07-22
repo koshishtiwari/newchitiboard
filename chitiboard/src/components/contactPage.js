@@ -1,6 +1,8 @@
 function Contact() {
     return (
-      <><h1>Contact page</h1></>
+      <section id="contactBody">
+        <h1>this is Contact page</h1>
+      </section>
     );
   }
   

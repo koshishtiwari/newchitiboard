@@ -13,6 +13,7 @@ import Dashboard from './components/dashboard';
 function App() {
   return (
     <Router>
+      
    {/* other elements if needed */}
     <Routes>
         <Route exact path='/' element={<Home />} />

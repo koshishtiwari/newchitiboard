@@ -1,7 +1,9 @@
 // the about us page component
 function About() {
     return (
-      <><h2>About us</h2></>
+      <section id="aboutBody">
+        <h1>this is About us</h1>
+      </section>
     );
   }
   

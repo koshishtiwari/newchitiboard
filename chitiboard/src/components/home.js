@@ -1,6 +1,8 @@
 function Home() {
     return (
-      <><h1>The landing page</h1></>
+      <section id="homeBody">
+        <h1>this is Home</h1>
+      </section>
     );
   }
   

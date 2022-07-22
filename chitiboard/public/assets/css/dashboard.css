@@ -1,0 +1,6 @@
+/* styling for the dashboard */
+
+/* the root container in /dashboard page */
+#dashboardBody{
+    background-color: var(--accentBrick);
+}

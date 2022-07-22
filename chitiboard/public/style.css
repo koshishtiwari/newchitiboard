@@ -1,70 +1,7 @@
-/* globals */
-:root {
-    --primaryOlive : hsl(167deg,7%,25%);
-    --secondarySky :  hsl(196deg 32% 65%);
-    --accentBrick : hsl(15deg 29% 51%);
-    --darkField : hsl(24deg 3% 30%);
-    --lightField : hsl(47deg,13%,63%);
-    --bgColor : hsl(126deg 100% 99%);
-    --lightText : hsl(33deg 9% 81%);
-    --darkText : hsl(30deg 6% 33%);
-    --borderRadius: 2px;
-}
+@import url(assets/css/global.css);
+@import url(assets/css/home.css);
+@import url(assets/css/about.css);
+@import url(assets/css/contact.css);
+@import url(assets/css/posts.css);
 
-*{
-    box-sizing: border-box;
-}
- 
-*:after, :before {
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-*::selection{
-    color: var(--lightText);
-    background: var(--darkField);
-    border-radius: var(--borderRadius);
-}
-
-body{
-    background-color: var(--bgColor);
-    font-family: 'Quicksand', sans-serif;
-    line-height: 1.4em;
-}
-
-h1, h2, h3, h4, h5,h6{
-    color: var(--darkText);
-    font-family: 'Domine', serif;
-    line-height: 1.4em;
-    margin: 0;
-}
-
-p{
-    color: var(--darkText);
-    margin: 0;
-}
-
-img{
-    width: 100%;
-}
-
-a{
-    text-decoration: none;
-    color: var(--darkText);
-}
-a:hover{
-    color: var(--accentBrick);
-}
-
-/* global figcaption */
-figcaption{
-    padding: 0px 5px;
-    font-style: italic;
-    color: hsl(0deg 0% 54%);
-}
-figcaption span{
-    color: var(--secondarySky);
-    font-size: 0.85em;
-}
+@import url(assets/css/dashboard.css);
