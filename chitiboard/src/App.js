@@ -1,6 +1,7 @@
 // Main entry for the app
 // imports
 import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+import { FIREBASE_APP, database, authenticator } from './chiti_firebase';
 
 // pages imports
 import Home from './components/home';
