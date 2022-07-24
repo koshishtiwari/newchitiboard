@@ -2,16 +2,14 @@ import { getFirestore, collection, doc, getDocs, addDoc, deleteDoc, updateDoc, o
 import { FIREBASE_APP, database, authenticator } from '../../chiti_firebase';
 
 
-function Editor(post) {
+function Header() {
 
     return (
-      <main className='dash-main' id='dash-editor'>
-        <h1>Welcome</h1>
-        <input type="textarea"/>
-        <p>This is editor area </p>
-      </main>
+      <header>
+        <h1>Header</h1>
+      </header>
     );
 
   }
   
-  export default Editor;
+  export default Header;

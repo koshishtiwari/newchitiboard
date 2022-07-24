@@ -4,16 +4,19 @@ import { FIREBASE_APP, database, authenticator } from '../../chiti_firebase';
 
 import { useState } from 'react';
 
+
 // dashboard componnents
 import Info from './dash_info';
 import Editor from './dash_editor';
 import DashPosts from './dash_posts';
 import Settings from './dash_settings';
 import Team from './dash_team';
+import Aside from './dash_aside';
+import Header from './dash_header';
 
 // dashboard main
 function Dashboard() {
-  const [currSection, setCurrSection] = useState("editor") // the states are 'info', 'posts', 'settings', 'team', 'editor'
+  const [currSection, setCurrSection] = useState("info") // the states are 'info', 'posts', 'settings', 'team', 'editor'
   // the switch function
   const switchSections = (curr)=>{
     switch (curr) {
@@ -33,13 +36,21 @@ function Dashboard() {
       return <Info />
       break;
     }
+  };
+
+  const setCurrentSection = (sectionName) =>{
+    setCurrSection(sectionName);
   }
   
   return (
       <section id="dashboardBody">
         {/* headerwith nav */}
-        {/* aside */}
+        <Header />
 
+        {/* aside */}
+        <Aside />
+        
+        {/* main */}
         {switchSections(currSection)}
 
         {/* footer */}

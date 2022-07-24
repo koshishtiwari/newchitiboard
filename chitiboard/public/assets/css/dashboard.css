@@ -151,22 +151,28 @@ aside.dash-sidebar{
 /* sidebar in large and small screen */
 .dash-sidebar span.smScreen{
     display: none;
+    justify-content: center;
 }
 .dash-sidebar span.wideScreen{
     display: inline-block;
 }
 
+.smScreen svg{
+    width: 1.3em;
+    height: 1.3em;
+}
 .dash-sidebar .sidebar{
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
-    row-gap: 10px;
-    margin-top: 20px;
+    row-gap: 25px;
+    margin-top: 40px;
 }
 
 .sidebar .sidebarItem{
-    padding: 10px;
+    padding: 15px;
+    font-size: 1.1em;
     padding-left: 20px;
     cursor: pointer;
     width: 100%;
@@ -182,7 +188,6 @@ aside.dash-sidebar{
     color: hsl(196deg 24% 93%);
 }
 .sidebarItem p span.smScreen{
-    border: 1px solid hsl(196deg 27% 34%);
     padding: 2px 8px;
 }
 
@@ -251,13 +256,11 @@ footer{
     background: hsl(196deg 22% 76%);
 }
 
-/* media queries */
-@media screen and (max-width: 780px) {
+/* media queries */ 
+/* it was 780px before so consider that too */
+@media screen and (max-width: 880px) {
     .dash-main{
         padding-left: 4px;
-    }
-    .dash-sidebar .sidebar{
-        text-align: center;
     }
     .sidebar .sidebarItem{
         padding-left: 10px;
@@ -266,7 +269,7 @@ footer{
         display: none;
     }
     .dash-sidebar span.smScreen{
-        display: inline-block;
+        display: flex;
     }
 }
 
