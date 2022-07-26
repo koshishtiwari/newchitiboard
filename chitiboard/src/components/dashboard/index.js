@@ -22,20 +22,20 @@ import { IoOptionsOutline } from 'react-icons/io5';
 
 // dashboard main
 function Dashboard() {
-  const [currSection, setCurrSection] = useState("posts") // the states are 'info', 'posts', 'settings', 'team', 'editor'
+  const [currSection, setCurrSection] = useState("Chitiboard") // the states are 'info', 'posts', 'settings', 'team', 'editor'
   // the switch function
   const switchSections = (curr)=>{
     switch (curr) {
-      case "posts":
+      case "Posts":
         return <DashPosts />
         break;
       case "editor":
         return <Editor />
         break;
-      case "team":
+      case "Team":
         return <Team />
         break;
-      case "settings":
+      case "Site Settings":
         return <Settings />
         break;
       default:
@@ -58,28 +58,28 @@ function Dashboard() {
           <span className='wideScreen'>dashback</span>
         </h2>
         <nav className='sidebar'>
-          <div className='sidebarItem' id='dash-infoTab' onClick={()=>{setCurrSection("info")}}>
+          <div className='sidebarItem' id='dash-infoTab' onClick={()=>{setCurrentSection("Chitiboard")}}>
             <p>
               <span className='smScreen'><IoInformationCircleOutline /></span>
               <span className='wideScreen'>Information</span>
             </p>
           </div>
           
-          <div className='sidebarItem' id='dash-postsTab' onClick={()=>{setCurrSection("posts")}}>
+          <div className='sidebarItem' id='dash-postsTab' onClick={()=>{setCurrentSection("Posts")}}>
             <p>
               <span className='smScreen'><IoReaderOutline /></span>
               <span className='wideScreen'>Posts</span>
             </p>
           </div>
 
-          <div className='sidebarItem' id='dash-teamTab' onClick={()=>{setCurrSection("team")}}>
+          <div className='sidebarItem' id='dash-teamTab' onClick={()=>{setCurrentSection("Team")}}>
             <p>
               <span className='smScreen'><IoPeopleOutline /></span>
               <span className='wideScreen'>Team</span>
             </p>
           </div>
 
-          <div className='sidebarItem' id='dash-settingsTab' onClick={()=>{setCurrSection("settings")}}>
+          <div className='sidebarItem' id='dash-settingsTab' onClick={()=>{setCurrentSection("Site Settings")}}>
             <p>
               <span className='smScreen'><IoOptionsOutline /></span>
               <span className='wideScreen'>Settings</span>
@@ -95,7 +95,7 @@ function Dashboard() {
       </aside>
         
         {/* headerwith nav */}
-        <Header />
+        <Header currSection = {currSection}/>
         
         {/* main */}
         {switchSections(currSection)}

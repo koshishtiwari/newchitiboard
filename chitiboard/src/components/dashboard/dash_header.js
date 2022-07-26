@@ -1,12 +1,35 @@
-import { getFirestore, collection, doc, getDocs, addDoc, deleteDoc, updateDoc, onSnapshot } from 'firebase/firestore';
-import { FIREBASE_APP, database, authenticator } from '../../chiti_firebase';
+import { useState } from 'react';
 
-
-function Header() {
+function Header({currSection}) {
+  const [userInfo, setUserInfo] = useState(false);
 
     return (
-      <header>
-        <h1>Header</h1>
+      <header className='dash-header'>
+        <p id='dashTitle'>{currSection}</p>
+        <nav className="topBtns">
+          <a href="./" target={"_blank"} rel={"noopener"}>
+            <button>Live</button>
+          </a>
+          <button id="signBtn" className="btnAccent">Sign in</button>
+
+          <div id="userInfo">
+            <button className="btnNeutral" onClick={()=>{setUserInfo(!userInfo)}}>
+              <img width={"20px"} height={"20px"}></img>
+              <p id="userName">Chiti</p>
+            </button>
+
+            {userInfo &&
+              <section id="userTab">
+              <div className="userTabInfo">
+                <h2>Username</h2>
+                <p>user email</p>
+              </div>
+              <button className="btnAccentHollow">Sign out!</button>
+              </section>
+            }
+            
+          </div>
+        </nav>
       </header>
     );
 
