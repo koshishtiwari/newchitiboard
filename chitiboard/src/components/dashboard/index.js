@@ -26,12 +26,11 @@ import { IoOptionsOutline } from 'react-icons/io5';
 
 // dashboard main
 function Dashboard() {
-
   // user info
   const [currUser, setCurrUser] = useState();
 
   // sections of the dashboard as states
-  const [currSection, setCurrSection] = useState("Chitiboard");
+  const [currSection, setCurrSection] = useState("Chitboard");
 
   onAuthStateChanged(authenticator, (user)=>{
     if (user){
@@ -40,15 +39,16 @@ function Dashboard() {
     else {
       setCurrUser();
     }
-  })
+  });
+  
   // the switch function
   const switchSections = (curr)=>{
     switch (curr) {
       case "Posts":
         return <DashPosts />
         break;
-      case "editor":
-        return <Editor />
+      case "Editor":
+        return <Editor user = {currUser}/>
         break;
       case "Team":
         return <Team />
@@ -57,14 +57,14 @@ function Dashboard() {
         return <Settings />
         break;
       default:
-      return <Info />
+      return <Info user = {currUser} />
       break;
     }
   };
 
-  const setCurrentSection = (sectionName) =>{
-    setCurrSection(sectionName);
-  }
+  // const setCurrentSection = (sectionName) =>{
+  //   setCurrSection(sectionName);
+  // }
   
   if (currUser) {
     return (
@@ -77,28 +77,28 @@ function Dashboard() {
           <span className='wideScreen'>dashback</span>
         </h2>
         <nav className='sidebar'>
-          <div className='sidebarItem' id='dash-infoTab' onClick={()=>{setCurrentSection("Chitiboard")}}>
+          <div className='sidebarItem' id='dash-infoTab' onClick={()=>{setCurrSection("Chitiboard")}}>
             <p>
               <span className='smScreen'><IoInformationCircleOutline /></span>
               <span className='wideScreen'>Information</span>
             </p>
           </div>
           
-          <div className='sidebarItem' id='dash-postsTab' onClick={()=>{setCurrentSection("Posts")}}>
+          <div className='sidebarItem' id='dash-postsTab' onClick={()=>{setCurrSection("Posts")}}>
             <p>
               <span className='smScreen'><IoReaderOutline /></span>
               <span className='wideScreen'>Posts</span>
             </p>
           </div>
 
-          <div className='sidebarItem' id='dash-teamTab' onClick={()=>{setCurrentSection("Team")}}>
+          <div className='sidebarItem' id='dash-teamTab' onClick={()=>{setCurrSection("Team")}}>
             <p>
               <span className='smScreen'><IoPeopleOutline /></span>
               <span className='wideScreen'>Team</span>
             </p>
           </div>
 
-          <div className='sidebarItem' id='dash-settingsTab' onClick={()=>{setCurrentSection("Site Settings")}}>
+          <div className='sidebarItem' id='dash-settingsTab' onClick={()=>{setCurrSection("Site Settings")}}>
             <p>
               <span className='smScreen'><IoOptionsOutline /></span>
               <span className='wideScreen'>Settings</span>

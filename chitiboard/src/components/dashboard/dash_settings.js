@@ -8,6 +8,7 @@ function Settings() {
     return (
       <main className='dash-main' id='dash-settings'>
         <h1>The site settings</h1>
+        {/* mainly home page ma display garne ka kuraharu: hero_img/title/text  number of posts, contact info and others*/}
         
       </main>
     );

@@ -19,8 +19,8 @@
 
 *::-webkit-scrollbar
 {
-	width: 6px;
-    height: 6px;
+	width: 9px;
+    height: 9px;
 	background-color: hsl(196deg 21% 93%);
 }
 
@@ -169,56 +169,6 @@ aside.dash-sidebar{
     padding-right: 1px;
 }
 
-/* the meta of the data styles */
-.dash-dataInfo{
-    display: flex;
-    flex-direction: row;
-    align-items: baseline;
-    justify-content: flex-start;
-    column-gap: 20px;
-}
-
-.dataOpBtn{
-    padding: 8px 10px;
-}
-
-#dataLoading{
-    height: 70vh;
-    width: 80vw;
-    margin: 0 auto;
-    background-color: #eeeeee;
-}
-
-
-/* the main data */
-.dash-main .dataContainer{
-    overflow-y: scroll;
-    height: 77vh;
-    margin-top: 20px;
-    margin-bottom: 10px;
-}
-
-
-.dataContainer .data{
-    padding-right: 5px;
-}
-/* postData field styles */
-.dash-table{
-    display: flex;
-    flex-direction: column;
-    align-content: flex-start;
-    row-gap: 10px;
-}
-
-.dash-document{
-    background: #fff;
-    border-radius: var(--borderRadius);
-    padding: 26px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    row-gap: 5px;
-}
 
 /* footer */
 footer{
@@ -287,4 +237,81 @@ form input{
     width: 240px;
 }
 
+/* Dash Info */
+#dash-info{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: flex-start;
+    padding-right: 20px;
+    row-gap: 20px;
+    column-gap: 20px;
+    align-content: flex-start;
+    align-items: flex-start;
+    overflow-y: scroll;
+}
 
+#dash-info section{
+    padding: 20px 25px;
+    border-radius: var(--borderRadius);
+    background: var(--bgColor);
+}
+
+#dash-info .welcomeSection{
+    background: none;
+}
+#dash-info section .sectionHead{
+    margin-bottom: 10px;
+}
+
+/* Dash Posts */
+/* the meta of the data styles */
+.dash-dataInfo{
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: flex-start;
+    column-gap: 20px;
+}
+
+.dataOpBtn{
+    padding: 8px 10px;
+}
+
+#dataLoading{
+    height: 70vh;
+    width: 80vw;
+    margin: 0 auto;
+    background-color: #eeeeee;
+}
+
+
+/* the main data */
+.dash-main .dataContainer{
+    overflow-y: scroll;
+    height: 77vh;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+
+.dataContainer .data{
+    padding-right: 5px;
+}
+/* postData field styles */
+.dash-table{
+    display: flex;
+    flex-direction: column;
+    align-content: flex-start;
+    row-gap: 10px;
+}
+
+.dash-document{
+    background: #fff;
+    border-radius: var(--borderRadius);
+    padding: 26px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    row-gap: 5px;
+}
