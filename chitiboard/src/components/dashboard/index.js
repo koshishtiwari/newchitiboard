@@ -27,19 +27,12 @@ import { IoOptionsOutline } from 'react-icons/io5';
 // dashboard main
 function Dashboard() {
   // user info
+  // {displayName:"lokhais", email:"oewiweu@nao.com", metadata:{lastSignInTime:"643q"}}
   const [currUser, setCurrUser] = useState();
 
   // sections of the dashboard as states
   const [currSection, setCurrSection] = useState("Chitboard");
 
-  onAuthStateChanged(authenticator, (user)=>{
-    if (user){
-      setCurrUser(authenticator.currentUser);
-    }
-    else {
-      setCurrUser();
-    }
-  });
   
   // the switch function
   const switchSections = (curr)=>{
@@ -114,7 +107,7 @@ function Dashboard() {
       </aside>
         
         {/* headerwith nav */}
-        <Header currSection = {currSection} user = {currUser}/>
+        <Header currSection = {currSection} user = {currUser} currUser= {setCurrUser}/>
         
         {/* main */}
         {switchSections(currSection)}
@@ -122,9 +115,7 @@ function Dashboard() {
       </section>
     );
   } else {
-    return(
-      <SignIn />
-    );
+    return <SignIn currUser = {setCurrUser}/>
   }
  
     

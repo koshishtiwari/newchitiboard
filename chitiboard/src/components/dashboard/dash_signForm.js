@@ -1,12 +1,11 @@
 import { FIREBASE_APP, authenticator } from '../../chiti_firebase';
-import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
+import { signInWithEmailAndPassword } from 'firebase/auth';
 import { useState } from 'react';
 
 import {toast } from 'react-toastify';
 
 
-function SignIn() {
-
+function SignIn({currUser}) {
 
   const signInner = (event)=>{
     event.preventDefault();
@@ -15,6 +14,7 @@ function SignIn() {
     
     signInWithEmailAndPassword(authenticator, signInput.email, signInput.pass)
       .then((userCred)=>{
+        currUser(userCred.user);
         toast.info("Sign in Succesfull!")
       })
       .catch((err) =>{

@@ -8,7 +8,7 @@ import { IoPersonCircleOutline } from 'react-icons/io5';
 
 
 
-function Header({currSection, user}) {
+function Header({currSection, user, currUser}) {
 
   const [userTab, setUserTab] = useState(false);
 
@@ -16,6 +16,7 @@ function Header({currSection, user}) {
     event.preventDefault();
     signOut(authenticator)
       .then(()=>{
+        currUser();
         toast.info("Signed out Succesfully!")
       })
       .catch((err) => {
