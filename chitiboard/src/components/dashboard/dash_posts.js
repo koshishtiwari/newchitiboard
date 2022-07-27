@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 
 // dashboard main
-function DashPosts({user}) {
+function DashPosts({user, currSection}) {
   // hold the posts data
   const [postsArray, setpostsArray] = useState([]);
 
@@ -42,7 +42,7 @@ function DashPosts({user}) {
         <section className='dash-dataInfo'>
           <p id='datainfoType'>All Posts (<span id='datainfoCount'>{postsArray.length}</span>)</p>
           <div className='dataOp'>
-            <button className='btnAccent dataOpBtn' id='addPost'>Compose New</button>
+            <button className='btnAccent dataOpBtn' id='addPost' onClick={()=>{currSection("Editor");}}>Compose New</button>
           </div>
         </section>
 

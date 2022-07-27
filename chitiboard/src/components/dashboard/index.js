@@ -37,7 +37,7 @@ function Dashboard() {
   const switchSections = (curr)=>{
     switch (curr) {
       case "Posts":
-        return <DashPosts user = {currUser}/>
+        return <DashPosts user = {currUser} currSection = {setCurrSection}/>
         break;
       case "Editor":
         return <Editor user = {currUser}/>
