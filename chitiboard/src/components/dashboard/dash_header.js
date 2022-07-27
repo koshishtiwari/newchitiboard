@@ -1,7 +1,23 @@
+import { authenticator } from '../../chiti_firebase';
+import { signOut } from 'firebase/auth';
+
 import { useState } from 'react';
 
-function Header({currSection}) {
-  const [userInfo, setUserInfo] = useState(false);
+
+
+function Header({currSection, user, alerts}) {
+
+  const [userTab, setUserTab] = useState(false);
+
+  const signOutter = (event)=>{
+    event.preventDefault();
+    signOut(authenticator)
+      .then(()=>{alerts("Signed out Succesfully.")})
+      .catch((err) => {
+        alerts(err.message);
+      });
+  }
+
 
     return (
       <header className='dash-header'>
@@ -10,25 +26,25 @@ function Header({currSection}) {
           <a href="./" target={"_blank"} rel={"noopener"}>
             <button>Live</button>
           </a>
-          <button id="signBtn" className="btnAccent">Sign in</button>
-
+          
           <div id="userInfo">
-            <button className="btnNeutral" onClick={()=>{setUserInfo(!userInfo)}}>
+            <button className="btnNeutral" onClick={()=>{setUserTab(!userTab)}}>
               <img width={"20px"} height={"20px"}></img>
-              <p id="userName">Chiti</p>
+              <p id="userName">{user.displayName}</p>
             </button>
 
-            {userInfo &&
+            {userTab &&
               <section id="userTab">
               <div className="userTabInfo">
-                <h2>Username</h2>
-                <p>user email</p>
+                <h2>{user.displayName}</h2>
+                <p>{user.email}</p>
               </div>
-              <button className="btnAccentHollow">Sign out!</button>
+              <button className="btnAccentHollow" onClick={(event)=>signOutter(event)}>Sign out!</button>
               </section>
             }
-            
-          </div>
+          
+          </div>;
+
         </nav>
       </header>
     );

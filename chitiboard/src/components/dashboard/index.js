@@ -1,5 +1,5 @@
 import { getFirestore, collection, doc, getDocs, addDoc, deleteDoc, updateDoc, onSnapshot } from 'firebase/firestore';
-import { getAuth, signInWithEmailAndPassword, signOut } from 'firebase/auth';
+import { onAuthStateChanged} from 'firebase/auth';
 import { FIREBASE_APP, database, authenticator } from '../../chiti_firebase';
 
 import { useState } from 'react';
@@ -12,6 +12,9 @@ import DashPosts from './dash_posts';
 import Settings from './dash_settings';
 import Team from './dash_team';
 import Header from './dash_header';
+import SignIn from './dash_signForm';
+
+import Message from '../message';
 
 // icons
 import { MdSpaceDashboard } from "react-icons/md";
@@ -22,7 +25,24 @@ import { IoOptionsOutline } from 'react-icons/io5';
 
 // dashboard main
 function Dashboard() {
-  const [currSection, setCurrSection] = useState("Chitiboard") // the states are 'info', 'posts', 'settings', 'team', 'editor'
+
+  // messages 
+  const [userMessages, setUserMessages] = useState ('');
+
+  // user info
+  const [currUser, setCurrUser] = useState();
+
+  // sections of the dashboard as states
+  const [currSection, setCurrSection] = useState("Chitiboard");
+
+  onAuthStateChanged(authenticator, (user)=>{
+    if (user){
+      setCurrUser(authenticator.currentUser);
+    }
+    else {
+      setCurrUser();
+    }
+  })
   // the switch function
   const switchSections = (curr)=>{
     switch (curr) {
@@ -48,7 +68,8 @@ function Dashboard() {
     setCurrSection(sectionName);
   }
   
-  return (
+  if (currUser) {
+    return (
       <section id="dashboardBody">
         {/* aside */}
         <aside className='dash-sidebar'>
@@ -95,13 +116,21 @@ function Dashboard() {
       </aside>
         
         {/* headerwith nav */}
-        <Header currSection = {currSection}/>
+        <Header currSection = {currSection} user = {currUser} alerts={setUserMessages}/>
         
         {/* main */}
         {switchSections(currSection)}
 
+        {userMessages &&
+        <Message messages={userMessages}/>}
       </section>
     );
+  } else {
+    return(
+      <SignIn />
+    );
+  }
+ 
     
     
   }

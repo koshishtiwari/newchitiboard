@@ -32,43 +32,6 @@
 }
 
 
-#dashboardBody button, .dashboardBody .button{
-    text-decoration: none;
-    padding: 13px 20px;
-    cursor: pointer;
-    background-color: var(--secondarySky);
-    color: #f0fbff;
-    border-radius: var(--borderRadius);
-    border: none;
-    transition: all 0.2s ease-in;
-}
-#dashboardBody button:hover, #dashboardBody .button:hover{
-    color: #f0fbff;
-    transform: scale(1.05);
-    transition: all 0.1s ease-out;
-}
-#dashboardBody .btnAccent{
-    background-color: var(--accentBrick);
-    color: hsl(15deg 100% 96%);
-}
-#dashboardBody .btnAccent:hover{
-    color: hsl(15deg 100% 96%);
-}
-
-#dashboardBody .btnAccentHollow{
-    background: transparent;
-    color: var(--accentBrick);
-    border: 1px solid var(--accentBrick);
-}
-#dashboardBody .btnAccentHollow:hover{
-    background: transparent;
-    color: var(--accentBrick);
-    border: 1px solid var(--accentBrick);
-}
-
-#dashboardBody .btnNeutral{
-    background-color: transparent;
-}
 /* header section */
 header.dash-header{
     border-bottom: 1px solid var(--secondarySky);
