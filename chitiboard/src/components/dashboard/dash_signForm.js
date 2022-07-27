@@ -1,11 +1,12 @@
 import { FIREBASE_APP, authenticator } from '../../chiti_firebase';
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 import { useState } from 'react';
-import Message from '../message';
+
+import {toast } from 'react-toastify';
 
 
 function SignIn() {
-  const [userMessages, setUserMessages] = useState ('');
+
 
   const signInner = (event)=>{
     event.preventDefault();
@@ -14,12 +15,11 @@ function SignIn() {
     
     signInWithEmailAndPassword(authenticator, signInput.email, signInput.pass)
       .then((userCred)=>{
+        toast.info("Sign in Succesfull!")
       })
       .catch((err) =>{
-        setUserMessages(err.message);
+        toast.error(err.message);
     });
-
-
 
   }
 
@@ -38,9 +38,6 @@ function SignIn() {
             <button className='btnAccentHollow'>Cancel</button>
           </form>
         </div>
-        
-        {userMessages &&
-        <Message messages={userMessages}/>}
         
       </section>
     );

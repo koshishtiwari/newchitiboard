@@ -2,19 +2,23 @@ import { authenticator } from '../../chiti_firebase';
 import { signOut } from 'firebase/auth';
 
 import { useState } from 'react';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 
-function Header({currSection, user, alerts}) {
+function Header({currSection, user}) {
 
   const [userTab, setUserTab] = useState(false);
 
   const signOutter = (event)=>{
     event.preventDefault();
     signOut(authenticator)
-      .then(()=>{alerts("Signed out Succesfully.")})
+      .then(()=>{
+        toast.info("Signed out Succesfully!")
+      })
       .catch((err) => {
-        alerts(err.message);
+        toast.error(err.message);
       });
   }
 
@@ -43,7 +47,7 @@ function Header({currSection, user, alerts}) {
               </section>
             }
           
-          </div>;
+          </div>
 
         </nav>
       </header>

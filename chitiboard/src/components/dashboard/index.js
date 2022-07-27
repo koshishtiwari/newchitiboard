@@ -3,6 +3,8 @@ import { onAuthStateChanged} from 'firebase/auth';
 import { FIREBASE_APP, database, authenticator } from '../../chiti_firebase';
 
 import { useState } from 'react';
+// toast messages
+import { toast } from 'react-toastify';
 
 
 // dashboard componnents
@@ -14,7 +16,6 @@ import Team from './dash_team';
 import Header from './dash_header';
 import SignIn from './dash_signForm';
 
-import Message from '../message';
 
 // icons
 import { MdSpaceDashboard } from "react-icons/md";
@@ -25,9 +26,6 @@ import { IoOptionsOutline } from 'react-icons/io5';
 
 // dashboard main
 function Dashboard() {
-
-  // messages 
-  const [userMessages, setUserMessages] = useState ('');
 
   // user info
   const [currUser, setCurrUser] = useState();
@@ -116,13 +114,11 @@ function Dashboard() {
       </aside>
         
         {/* headerwith nav */}
-        <Header currSection = {currSection} user = {currUser} alerts={setUserMessages}/>
+        <Header currSection = {currSection} user = {currUser}/>
         
         {/* main */}
         {switchSections(currSection)}
 
-        {userMessages &&
-        <Message messages={userMessages}/>}
       </section>
     );
   } else {

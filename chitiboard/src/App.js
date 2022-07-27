@@ -1,5 +1,9 @@
 // Main entry for the app
 // imports
+import React from 'react';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.min.css';
+
 import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import { FIREBASE_APP, database, authenticator } from './chiti_firebase';
 
@@ -23,6 +27,19 @@ function App() {
         <Route path='/posts' element={<Posts/>} />
         <Route path='/dashboard' element={<Dashboard/>} />
     </Routes>
+
+    {/* display toasts globally on the site */}
+    <ToastContainer
+      position="bottom-center"
+      autoClose={5000}
+      hideProgressBar
+      newestOnTop={false}
+      closeOnClick
+      rtl={false}
+      pauseOnFocusLoss
+      draggable
+      pauseOnHover
+      />
 
     </Router>
   );
