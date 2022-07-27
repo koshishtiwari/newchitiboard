@@ -27,7 +27,7 @@ import { IoOptionsOutline } from 'react-icons/io5';
 function Dashboard() {
   // user info
   // {displayName:"lokhais", email:"oewiweu@nao.com", metadata:{lastSignInTime:"643q"}}
-  const [currUser, setCurrUser] = useState({displayName:"lokhais", email:"oewiweu@nao.com", metadata:{lastSignInTime:"643q"}});
+  const [currUser, setCurrUser] = useState({displayName:"lokhais", email:"yodekhi@ty.oma", metadata:{lastSignInTime:"643q"}});
 
   // sections of the dashboard as states
   const [currSection, setCurrSection] = useState("Chitboard");

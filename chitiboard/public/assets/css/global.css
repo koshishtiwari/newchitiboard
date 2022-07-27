@@ -106,3 +106,12 @@ button:hover, .button:hover{
 .btnNeutral{
     background-color: transparent;
 }
+
+/* Input elements */
+
+form input{
+    padding: 0.6em;
+    border: 1px solid var(--secondarySky);
+    border-radius: var(--borderRadius);
+    margin-bottom: 0.5em;
+}

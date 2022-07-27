@@ -36,13 +36,12 @@ function Header({currSection, user, currUser}) {
           <div id="userInfo">
             <button className="btnNeutral" onClick={()=>{setUserTab(!userTab)}}>
               <span id='userIcon'><IoPersonCircleOutline/></span>
-              <p id="userName">{user.displayName}</p>
             </button>
 
             {userTab &&
               <section id="userTab">
               <div className="userTabInfo">
-                <h3>Hi, {user.displayName}</h3>
+                <h3>{user.email}</h3>
               </div>
               <button className="btnAccentHollow" onClick={(event)=>signOutter(event)}>Sign out!</button>
               </section>

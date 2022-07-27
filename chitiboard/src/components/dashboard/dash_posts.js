@@ -89,7 +89,6 @@ function DashPosts({user, currSection}) {
               ))
               }
               
-              
 
             </div>
         </section>
