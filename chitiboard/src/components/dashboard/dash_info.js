@@ -13,7 +13,7 @@ function Info({user}) {
 
         </section>
         <section className='userSection'>
-          <h4 className="sectionHead">User Info</h4>
+          <h3 className="sectionHead">User Info</h3>
           <p>You are logged in as <code>{user.displayName}</code></p>
           <p>with email : <code>{user.email}</code></p>
           <br></br>
@@ -22,7 +22,7 @@ function Info({user}) {
         </section>
 
         <section className='miscSection'>
-          <h4 className="sectionHead">Probably useless</h4>
+          <h3 className="sectionHead">Probably useless</h3>
           <p>The information provided by [business entity name] (“we,” “us” or “our”) on [website name] (the “Site”) [and our mobile application] is for general informational purposes only. All information on the Site [and our mobile application] is provided in good faith, however we make no representation or warranty of any kind, express or implied, regarding the accuracy, adequacy, validity, reliability, availability or completeness of any information on the Site [or our mobile application].</p>
         </section>
         

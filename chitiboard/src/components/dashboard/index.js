@@ -3,8 +3,7 @@ import { onAuthStateChanged } from 'firebase/auth';
 import { authenticator } from '../../chiti_firebase';
 
 import { useState } from 'react';
-// toast messages
-import { toast } from 'react-toastify';
+
 
 
 // dashboard componnents
@@ -28,7 +27,7 @@ import { IoOptionsOutline } from 'react-icons/io5';
 function Dashboard() {
   // user info
   // {displayName:"lokhais", email:"oewiweu@nao.com", metadata:{lastSignInTime:"643q"}}
-  const [currUser, setCurrUser] = useState();
+  const [currUser, setCurrUser] = useState({displayName:"lokhais", email:"oewiweu@nao.com", metadata:{lastSignInTime:"643q"}});
 
   // sections of the dashboard as states
   const [currSection, setCurrSection] = useState("Chitboard");
@@ -38,7 +37,7 @@ function Dashboard() {
   const switchSections = (curr)=>{
     switch (curr) {
       case "Posts":
-        return <DashPosts />
+        return <DashPosts user = {currUser}/>
         break;
       case "Editor":
         return <Editor user = {currUser}/>
@@ -55,10 +54,6 @@ function Dashboard() {
     }
   };
 
-  // const setCurrentSection = (sectionName) =>{
-  //   setCurrSection(sectionName);
-  // }
-  
   if (currUser) {
     return (
       <section id="dashboardBody">

@@ -19,8 +19,8 @@
 
 *::-webkit-scrollbar
 {
-	width: 9px;
-    height: 9px;
+	width: 5px;
+    height: 5px;
 	background-color: hsl(196deg 21% 93%);
 }
 
@@ -57,7 +57,7 @@ header.dash-header{
     color: hsl(196deg 13% 49%);
 }
 /* the user icon in topbar */
-#userInfo button{
+#userInfo>button{
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -67,7 +67,7 @@ header.dash-header{
     cursor: pointer;
     transition: all 0.2s ease-out;
 }
-#userInfo button:hover{
+#userInfo>button:hover{
     background-color: var(--bgColor);
     transition: all 0.1s ease-in;
 }
@@ -85,8 +85,8 @@ header.dash-header{
 #userTab{
     position: absolute;
     right: 0.5vw;
-    top: 10.1vh;
-    background: var(--bgColor);
+    top: 10vh;
+    background: hsl(195deg 22% 93%);
     padding: 20px 30px;
     border-radius: var(--borderRadius);
     text-align: center;
@@ -95,6 +95,7 @@ header.dash-header{
     box-shadow: 0px 2px 10px #76797a57;
     align-items: center;
     row-gap: 20px;
+    border: 1px solid var(--secondarySky);
     min-width: 225px;
 }
 
@@ -163,10 +164,10 @@ aside.dash-sidebar{
 /* main section */
 .dash-main{
     grid-area: main;
-    width: 85vw;
+    width: 84vw;
     height: 87vh;
     padding-left: 10px;
-    padding-right: 1px;
+    padding-bottom: 15px;
 }
 
 
@@ -243,7 +244,7 @@ form input{
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: flex-start;
-    padding-right: 20px;
+    padding-right: 10px;
     row-gap: 20px;
     column-gap: 20px;
     align-content: flex-start;
@@ -254,11 +255,16 @@ form input{
 #dash-info section{
     padding: 20px 25px;
     border-radius: var(--borderRadius);
-    background: var(--bgColor);
+}
+#dash-info section:not(.welcomeSection){
+    background: hsl(0deg 0% 96%);
+    max-width: 900px;
+    box-shadow: 0px 0px 5px #4b4b4b0f;
+    border: 1px solid #ddd;
 }
 
-#dash-info .welcomeSection{
-    background: none;
+.welcomeSection{
+    margin-bottom: 25px;
 }
 #dash-info section .sectionHead{
     margin-bottom: 10px;
@@ -279,39 +285,45 @@ form input{
 }
 
 #dataLoading{
-    height: 70vh;
-    width: 80vw;
-    margin: 0 auto;
-    background-color: #eeeeee;
+    height: 35vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 
 /* the main data */
-.dash-main .dataContainer{
+.dash-main .data{
     overflow-y: scroll;
     height: 77vh;
     margin-top: 20px;
-    margin-bottom: 10px;
-}
-
-
-.dataContainer .data{
-    padding-right: 5px;
 }
 /* postData field styles */
-.dash-table{
+.data-table{
     display: flex;
     flex-direction: column;
     align-content: flex-start;
-    row-gap: 10px;
+    row-gap: 15px;
+    padding: 1px 8px;
 }
 
-.dash-document{
-    background: #fff;
+.data-document{
+    background: var(--bgColor);
     border-radius: var(--borderRadius);
     padding: 26px;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     row-gap: 5px;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: all 0.1s ease-out;
+}
+
+.data-document:hover{
+    transform: scale(1.01);
+    border: 1px solid var(--secondarySky);
+    box-shadow: 0px 0px 5px #2d3d4226;
+    transition: all 0.2s ease-in;
 }
