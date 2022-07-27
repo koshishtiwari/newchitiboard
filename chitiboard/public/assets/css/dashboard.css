@@ -73,9 +73,11 @@ header.dash-header{
 }
 
 
-#userInfo button img{
-    border-radius: 50%;
-    background: coral;
+#userInfo button #userIcon svg{
+    width: 29px;
+    height: 29px;
+    color: #84956f;
+    vertical-align: middle;
 }
 
 
@@ -83,7 +85,7 @@ header.dash-header{
 #userTab{
     position: absolute;
     right: 0.5vw;
-    top: 9.5vh;
+    top: 10.1vh;
     background: var(--bgColor);
     padding: 20px 30px;
     border-radius: var(--borderRadius);

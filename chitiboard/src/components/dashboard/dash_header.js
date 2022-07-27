@@ -2,8 +2,9 @@ import { authenticator } from '../../chiti_firebase';
 import { signOut } from 'firebase/auth';
 
 import { useState } from 'react';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { toast } from 'react-toastify';
+
+import { IoPersonCircleOutline } from 'react-icons/io5';
 
 
 
@@ -33,15 +34,14 @@ function Header({currSection, user}) {
           
           <div id="userInfo">
             <button className="btnNeutral" onClick={()=>{setUserTab(!userTab)}}>
-              <img width={"20px"} height={"20px"}></img>
+              <span id='userIcon'><IoPersonCircleOutline/></span>
               <p id="userName">{user.displayName}</p>
             </button>
 
             {userTab &&
               <section id="userTab">
               <div className="userTabInfo">
-                <h2>{user.displayName}</h2>
-                <p>{user.email}</p>
+                <h3>Hi, {user.displayName}</h3>
               </div>
               <button className="btnAccentHollow" onClick={(event)=>signOutter(event)}>Sign out!</button>
               </section>

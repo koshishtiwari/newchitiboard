@@ -1,6 +1,6 @@
 import { getFirestore, collection, doc, getDocs, addDoc, deleteDoc, updateDoc, onSnapshot } from 'firebase/firestore';
-import { onAuthStateChanged} from 'firebase/auth';
-import { FIREBASE_APP, database, authenticator } from '../../chiti_firebase';
+import { onAuthStateChanged } from 'firebase/auth';
+import { authenticator } from '../../chiti_firebase';
 
 import { useState } from 'react';
 // toast messages
