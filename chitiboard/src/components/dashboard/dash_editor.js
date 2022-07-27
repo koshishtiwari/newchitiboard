@@ -5,7 +5,6 @@ import { toast } from 'react-toastify';
 const posts = collection(database, 'posts');
 
 function Editor({user}) {
-  
   const savePost = (e)=>{
     e.preventDefault();
 
@@ -17,8 +16,8 @@ function Editor({user}) {
       ftImgRef : form.ftImageInput.value,
 
       author : user.email,
-      banako : serverTimestamp(),
-      milako : serverTimestamp()
+      createdAt : serverTimestamp(),
+      modifiedAt : serverTimestamp()
     })
     .then(()=>{
       toast("Save Succesfully!");

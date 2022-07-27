@@ -50,7 +50,6 @@ header.dash-header{
     align-items: center;
     justify-content: space-around;
     column-gap: 12px;
-    padding-right: 20px;
 }
 #dashTitle{
     font-size: 2em;
@@ -311,7 +310,7 @@ footer{
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    row-gap: 5px;
+    row-gap: 20px;
     cursor: pointer;
     border: 1px solid transparent;
     transition: all 0.1s ease-out;
@@ -321,6 +320,28 @@ footer{
     border: 1px solid var(--secondarySky);
     box-shadow: 0px 0px 5px #2d3d4226;
     transition: all 0.2s ease-in;
+}
+
+.data-document .postsMeta{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    font-size: 0.9em;
+    color: var(--lightText);
+}
+
+.postsMeta p span{
+    padding: 0px 10px;
+    border-radius: 50px;
+    font-size: 0.85em;
+    display: inline-block;
+    margin: 2px;
+}
+.postsMeta .postCreated{
+    background: #d7e7ed;
+}
+.postsMeta .postModified{
+    background: #d9d7ed;
 }
 
 

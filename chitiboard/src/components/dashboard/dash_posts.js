@@ -12,7 +12,13 @@ function DashPosts({user, currSection}) {
 
   // post tanne
   const postsCollection = collection(database, 'posts');
-  const queryPosts = query(postsCollection, orderBy('milako'));
+  const queryPosts = query(postsCollection, orderBy('modifiedAt'));
+
+  // convert timestamps into string date
+  const getDate = (timeStamp)=>{
+    const currDate = new Date(timeStamp.seconds * 1000);
+    return currDate.toDateString();
+  }
 
   
   const fetchAllPosts = ()=>{
@@ -21,7 +27,9 @@ function DashPosts({user, currSection}) {
       let postsAray = [];
 
       docSnapshot.docs.forEach((document)=>{
-        postsAray.push({...document.data(), id: document.id});
+        const banakoDate = getDate(document.data().createdAt);
+        const milakoDate = getDate(document.data().modifiedAt);
+        postsAray.push({...document.data(), id: document.id, banako:banakoDate, milako:milakoDate});
       });
 
       setpostsArray(postsAray);
@@ -35,7 +43,6 @@ function DashPosts({user, currSection}) {
     fetchAllPosts();
     
   },[])
-
 
   if (user){
     return (
@@ -57,9 +64,9 @@ function DashPosts({user, currSection}) {
                 <div key={post.id} className="data-document">
                   <h3>{post.title}</h3>
                   <div className='postsMeta'>
-                    <p>by {post.author}</p>
-                    <p><span>created at </span>
-                      <span>modified at </span>
+                    <p>{post.author}</p>
+                    <p><span className='postCreated'>created: {post.banako}</span>
+                      <span className='postModified'> modified: {post.milako}</span>
                     </p>
                     
                   </div>

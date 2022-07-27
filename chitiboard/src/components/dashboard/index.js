@@ -1,9 +1,4 @@
-import { getFirestore, collection, doc, getDocs, addDoc, deleteDoc, updateDoc, onSnapshot } from 'firebase/firestore';
-import { onAuthStateChanged } from 'firebase/auth';
-import { authenticator } from '../../chiti_firebase';
-
 import { useState } from 'react';
-
 
 
 // dashboard componnents
@@ -14,7 +9,6 @@ import Settings from './dash_settings';
 import Team from './dash_team';
 import Header from './dash_header';
 import SignIn from './dash_signForm';
-
 
 // icons
 import { MdSpaceDashboard } from "react-icons/md";
@@ -68,7 +62,7 @@ function Dashboard() {
           <div className='sidebarItem' id='dash-infoTab' onClick={()=>{setCurrSection("Chitiboard")}}>
             <p>
               <span className='smScreen'><IoInformationCircleOutline /></span>
-              <span className='wideScreen'>Information</span>
+              <span className='wideScreen'>Info</span>
             </p>
           </div>
           
