@@ -318,7 +318,6 @@ footer{
 }
 
 .data-document:hover{
-    transform: scale(1.01);
     border: 1px solid var(--secondarySky);
     box-shadow: 0px 0px 5px #2d3d4226;
     transition: all 0.2s ease-in;

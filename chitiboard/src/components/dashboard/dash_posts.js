@@ -3,6 +3,7 @@ import { collection, doc, getDocs, addDoc, deleteDoc, query, orderBy } from 'fir
 import { useEffect, useState } from 'react';
 // toast messages
 import { toast } from 'react-toastify';
+import Loader  from './../loader';
 
 // dashboard main
 function DashPosts({user, currSection}) {
@@ -11,7 +12,7 @@ function DashPosts({user, currSection}) {
 
   // post tanne
   const postsCollection = collection(database, 'posts');
-  const queryPosts = query(postsCollection, orderBy('title'));
+  const queryPosts = query(postsCollection, orderBy('milako'));
 
   
   const fetchAllPosts = ()=>{
@@ -50,41 +51,18 @@ function DashPosts({user, currSection}) {
             <div className='data-table'>
               {(postsArray.length < 1) ?
               
-              (<div id='dataLoading'>
-                  <svg version="1.1" id="L5" xmlns="http://www.w3.org/2000/svg" width={"100px"}>
-                    <circle fill="#89b3c2" stroke="none" cx="6" cy="50" r="6">
-                      <animateTransform 
-                        attributeName="transform" 
-                        dur="1s" 
-                        type="translate" 
-                        values="0 15 ; 0 -15; 0 15" 
-                        repeatCount="indefinite" 
-                        begin="0.1"/>
-                    </circle>
-                    <circle fill="#89b3c2" stroke="none" cx="30" cy="50" r="6">
-                      <animateTransform 
-                        attributeName="transform" 
-                        dur="1s" 
-                        type="translate" 
-                        values="0 10 ; 0 -10; 0 10" 
-                        repeatCount="indefinite" 
-                        begin="0.2"/>
-                    </circle>
-                    <circle fill="#89b3c2" stroke="none" cx="54" cy="50" r="6">
-                      <animateTransform 
-                        attributeName="transform" 
-                        dur="1s" 
-                        type="translate" 
-                        values="0 5 ; 0 -5; 0 5" 
-                        repeatCount="indefinite" 
-                        begin="0.3"/>
-                    </circle>
-                  </svg>
-                </div>) :
+              (<Loader />) :
 
               (postsArray.map((post)=>
                 <div key={post.id} className="data-document">
                   <h3>{post.title}</h3>
+                  <div className='postsMeta'>
+                    <p>by {post.author}</p>
+                    <p><span>created at </span>
+                      <span>modified at </span>
+                    </p>
+                    
+                  </div>
                 </div>
               ))
               }

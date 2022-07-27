@@ -16,11 +16,9 @@ function Editor({user}) {
       brief: form.briefInput.value,
       ftImgRef : form.ftImageInput.value,
 
-      meta:{
-        author : user.email,
-        banako : serverTimestamp(),
-        milako : serverTimestamp()
-      }
+      author : user.email,
+      banako : serverTimestamp(),
+      milako : serverTimestamp()
     })
     .then(()=>{
       toast("Save Succesfully!");
