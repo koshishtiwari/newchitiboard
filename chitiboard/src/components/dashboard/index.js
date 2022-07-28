@@ -26,15 +26,15 @@ function Dashboard() {
   // sections of the dashboard as states
   const [currSection, setCurrSection] = useState("Chitboard");
 
+  // the editor window
+  const [editor, setEditor] = useState();
+
   
   // the switch function
   const switchSections = (curr)=>{
     switch (curr) {
       case "Posts":
-        return <DashPosts user = {currUser} currSection = {setCurrSection}/>
-        break;
-      case "Editor":
-        return <Editor user = {currUser}/>
+        return <DashPosts user = {currUser} setEditor = {setEditor}/>
         break;
       case "Team":
         return <Team />
@@ -99,7 +99,11 @@ function Dashboard() {
         <Header currSection = {currSection} user = {currUser} currUser= {setCurrUser}/>
         
         {/* main */}
-        {switchSections(currSection)}
+        {(editor) ? 
+          (<Editor user= {currUser} currSection = {setCurrSection} features={editor}/>):
+          (switchSections(currSection))
+        }
+        
 
       </section>
     );

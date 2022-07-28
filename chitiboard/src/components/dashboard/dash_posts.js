@@ -4,9 +4,12 @@ import { useEffect, useState } from 'react';
 // toast messages
 import { toast } from 'react-toastify';
 import Loader  from './../loader';
+// ----------------------------------------------
+
+
 
 // dashboard main
-function DashPosts({user, currSection}) {
+function DashPosts({user, setEditor}) {
   // hold the posts data
   const [postsArray, setpostsArray] = useState([]);
 
@@ -50,7 +53,7 @@ function DashPosts({user, currSection}) {
         <section className='dash-dataInfo'>
           <p id='datainfoType'>All Posts (<span id='datainfoCount'>{postsArray.length}</span>)</p>
           <div className='dataOp'>
-            <button className='btnAccent dataOpBtn' id='addPost' onClick={()=>{currSection("Editor");}}>Compose New</button>
+            <button className='btnAccent dataOpBtn' id='addPost' onClick={()=>{setEditor({on:true, novo:true});}}>Compose New</button>
           </div>
         </section>
 
@@ -61,12 +64,12 @@ function DashPosts({user, currSection}) {
               (<Loader />) :
 
               (postsArray.map((post)=>
-                <div key={post.id} className="data-document">
+                <div key={post.id} className="data-document" onClick={()=>{setEditor({on:true, novo:false, id:post.id});}}>
                   <h3>{post.title}</h3>
                   <div className='postsMeta'>
                     <p>{post.author}</p>
-                    <p><span className='postCreated'>created: {post.banako}</span>
-                      <span className='postModified'> modified: {post.milako}</span>
+                    <p><span className='postCreated'>{post.banako}</span>
+                      <span className='postModified'>{post.milako}</span>
                     </p>
                     
                   </div>
