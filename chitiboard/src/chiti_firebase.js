@@ -23,3 +23,9 @@ export const database = getFirestore();
 
 // authentication 
 export const authenticator = getAuth();
+
+ // convert timestamps into string date
+export const getDate = (timeStamp)=>{
+  const currDate = new Date(timeStamp.seconds * 1000);
+  return currDate.toDateString();
+}

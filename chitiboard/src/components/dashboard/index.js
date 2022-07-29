@@ -37,10 +37,10 @@ function Dashboard() {
         return <DashPosts user = {currUser} setEditor = {setEditor}/>
         break;
       case "Team":
-        return <Team />
+        return <Team user = {currUser} />
         break;
       case "Site Settings":
-        return <Settings />
+        return <Settings user = {currUser}/>
         break;
       default:
       return <Info user = {currUser} />
@@ -96,7 +96,7 @@ function Dashboard() {
       </aside>
         
         {/* headerwith nav */}
-        <Header currSection = {currSection} user = {currUser} currUser= {setCurrUser}/>
+        <Header currSection={currSection} user={currUser} currUser={setCurrUser} editor={editor} setEditor={setEditor}/>
         
         {/* main */}
         {(editor) ? 

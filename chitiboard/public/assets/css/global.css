@@ -107,9 +107,36 @@ button:hover, .button:hover{
     background-color: transparent;
 }
 
+.btnDanger{
+    background-color: hsl(0deg 42% 54%);
+}
+.btnDisables{
+    background-color: var(--lightField);
+    cursor: disabled;
+}
+button.icoBtn{
+    display: flex;
+    padding: 12px;
+    background: transparent;
+    border-radius: var(--borderRadius);
+    cursor: pointer;
+    transition: all 0.2s ease-out;
+}
+button.icoBtn:hover{
+    background: var(--bgColor);
+    transition: all 0.1s ease-in;
+}
+.icoBtn svg{
+    width: 29px;
+    height: 29px;
+    color: hsl(196deg 25% 34%);
+    vertical-align: middle;
+}
+
+
 /* Input elements */
 
-form input{
+form input, form textarea{
     padding: 0.6em;
     border: 1px solid var(--secondarySky);
     border-radius: var(--borderRadius);

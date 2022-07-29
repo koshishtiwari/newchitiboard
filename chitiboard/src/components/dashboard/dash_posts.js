@@ -1,4 +1,4 @@
-import { database } from '../../chiti_firebase';
+import { database, getDate } from '../../chiti_firebase';
 import { collection, doc, getDocs, addDoc, deleteDoc, query, orderBy } from 'firebase/firestore';
 import { useEffect, useState } from 'react';
 // toast messages
@@ -16,12 +16,6 @@ function DashPosts({user, setEditor}) {
   // post tanne
   const postsCollection = collection(database, 'posts');
   const queryPosts = query(postsCollection, orderBy('modifiedAt'));
-
-  // convert timestamps into string date
-  const getDate = (timeStamp)=>{
-    const currDate = new Date(timeStamp.seconds * 1000);
-    return currDate.toDateString();
-  }
 
   
   const fetchAllPosts = ()=>{
@@ -66,6 +60,7 @@ function DashPosts({user, setEditor}) {
               (postsArray.map((post)=>
                 <div key={post.id} className="data-document" onClick={()=>{setEditor({on:true, novo:false, id:post.id});}}>
                   <h3>{post.title}</h3>
+                  
                   <div className='postsMeta'>
                     <p>{post.author}</p>
                     <p><span className='postCreated'>{post.banako}</span>

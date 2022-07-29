@@ -56,27 +56,9 @@ header.dash-header{
     color: hsl(196deg 13% 49%);
 }
 /* the user icon in topbar */
-#userInfo>button{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    column-gap: 5px;
-    padding: 12px;
-    border-radius: var(--borderRadius);
-    cursor: pointer;
-    transition: all 0.2s ease-out;
-}
-#userInfo>button:hover{
-    background-color: var(--bgColor);
-    transition: all 0.1s ease-in;
-}
 
-
-#userInfo button #userIcon svg{
-    width: 29px;
-    height: 29px;
+#userIcon svg{
     color: #84956f;
-    vertical-align: middle;
 }
 
 
@@ -167,6 +149,10 @@ aside.dash-sidebar{
     height: 87vh;
     padding-left: 10px;
     padding-bottom: 15px;
+}
+
+.dash-main:not(#dash-posts){
+    overflow-y: scroll;
 }
 
 
@@ -346,8 +332,52 @@ footer{
 
 
 /* Dash Editor */
+
+.editorContainer{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+    row-gap: 20px;
+    margin-top: 15px;
+}
+
+.editorArea{
+    flex-grow: 1;
+    flex-basis: 75%;
+    padding: 0 10px;
+}
+
+.editorMeta{
+    display: flex;
+    row-gap: 20px;
+    padding: 10px;
+    flex-direction: column;
+    align-items: center;
+}
+
+.editorMeta .postVitals{
+    padding: 10px;
+    line-height: 2em;
+}
+.postVitals h4{
+    margin-bottom: 15px;
+    border-bottom: 1px solid var(--secondarySky);
+}
+
+/* form element */
 #editPost{
     display: flex;
     flex-direction: column;
     row-gap: 15px;
+    align-items: flex-start;
+}
+
+#editPost .formElement{
+    width: 100%;
+}
+
+.formElement input, textarea{
+    width: 100%;
+    resize: vertical;
 }

@@ -4,11 +4,12 @@ import { signOut } from 'firebase/auth';
 import { useState } from 'react';
 import { toast } from 'react-toastify';
 
+import {IoArrowBack} from 'react-icons/io5';
 import { IoPersonCircleOutline } from 'react-icons/io5';
 
 
 
-function Header({currSection, user, currUser}) {
+function Header({currSection, user, currUser, editor, setEditor}) {
 
   const [userTab, setUserTab] = useState(false);
 
@@ -27,14 +28,16 @@ function Header({currSection, user, currUser}) {
 
     return (
       <header className='dash-header'>
-        <p id='dashTitle'>{currSection}</p>
+        {(editor)? (<button className="icoBtn" onClick={()=>{setEditor()}}><IoArrowBack /></button>):
+        (<p id='dashTitle'>{currSection}</p>) }
+        
         <nav className="topBtns">
           <a href="./" target={"_blank"} rel={"noopener"}>
             <button>Live</button>
           </a>
           
           <div id="userInfo">
-            <button className="btnNeutral" onClick={()=>{setUserTab(!userTab)}}>
+            <button className="icoBtn" onClick={()=>{setUserTab(!userTab)}}>
               <span id='userIcon'><IoPersonCircleOutline/></span>
             </button>
 
