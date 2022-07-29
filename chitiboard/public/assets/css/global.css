@@ -136,7 +136,7 @@ button.icoBtn:hover{
 
 /* Input elements */
 
-form input, form textarea{
+input, textarea{
     padding: 0.6em;
     border: 1px solid var(--secondarySky);
     border-radius: var(--borderRadius);
