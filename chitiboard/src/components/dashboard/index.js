@@ -56,7 +56,7 @@ function Dashboard() {
         <div className="side-main">
         <h2>
           <span className='smScreen'><MdSpaceDashboard /></span>
-          <span className='wideScreen'>dashback</span>
+          <span className='wideScreen'>dashbuda</span>
         </h2>
         <nav className='sidebar'>
           <div className='sidebarItem' id='dash-infoTab' onClick={()=>{setCurrSection("Chitiboard")}}>
@@ -90,7 +90,7 @@ function Dashboard() {
         </nav>
         </div>
         <footer>
-          <p>(o_o)</p>
+          <p>\(o_o)/ \(-_-)/ \('O')/</p>
         </footer>
 
       </aside>

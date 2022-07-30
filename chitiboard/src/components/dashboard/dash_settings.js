@@ -6,7 +6,25 @@ function Settings() {
 
     return (
       <main className='dash-main' id='dash-settings'>
-        <h1>The site settings</h1>
+        <section id='homeSettings'>
+          <h4>Home Page Essentials</h4>
+          <p>Choose a Image and text below to display on your HomePage</p>
+          <form>
+            <div className='formElement'>
+              <label htmlFor='heroImg'>Hero Image</label>
+              <input id='heroImg' type={'text'}></input>
+            </div>
+            <div className='formElement'>
+              <label htmlFor='heroTitle'>Hero Title</label>
+              <input id='heroTitle' type={'text'}></input>
+            </div>
+            <div className='formElement'>
+              <label htmlFor='heroText'>Hero Text</label>
+              <input id='heroText' type={'text'}></input>
+            </div>
+          </form>
+          
+        </section>
         
         
       </main>

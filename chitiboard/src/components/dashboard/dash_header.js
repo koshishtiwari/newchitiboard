@@ -42,7 +42,7 @@ function Header({currSection, user, currUser, editor, setEditor}) {
             </button>
 
             {userTab &&
-              <section id="userTab">
+              <section id="userTab" className='lightOverlay'>
               <div className="userTabInfo">
                 <h3>{user.email}</h3>
               </div>

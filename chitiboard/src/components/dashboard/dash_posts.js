@@ -58,7 +58,7 @@ function DashPosts({user, setEditor}) {
               (<Loader />) :
 
               (postsArray.map((post)=>
-                <div key={post.id} className="data-document" onClick={()=>{setEditor({on:true, novo:false, id:post.id});}}>
+                <div key={post.id} className="data-document lightOverlay" onClick={()=>{setEditor({on:true, novo:false, id:post.id});}}>
                   <h3>{post.title}</h3>
                   
                   <div className='postsMeta'>
