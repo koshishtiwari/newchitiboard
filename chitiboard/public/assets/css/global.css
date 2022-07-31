@@ -1,6 +1,4 @@
 /* globals */
-/* alik ramro generic naam banaera rakhe ramro */
-/* aaile lai estai xa yaako naame change garema sabei tira ko naam chei change garnu parxa */
 :root {
     --primaryColor :  hsl(196deg 32% 65%);
     --accentColor : hsl(15deg 29% 51%);
@@ -57,13 +55,13 @@
 {
 	width: 5px;
     height: 5px;
-	background-color: transparent;
+	background: transparent;
 }
 
 *::-webkit-scrollbar-thumb
 {
 	border-radius: 10px;
-	background-color: var(--scrollBars);
+	background: var(--scrollBars);
 }
 
 body{
@@ -97,7 +95,7 @@ a:hover{
 
 /* Light overlays */
 .lightOverlay{
-    background-color: var(--lightField);
+    background: var(--lightField);
 }
 .lightOverlay p{
     color: var(--lightText);
@@ -123,7 +121,7 @@ button, .button{
     text-decoration: none;
     padding: 13px 20px;
     cursor: pointer;
-    background-color: var(--primaryColor);
+    background: var(--primaryColor);
     color: #f0fbff;
     border-radius: var(--borderRadius);
     border: none;
@@ -135,7 +133,7 @@ button:hover, .button:hover{
     transition: all 0.1s ease-out;
 }
 .btnAccent{
-    background-color: var(--accentColor);
+    background: var(--accentColor);
     color: hsl(15deg 100% 96%);
 }
 .btnAccent:hover{
@@ -154,14 +152,14 @@ button:hover, .button:hover{
 }
 
 .btnNeutral{
-    background-color: transparent;
+    background: transparent;
 }
 
 .btnDanger{
-    background-color: hsl(0deg 42% 54%);
+    background: hsl(0deg 42% 54%);
 }
 .btnDisables{
-    background-color: var(--lightField);
+    background: var(--lightField);
     cursor: disabled;
 }
 button.icoBtn{

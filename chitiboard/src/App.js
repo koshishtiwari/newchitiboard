@@ -22,8 +22,8 @@ function App() {
    {/* other elements if needed */}
     <Routes>
         <Route exact path='/' element={<Home />} />
-        <Route path='/about-us' element={<About/>} />
-        <Route path='/contact-us' element={<Contact/>} />
+        <Route path='/about' element={<About/>} />
+        <Route path='/contact' element={<Contact/>} />
         <Route path='/posts' element={<Posts/>} />
         <Route path='/dashboard' element={<Dashboard/>} />
     </Routes>

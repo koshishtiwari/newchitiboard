@@ -6,7 +6,7 @@
         'aside main';
     overflow: hidden;
     column-gap: 5px;
-    background-color: var(--dashBgColor);
+    background: var(--dashBgColor);
     justify-content: start;
 }
 
@@ -64,7 +64,7 @@ aside.dash-sidebar{
     grid-area: aside;
     width: 15vw;
     overflow-y: auto;
-    background-color: var(--primaryColor);
+    background: var(--primaryColor);
     display: flex;
     flex-direction: column;
     height: 100vh;
@@ -75,7 +75,8 @@ aside.dash-sidebar{
 .dash-sidebar h2{
     text-align: center;
     margin-top: 35px;
-    color: hsl(196deg 46% 83%);
+    color: var(--primaryColor);
+    filter: brightness(1.4) saturate(0.6);
 }
 
 /* sidebar in large and small screen */
@@ -110,7 +111,8 @@ aside.dash-sidebar{
     transition: all 0.1s ease-in;
 }
 .sidebar .sidebarItem:hover{
-    background: hsl(196deg 17% 51%);
+    background: var(--primaryColor);
+    filter: contrast(0.76);
     transition: all 0.2s ease-out;
 }
 
