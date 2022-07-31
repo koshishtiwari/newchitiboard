@@ -1,5 +1,6 @@
 import { useState } from 'react';
 
+import { authenticator } from '../../chiti_firebase';
 
 // dashboard componnents
 import Info from './dash_info';
@@ -17,11 +18,11 @@ import { IoReaderOutline } from 'react-icons/io5';
 import { IoPeopleOutline } from 'react-icons/io5';
 import { IoOptionsOutline } from 'react-icons/io5';
 
+
 // dashboard main
 function Dashboard() {
   // user info
-  // {displayName:"lokhais", email:"oewiweu@nao.com", metadata:{lastSignInTime:"643q"}}
-  const [currUser, setCurrUser] = useState({displayName:"lokhais", email:"yodekhi@ty.oma", metadata:{lastSignInTime:"643q"}});
+  const [currUser, setCurrUser] = useState();
 
   // sections of the dashboard as states
   const [currSection, setCurrSection] = useState("Chitboard");

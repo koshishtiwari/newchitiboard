@@ -38,7 +38,7 @@
 }
 
 *::selection{
-    color: var(--lightText);
+    color: var(--lightField);
     background: var(--darkField);
     border-radius: var(--borderRadius);
 }

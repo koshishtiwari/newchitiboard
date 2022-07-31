@@ -83,7 +83,7 @@ function Editor({user, currSection, features}) {
     })
     .then(()=>{toast("Updated Succesfully");
     })
-    .catch((err)=>{toast("err.message")});
+    .catch((err)=>{toast(err.message)});
     }
   }
 
@@ -99,7 +99,7 @@ function Editor({user, currSection, features}) {
       toast("Deleted Succesfully");
       currSection("Posts");
     })
-    .catch((err)=>{toast("err.message")});
+    .catch((err)=>{toast(err.message)});
     }
   }
 
