@@ -67,6 +67,7 @@
 body{
     font-family: var(--primaryFont);
     line-height: 1.4em;
+    font-size: var(--fontSize);
 }
 
 h1, h2, h3, h4, h5,h6{
@@ -191,4 +192,14 @@ input, textarea{
     margin-bottom: 0.5em;
     background: var(--inputField);
     color: var(--darkText);
+}
+
+/* Loading Screen */
+#dataLoading{
+    transform: translateY(100%);
+    text-align: center;
+}
+
+#dataLoading svg{
+    fill: var(--primaryColor);
 }

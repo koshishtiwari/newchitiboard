@@ -2,14 +2,10 @@ import { database, getDate } from '../../chiti_firebase';
 import { collection, getDocs, query, orderBy } from 'firebase/firestore';
 import { useState, useEffect } from 'react';
 
+import Markdown from 'markdown-to-jsx';
 import Loader from '../loader';
 
-// markdown
-import MarkdownIt from 'markdown-it';
-const md = new MarkdownIt();
-function getHTML (markdownStr){
-  return md.render(markdownStr);
-}
+
 
 
 function Posts() {
@@ -61,7 +57,10 @@ function Posts() {
                       <span className='postModified'>{post.milako}</span>
                     </p>
                   </div>
-                  <div dangerouslySetInnerHTML={{__html: getHTML(post.text)}}></div>
+                  <article className='postContents'>
+                    <Markdown>{post.text}</Markdown>
+                  </article>
+                  
                 </div>
               ))
               }

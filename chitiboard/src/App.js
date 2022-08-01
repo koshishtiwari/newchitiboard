@@ -14,7 +14,7 @@ import Posts from './components/posts';
 // dashboard
 import Dashboard from './components/dashboard';
 
-// import './overrides.css'
+import './overrides.css'
 
 function App() {
   return (

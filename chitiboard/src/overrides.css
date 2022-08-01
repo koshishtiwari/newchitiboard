@@ -40,6 +40,11 @@
     --primaryFont: 'Quicksand', sans-serif;
     --headingsFont: 'Domine', serif;
 
+    /* font sizes */
+    --fontSize: 16px;
+
     /* Background color for the dashboard */
     --dashBgColor : hsl(196deg 21% 93%);
+    --dashBgImage : url('');
+
 }

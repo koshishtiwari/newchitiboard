@@ -101,7 +101,7 @@ function Dashboard() {
         
         {/* main */}
         {(editor) ? 
-          (<Editor user= {currUser} currSection = {setCurrSection} features={editor}/>):
+          (<Editor user= {currUser} setEditor = {setEditor} features={editor}/>):
           (switchSections(currSection))
         }
         

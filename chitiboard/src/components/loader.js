@@ -32,6 +32,7 @@ function Loader() {
               begin="0.3"/>
           </circle>
         </svg>
+        <p>Hang on while we process your requests!</p>
       </div>
     );
 
