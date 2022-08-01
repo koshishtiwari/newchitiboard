@@ -1,0 +1,45 @@
+/* All theming overrides goes here */
+
+
+/* import fonts as shown below before declaring fonts in the root*/
+/* @import url('https://fonts.googleapis.com/css2?family=Domine&family=Quicksand&display=swap'); */
+
+/* globals */
+:root {
+
+    /* primary color for the site as whole */
+    --primaryColor :  rgb(128 121 169);
+    --accentColor : hsl(15deg 29% 51%);
+
+    /* Background color for the whole site */
+    --bgColor : hsl(126deg 100% 99%);
+
+    /* Background color for overlays, sections and input fields*/
+    --darkField : hsl(24deg 3% 30%);
+    --lightField : hsl(196deg 33% 97%);
+    --inputField: hsl(180deg 23% 97%);
+
+    /* General Text colors */
+    --lightText : hsl(30deg 6% 33%);
+    --darkText : hsl(30deg 6% 33%);
+    
+    /* Color for texts used in Headings */
+    --headerTextColor: hsl(196deg 13% 49%);
+
+    /* Icon colors */
+    --darkIcons :hsl(196deg 25% 34%);
+    --lightIcons :hsl(0deg 0% 97%);
+
+    /* Colors for scrollbars */
+    --scrollBars : hsl(196deg 19% 78%);
+
+    /* Border radius for all the shapes used in the site */
+    --borderRadius: 2px;
+
+    /* Fonts declarations */
+    --primaryFont: 'Quicksand', sans-serif;
+    --headingsFont: 'Domine', serif;
+
+    /* Background color for the dashboard */
+    --dashBgColor : hsl(196deg 21% 93%);
+}
