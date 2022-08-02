@@ -39,9 +39,17 @@ header.dash-header{
     color: var(--headerTextColor);
 }
 /* the user icon in topbar */
-
+#userInfo .icoBtn{
+    padding: 5px;
+}
 #userIcon svg{
     color: #84956f;
+}
+
+#userInfo img{
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
 }
 
 
@@ -235,6 +243,33 @@ footer{
     margin-bottom: 10px;
 }
 
+/* user info section */
+.userSection h3{
+    text-align: center;
+}
+.updateUser{
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    margin-top: 1.5em;
+    text-align: center;
+    align-content: space-between;
+    align-items: stretch;
+    min-width: 250px;
+}
+
+.updateUser input[type=file]{
+    display: none;
+}
+
+#userImgInput svg, #userImgInput img{
+    cursor: pointer;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+}
+
+
 /* Dash Posts */
 /* the meta of the data styles */
 .dash-dataInfo{
@@ -246,7 +281,7 @@ footer{
 }
 
 .dataOpBtn{
-    padding: 8px 10px;
+    padding: 8px 12px;
 }
 
 /* the main data */
@@ -314,7 +349,10 @@ footer{
     flex-direction: row;
     justify-content: space-between;
     row-gap: 20px;
+    column-gap: 10px;
     margin-top: 20px;
+    align-items: flex-start;
+    padding-right: 5px;
 }
 
 .editorArea{
@@ -326,13 +364,19 @@ footer{
 .editorMeta{
     display: flex;
     row-gap: 20px;
-    padding: 10px;
+    position: sticky;
+    top: 5px;
+    padding: 20px;
     flex-direction: column;
-    align-items: center;
+    /* align-items: baseline; */
+    border-radius: var(--borderRadius);
+    box-shadow: 0px 0px 5px #4b4b4b0f;
+    border: 1px solid #ddd;
+    background: var(--lightField);
 }
 
 .editorMeta .postVitals{
-    padding: 10px;
+    padding: 5px 0;
     line-height: 2em;
 }
 .postVitals h4{
@@ -368,6 +412,13 @@ footer{
     outline: 1px solid var(--primaryColor);
 }
 
+/* buttons */
+.editorFormBtns{
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    column-gap: 20px;
+}
 
 /* dash Settings */
 #dash-settings form{

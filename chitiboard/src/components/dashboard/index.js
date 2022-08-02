@@ -44,7 +44,7 @@ function Dashboard() {
         return <Settings user = {currUser}/>
         break;
       default:
-      return <Info user = {currUser} />
+      return <Info  currUser = {setCurrUser} user = {currUser} />
       break;
     }
   };

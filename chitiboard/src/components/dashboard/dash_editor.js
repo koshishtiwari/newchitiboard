@@ -17,7 +17,7 @@ function Editor({user, setEditor, features}) {
    const [postBrief, setPostBrief] = useState('');
    const [postText, setPostText] = useState('');
    const [postMilako, setPostMilako] = useState('Just now');
-   const [postAuthor, setPostAuthor] = useState('');
+   const [postAuthor, setPostAuthor] = useState(user.displayName);
 
 
   // get the post
@@ -57,7 +57,7 @@ function Editor({user, setEditor, features}) {
       brief: postBrief,
       ftImgRef : postImage,
 
-      author : user.email,
+      author : user.displayName,
       createdAt : serverTimestamp(),
       modifiedAt : serverTimestamp()
     })
@@ -128,7 +128,7 @@ function Editor({user, setEditor, features}) {
         {isLoaded ? 
         (<div className='editorContainer'>
         <section className='editorArea'>
-        <form id='editPost'>
+        <form id='editPost' onSubmit={(e)=>e.preventDefault()}>
           <div className='formElement'>
             <label htmlFor='titleInput' >Title of the post </label>
             <input type={"text"} id='titleInput' value={postTitle} onChange={(e)=>setPostTitle(e.target.value)}></input>
@@ -145,10 +145,6 @@ function Editor({user, setEditor, features}) {
             <label htmlFor='textInput' >Everything</label>
             <textarea id='textInput' rows={30} value={postText} onChange={(e)=>setPostText(e.target.value)}></textarea>
           </div>
-
-          {(!features.novo) ?
-          (<button onClick={updatePost}>Update Post</button>):
-          (<button onClick={(e)=>{savePost(e)}}>Save Post</button>)}
         
         </form>
         </section>
@@ -159,16 +155,20 @@ function Editor({user, setEditor, features}) {
             <p>Author: {postAuthor}</p>
             <p>Last updated: {postMilako}</p>
           </div>
-          {!features.novo && 
-          <button className='btnDanger' title='Once you delete you cannot get it back!' onClick={delPost}>Delete Post</button>}
           
+          {(!features.novo) ?
+          (
+          <div className='editorFormBtns'>
+            <button onClick={updatePost}>Update Post</button>
+            <button className='btnDanger' title='Once you delete you cannot get it back!' onClick={delPost}>Delete Post</button>
+          </div>
+          ):
+          (<button onClick={savePost}>Save Post</button>)}
           
         </section>
 
       </div>):
         (<Loader />)}
-        
-        
   
       </main>
     );

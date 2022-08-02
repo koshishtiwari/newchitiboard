@@ -34,7 +34,7 @@
     --scrollBars : hsl(196deg 19% 78%);
 
     /* Border radius for all the shapes used in the site */
-    --borderRadius: 2px;
+    --borderRadius: 10px;
 
     /* Fonts declarations */
     --primaryFont: 'Quicksand', sans-serif;

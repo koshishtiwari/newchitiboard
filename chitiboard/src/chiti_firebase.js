@@ -2,6 +2,7 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore } from 'firebase/firestore';
 import { getAuth } from 'firebase/auth';
+import { getStorage } from "firebase/storage";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -21,6 +22,9 @@ export const database = getFirestore();
 
 // authentication 
 export const authenticator = getAuth();
+
+// the firebase storage root
+export const storage = getStorage();
 
  // convert timestamps into string date
 export const getDate = (timeStamp)=>{

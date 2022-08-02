@@ -38,13 +38,17 @@ function Header({currSection, user, currUser, editor, setEditor}) {
           
           <div id="userInfo">
             <button className="icoBtn" onClick={()=>{setUserTab(!userTab)}}>
-              <span id='userIcon'><IoPersonCircleOutline/></span>
+              {user.photoURL ? 
+              (<img alt="Current User Image" src={user.photoURL}></img>):
+              (<span id='userIcon'><IoPersonCircleOutline/></span>)}
+              
             </button>
 
             {userTab &&
               <section id="userTab" className='lightOverlay'>
               <div className="userTabInfo">
-                <h3>{user.email}</h3>
+                <h3>Hola, {user.displayName}</h3>
+                <p>Como estas?</p>
               </div>
               <button className="btnAccentHollow" onClick={(event)=>signOutter(event)}>Sign out!</button>
               </section>

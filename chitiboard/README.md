@@ -1,7 +1,6 @@
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
+# TODO
+before build clean up user auths by using onAuthStateChanged from firebase 
+it might be better to use the getAuth on every componenet rather than passing that prop over and over
 ## Available Scripts
 
 In the project directory, you can run:
