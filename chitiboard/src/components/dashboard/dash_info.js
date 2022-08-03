@@ -79,7 +79,7 @@ const updateUser = (e) => {
         : (<img alt="Current User Image" src={userImg}></img>)}
         
         </label>
-        <input type={'file'} id='userImage' onChange={setImg}></input>
+        <input type={'file'} id='userImage' onChange={setImg} accept={'image/*'} ></input>
 
 
         <label htmlFor="userName">Username</label>

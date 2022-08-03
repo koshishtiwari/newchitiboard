@@ -376,7 +376,6 @@ footer{
     top: 5px;
     padding: 20px;
     flex-direction: column;
-    /* align-items: baseline; */
     border-radius: var(--borderRadius);
     box-shadow: 0px 0px 5px #4b4b4b0f;
     border: 1px solid #ddd;
@@ -398,6 +397,24 @@ footer{
     flex-direction: column;
     row-gap: 20px;
     align-items: flex-start;
+}
+
+#editPost input[type='file']{
+    display: none;
+}
+
+#ftImageLabel{
+    display: flex;
+    flex-direction: column;
+}
+
+.postFeatImage{
+    min-height: 200px;
+    background: var(--primaryColor);
+    max-width: 900px;
+    margin-top: 15px;
+    border-radius: var(--borderRadius);
+    cursor: pointer;
 }
 
 #editPost .formElement{

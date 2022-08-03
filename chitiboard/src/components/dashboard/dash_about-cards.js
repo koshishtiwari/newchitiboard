@@ -127,7 +127,7 @@ function Cards({memberId, refreshTeam}) {
             :(<img alt="Profile Image" src={teamMember.pic}></img>)}
             
             </label>
-            <input type={'file'} id={`img-${memberId}`} onChange={setImg}></input>
+            <input type={'file'} id={`img-${memberId}`} onChange={setImg} accept={'image/*'}></input>
      
         
 

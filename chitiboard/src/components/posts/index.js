@@ -45,7 +45,7 @@ function Posts() {
             <div className='data-table'>
               {(postsArray.length < 1) ?
               
-              (<Loader />) :
+              (<Loader message/>) :
 
               (postsArray.map((post)=>
                 <div key={post.id} className="data-document lightOverlay">
@@ -57,6 +57,8 @@ function Posts() {
                       <span className='postModified'>{post.milako}</span>
                     </p>
                   </div>
+
+                  <img alt={post.title} src={post.ftImgRef}></img>
                   <article className='postContents'>
                     <Markdown>{post.text}</Markdown>
                   </article>

@@ -16,7 +16,7 @@ function DashPosts({user, setEditor}) {
 
   // post tanne
   const postsCollection = collection(database, 'posts');
-  const queryPosts = query(postsCollection, orderBy('modifiedAt'));
+  const queryPosts = query(postsCollection, orderBy('modifiedAt', 'desc'));
 
   
   const fetchAllPosts = ()=>{

@@ -1,5 +1,7 @@
 import { collection, doc, addDoc, deleteDoc, updateDoc, serverTimestamp, getDoc } from 'firebase/firestore';
-import { database, getDate } from '../../chiti_firebase';
+import { getDownloadURL, ref, uploadBytes, deleteObject } from "firebase/storage";
+
+import { database, storage, getDate } from '../../chiti_firebase';
 import { toast } from 'react-toastify';
 import { useEffect, useState } from 'react';
 
@@ -11,6 +13,8 @@ const posts = collection(database, 'posts');
 function Editor({user, setEditor, features}) {
 
   const [isLoaded, setIsLoaded] = useState(true);
+  const [isLoadingImg, setIsLoadingImg] = useState(false);
+
    // state to store post data
    const [postTitle, setPostTitle] = useState('');
    const [postImage, setPostImage] = useState('');
@@ -46,6 +50,27 @@ function Editor({user, setEditor, features}) {
     getPostSnap();
   },[])
   
+
+  // upload Image
+  const setImg = (e)=>{
+    const uploadedImg = e.target.files[0];
+  
+    setPostImage(null);
+    setIsLoadingImg(true);
+    
+    const postImageRef = ref(storage, `images/post-${uploadedImg.lastModified}`);
+    
+    uploadBytes(postImageRef, uploadedImg)
+        .then((snapshot)=>{
+            getDownloadURL(snapshot.ref)
+            .then((url)=>{
+                setPostImage(url);
+                setIsLoadingImg(false);
+            })
+            .catch(err=>toast(err.message));
+        })
+  }
+
   // save the post
   const savePost = (e)=>{
     e.preventDefault();
@@ -101,6 +126,14 @@ function Editor({user, setEditor, features}) {
     e.preventDefault();
     setIsLoaded(false);
     if(!features.novo){
+
+      if(postImage != ''){
+        deleteObject(ref(storage, postImage))
+        .then(()=>{
+            
+        })
+        .catch(err=>toast(err.message));
+    }
       // ref to the current post if the editor is on update mode i.e features.novo = false
       const thisPost = doc(database, 'posts', features.id);
    
@@ -127,20 +160,29 @@ function Editor({user, setEditor, features}) {
         
         {isLoaded ? 
         (<div className='editorContainer'>
+
         <section className='editorArea'>
         <form id='editPost' onSubmit={(e)=>e.preventDefault()}>
           <div className='formElement'>
             <label htmlFor='titleInput' >Title of the post </label>
             <input type={"text"} id='titleInput' value={postTitle} onChange={(e)=>setPostTitle(e.target.value)}></input>
           </div>
+
           <div className='formElement'>
-            <label htmlFor='ftImageInput'>Featured image</label>
-            <input type={"text"} id='ftImageInput' value={postImage} onChange={(e)=>setPostImage(e.target.value)}></input>
+            <label htmlFor='ftImageInput' id='ftImageLabel'>Featured Image 
+            {!postImage ? 
+            (isLoadingImg) ? (<Loader />):(<div className='postFeatImage'></div>)
+            :(<img alt="featured Image" src={postImage} className='postFeatImage'></img>)}
+            </label>
+            
+            <input type={"file"} id='ftImageInput' onChange={setImg} accept={'images/*'}></input>
           </div>
+
           <div className='formElement'>
             <label htmlFor='briefInput' >Brief Summary</label>
             <textarea id='briefInput' rows={10} value={postBrief} onChange={(e)=>setPostBrief(e.target.value)}></textarea>
           </div>
+
           <div className='formElement'>
             <label htmlFor='textInput' >Everything</label>
             <textarea id='textInput' rows={30} value={postText} onChange={(e)=>setPostText(e.target.value)}></textarea>
