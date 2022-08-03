@@ -1,5 +1,5 @@
 import { database, getDate } from '../../chiti_firebase';
-import { collection, doc, getDocs, addDoc, deleteDoc, query, orderBy } from 'firebase/firestore';
+import { collection, getDocs, query, orderBy } from 'firebase/firestore';
 import { useEffect, useState } from 'react';
 // toast messages
 import { toast } from 'react-toastify';
@@ -12,6 +12,7 @@ import Loader  from './../loader';
 function DashPosts({user, setEditor}) {
   // hold the posts data
   const [postsArray, setpostsArray] = useState([]);
+  const [isLoaded, setIsLoaded] = useState(false);
 
   // post tanne
   const postsCollection = collection(database, 'posts');
@@ -30,6 +31,7 @@ function DashPosts({user, setEditor}) {
       });
 
       setpostsArray(postsAray);
+      setIsLoaded(true);
     })
     .catch(err=>{
       toast(err.message);
@@ -53,7 +55,7 @@ function DashPosts({user, setEditor}) {
 
         <section className='data' id='postData'>
             <div className='data-table'>
-              {(postsArray.length < 1) ?
+              {!isLoaded ?
               
               (<Loader />) :
 

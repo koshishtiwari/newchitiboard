@@ -68,6 +68,7 @@ header.dash-header{
     row-gap: 20px;
     border: 1px solid var(--primaryColor);
     min-width: 225px;
+    z-index: 9999;
 }
 
 /* sidebar */
@@ -222,7 +223,6 @@ footer{
     column-gap: 20px;
     align-content: flex-start;
     align-items: flex-start;
-    overflow-y: scroll;
 }
 
 #dash-info section{
@@ -419,6 +419,27 @@ footer{
     row-gap: 20px;
     column-gap: 20px;
 }
+
+
+/* Dash About section */
+#dash-about{
+    padding-right: 5px;
+    display: flex;
+    row-gap: 30px;
+    flex-direction: column;
+}
+
+.aboutTeam h3{
+    margin-bottom: 15px;
+}
+
+.teamCards{
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
 
 /* dash Settings */
 #dash-settings form{

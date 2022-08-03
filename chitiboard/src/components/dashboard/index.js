@@ -7,7 +7,7 @@ import Info from './dash_info';
 import Editor from './dash_editor';
 import DashPosts from './dash_posts';
 import Settings from './dash_settings';
-import Team from './dash_team';
+import About from './dash_about';
 import Header from './dash_header';
 import SignIn from './dash_signForm';
 
@@ -15,7 +15,7 @@ import SignIn from './dash_signForm';
 import { MdSpaceDashboard } from "react-icons/md";
 import { IoInformationCircleOutline } from 'react-icons/io5';
 import { IoReaderOutline } from 'react-icons/io5';
-import { IoPeopleOutline } from 'react-icons/io5';
+import { IoAt } from 'react-icons/io5';
 import { IoOptionsOutline } from 'react-icons/io5';
 
 
@@ -37,8 +37,8 @@ function Dashboard() {
       case "Posts":
         return <DashPosts user = {currUser} setEditor = {setEditor}/>
         break;
-      case "Team":
-        return <Team user = {currUser} />
+      case "About":
+        return <About user = {currUser} />
         break;
       case "Site Settings":
         return <Settings user = {currUser}/>
@@ -74,10 +74,10 @@ function Dashboard() {
             </p>
           </div>
 
-          <div className='sidebarItem' id='dash-teamTab' onClick={()=>{setCurrSection("Team")}}>
+          <div className='sidebarItem' id='dash-aboutTab' onClick={()=>{setCurrSection("About")}}>
             <p>
-              <span className='smScreen'><IoPeopleOutline /></span>
-              <span className='wideScreen'>Team</span>
+              <span className='smScreen'><IoAt /></span>
+              <span className='wideScreen'>About</span>
             </p>
           </div>
 

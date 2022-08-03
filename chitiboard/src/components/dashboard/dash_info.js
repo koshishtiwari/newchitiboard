@@ -74,9 +74,7 @@ function updateUser(e) {
 
       <section className='userSection lightOverlay'>
         <h3>User Details</h3>
-        {!isLoaded ? 
-        (<p>Updating...</p>):
-        (<form className="updateUser">
+        <form className="updateUser">
 
         <label htmlFor="userImage" id='userImgInput' title='Click to change the profile photo'>
          
@@ -93,10 +91,11 @@ function updateUser(e) {
 
         <label htmlFor="userEmail">Email</label>
         <input type={'text'} id='userEmail' disabled value ={user.email}></input>
+        {!isLoaded ? 
+        (<p>Updating...</p>):
+        (<button onClick={updateUser}>Update</button>)}
 
-      <button onClick={updateUser}>Update</button>
-
-    </form>)}
+        </form>
         
         
       </section>
