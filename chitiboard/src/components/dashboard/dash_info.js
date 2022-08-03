@@ -6,25 +6,37 @@ import { IoPersonCircleOutline } from 'react-icons/io5';
 import {toast} from 'react-toastify';
 
 import { storage } from '../../chiti_firebase';
+import Loader from '../loader';
 
 
-let uploadedFile;
 
 function Info({user, currUser}) {
 
 // user Information
 const [userName, setUserName] = useState(user.displayName);
-const [userImgSrc, setUserImgSrc] = useState(user.photoURL);
+const [userImg, setUserImg] = useState(user.photoURL);
 
 const [isLoaded, setIsLoaded] = useState(true);
+const [isLoadingImg, setIsLoadingImg] = useState(null);
 
 
 const setImg = (e) => {
-  uploadedFile = e.target.files[0];
-
-  const photoReader = new FileReader();
-  photoReader.onload = ()=> setUserImgSrc(photoReader.result);
-  photoReader.readAsDataURL(uploadedFile);    
+  const uploadedFile = e.target.files[0];
+  setIsLoadingImg(true);
+  setUserImg(null);
+  
+  const userImgRef = ref(storage, `images/user-${user.uid}`);
+  uploadBytes(userImgRef, uploadedFile)
+    .then((snapshot)=>{
+      getDownloadURL(snapshot.ref)
+        .then((url)=>{
+          setUserImg(url);
+          setIsLoadingImg(false);
+        })
+        .catch(err=>toast(err.message));
+    })
+    .catch(err=>toast(err.message));
+   
 
 }
 
@@ -32,33 +44,18 @@ const setImg = (e) => {
 const updateUser = (e) => {
   e.preventDefault();
   setIsLoaded(false);
+         
+  updateProfile(user, {
+    displayName: userName,
+    photoURL: userImg
+  })
+  .then(()=>{
+    toast("Profile updated succesfully !");
+    setIsLoaded(true);
+    currUser(getAuth().currentUser)
+  })
+  .catch(err=>toast(err.message));
 
-  const userImgRef = ref(storage, `images/user-${userName}`);
-  uploadBytes(userImgRef, uploadedFile)
-    .then((snapshot)=>{
-      toast('Image upload succesfull !');
-      getDownloadURL(snapshot.ref)
-        .then((url)=>{          
-          updateProfile(getAuth().currentUser, {
-            displayName: userName,
-            photoURL: url
-          })
-          .then(()=>{
-            
-            toast("Profile updated succesfully !");
-            setIsLoaded(true);
-          })
-          .catch(err=>toast(err.message));
-
-        })
-        .catch(err=>toast(err.message));
-    })
-    .catch(err=>{
-      toast(err.message)
-    });
-
-  
-  
 }
 
   return (
@@ -77,8 +74,9 @@ const updateUser = (e) => {
 
         <label htmlFor="userImage" id='userImgInput' className='profilePic' title='Click to change the profile photo'>
          
-        {userImgSrc ?(<img alt="Current User Image" src={userImgSrc}></img>)
-        :(<IoPersonCircleOutline />)}
+        {!userImg ?
+        (isLoadingImg)?(<Loader />):(<IoPersonCircleOutline />)
+        : (<img alt="Current User Image" src={userImg}></img>)}
         
         </label>
         <input type={'file'} id='userImage' onChange={setImg}></input>
@@ -95,7 +93,6 @@ const updateUser = (e) => {
         (<button onClick={updateUser}>Update</button>)}
 
         </form>
-        
         
       </section>
 

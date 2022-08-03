@@ -53,7 +53,7 @@ function Cards({memberId, refreshTeam}) {
     getTeamMember();
     },[])
 
-    const setImg = (e, id)=> {
+    const setImg = (e)=> {
         const memberUploadedPP = e.target.files[0];
         setTeamMember({...teamMember, pic:''});
         setIsLoadingImg(true);
