@@ -48,6 +48,6 @@
 
     /* Background color and/or image for the dashboard */
     --dashBgColor : hsl(196deg 21% 93%);
-    --dashBgImage : url('');
+    /* --dashBgImage : url(''); */
 
 }

@@ -168,7 +168,7 @@ function Editor({user, setEditor, features}) {
         </section>
 
       </div>):
-        (<Loader />)}
+        (<Loader message/>)}
   
       </main>
     );

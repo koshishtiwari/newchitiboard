@@ -14,13 +14,12 @@ function Info({user, currUser}) {
 
 // user Information
 const [userName, setUserName] = useState(user.displayName);
-// const [userImage, setUserImage] = useState('');
 const [userImgSrc, setUserImgSrc] = useState(user.photoURL);
 
 const [isLoaded, setIsLoaded] = useState(true);
 
 
-function setImg(e){
+const setImg = (e) => {
   uploadedFile = e.target.files[0];
 
   const photoReader = new FileReader();
@@ -30,7 +29,7 @@ function setImg(e){
 }
 
 // update in the firebase 
-function updateUser(e) {
+const updateUser = (e) => {
   e.preventDefault();
   setIsLoaded(false);
 
@@ -45,7 +44,7 @@ function updateUser(e) {
             photoURL: url
           })
           .then(()=>{
-            // currUser(getAuth().currentUser);
+            
             toast("Profile updated succesfully !");
             setIsLoaded(true);
           })

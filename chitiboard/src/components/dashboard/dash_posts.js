@@ -57,7 +57,7 @@ function DashPosts({user, setEditor}) {
             <div className='data-table'>
               {!isLoaded ?
               
-              (<Loader />) :
+              (<Loader message/>) :
 
               (postsArray.map((post)=>
                 <div key={post.id} className="data-document lightOverlay" onClick={()=>{setEditor({on:true, novo:false, id:post.id});}}>

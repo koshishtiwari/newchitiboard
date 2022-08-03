@@ -197,7 +197,7 @@ footer{
     display: none;
 }
 
-.cards form .profilePic svg, .cards form .profilePic img{
+.cards form .profilePic>svg, .cards form .profilePic>img{
     cursor: pointer;
     width: 80px;
     height: 80px;

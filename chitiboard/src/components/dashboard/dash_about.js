@@ -1,5 +1,5 @@
 import { database } from '../../chiti_firebase';
-import { collection, doc, addDoc, getDoc, getDocs, query, orderBy } from 'firebase/firestore';
+import { collection, doc, addDoc, getDoc, getDocs, updateDoc, query, orderBy } from 'firebase/firestore';
 import { useEffect, useState } from 'react';
 
 import { toast } from 'react-toastify';
@@ -82,6 +82,22 @@ function About() {
       })
     }
 
+    const updateProjAbout = (e)=>{
+      e.preventDefault();
+      setIsLoadedProj(false);
+      
+      const projectDoc = doc(database, 'site-vitals', 'about-project');
+  
+      updateDoc(projectDoc, {
+        content: projectAbout
+      })
+      .then(()=>{
+          setIsLoadedProj(true);
+      })
+      .catch(err=>toast(err.message));
+
+    }
+
   return (
     <main className='dash-main' id='dash-about'>
         
@@ -93,7 +109,7 @@ function About() {
             <label htmlFor='aboutProject' >Something about the Project</label>
             <textarea id='aboutProject' rows={10} value={projectAbout} onChange={(e)=>setProjectAbout(e.target.value)}></textarea>
           </div>
-          <button>Update</button>
+          <button onClick={updateProjAbout}>Update</button>
         </form>):
         (<p>Loading Project Description...</p>)}
       </section>
@@ -106,7 +122,7 @@ function About() {
           <div className='teamCards'>
           {!isLoadedTeam ?
               
-              (<Loader />) :
+              (<Loader message/>) :
 
               (teamMembers.map((member)=>
               <Cards key={member.id} memberId={member.id}  refreshTeam={fetchTeam}/>

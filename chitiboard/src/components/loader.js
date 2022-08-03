@@ -1,9 +1,9 @@
 
-function Loader() {
+function Loader({message}) {
 
     return (
         <div id='dataLoading'>
-        <svg version="1.1" id="L5" xmlns="http://www.w3.org/2000/svg" width={"100px"}>
+        <svg version="1.1" id="L5" xmlns="http://www.w3.org/2000/svg" width={"100px"} viewBox={"-20 0 100 100"}>
           <circle stroke="none" cx="6" cy="50" r="6">
             <animateTransform 
               attributeName="transform" 
@@ -32,10 +32,11 @@ function Loader() {
               begin="0.3"/>
           </circle>
         </svg>
-        <p>Hang on while we process your requests!</p>
+        {message && <p>Hang on while we process your requests!</p>}
+        
       </div>
     );
 
   }
   
-  export default Loader;
+export default Loader;
