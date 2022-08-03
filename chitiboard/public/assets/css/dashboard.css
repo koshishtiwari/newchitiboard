@@ -176,6 +176,34 @@ footer{
 }
 
 
+/* Forms inside cards */
+.cards{
+    border-radius: var(--borderRadius);
+    box-shadow: 0px 0px 5px #4b4b4b0f;
+    border: 1px solid #ddd;
+}
+.cards form{
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    margin-top: 1.5em;
+    text-align: center;
+    align-content: space-between;
+    align-items: stretch;
+    min-width: 250px;
+}
+
+.cards form input[type=file]{
+    display: none;
+}
+
+.cards form .profilePic svg, .cards form .profilePic img{
+    cursor: pointer;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+}
+
 /* Modals */
 .modal{
     position: absolute;
@@ -247,27 +275,7 @@ footer{
 .userSection h3{
     text-align: center;
 }
-.updateUser{
-    display: flex;
-    flex-direction: column;
-    row-gap: 10px;
-    margin-top: 1.5em;
-    text-align: center;
-    align-content: space-between;
-    align-items: stretch;
-    min-width: 250px;
-}
 
-.updateUser input[type=file]{
-    display: none;
-}
-
-#userImgInput svg, #userImgInput img{
-    cursor: pointer;
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-}
 
 
 /* Dash Posts */
@@ -425,7 +433,7 @@ footer{
 #dash-about{
     padding-right: 5px;
     display: flex;
-    row-gap: 30px;
+    row-gap: 55px;
     flex-direction: column;
 }
 
@@ -438,7 +446,24 @@ footer{
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
+    column-gap: 20px;
+    row-gap: 20px;
+    align-items: flex-start;
 }
+
+.teamCards .cards{
+    padding: 20px 30px;
+    flex: auto;
+    max-width: 400px;
+}
+
+.updateTeam .teamBtns{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+
 
 
 /* dash Settings */

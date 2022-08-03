@@ -14,10 +14,13 @@
     /* Background color for the whole site */
     --bgColor : hsl(126deg 100% 99%);
 
-    /* Background color for overlays, sections and input fields*/
+    /* Background color for overlays, sections */
     --darkField : hsl(24deg 3% 30%);
     --lightField : hsl(196deg 33% 97%);
+
+    /* input Field background and text color */
     --inputField: hsl(180deg 23% 97%);
+    --inputText: hsl(30deg 6% 33%);
 
     /* General Text colors */
     --lightText : hsl(30deg 6% 33%);
@@ -43,7 +46,7 @@
     /* font sizes */
     --fontSize: 16px;
 
-    /* Background color for the dashboard */
+    /* Background color and/or image for the dashboard */
     --dashBgColor : hsl(196deg 21% 93%);
     --dashBgImage : url('');
 

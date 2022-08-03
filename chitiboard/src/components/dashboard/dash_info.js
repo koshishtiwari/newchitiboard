@@ -72,11 +72,11 @@ function updateUser(e) {
         <p>To update your username and profile picture check the User Details below.</p>
       </section>
 
-      <section className='userSection lightOverlay'>
+      <section className='userSection cards lightOverlay'>
         <h3>User Details</h3>
         <form className="updateUser">
 
-        <label htmlFor="userImage" id='userImgInput' title='Click to change the profile photo'>
+        <label htmlFor="userImage" id='userImgInput' className='profilePic' title='Click to change the profile photo'>
          
         {userImgSrc ?(<img alt="Current User Image" src={userImgSrc}></img>)
         :(<IoPersonCircleOutline />)}

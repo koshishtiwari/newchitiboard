@@ -5,7 +5,9 @@
 
     --darkField : hsl(24deg 3% 30%);
     --lightField : hsl(196deg 33% 97%);
+
     --inputField: hsl(180deg 23% 97%);
+    --inputText: hsl(30deg 6% 33%);
 
     --bgColor : hsl(126deg 100% 99%);
     --dashBgColor : hsl(196deg 21% 93%);
@@ -191,7 +193,7 @@ input, textarea{
     border-radius: var(--borderRadius);
     margin-bottom: 0.5em;
     background: var(--inputField);
-    color: var(--darkText);
+    color: var(--inputText);
 }
 
 /* Loading Screen */

@@ -1,5 +1,5 @@
 import { database } from '../../chiti_firebase';
-import { collection, doc, getDoc, getDocs, query, orderBy } from 'firebase/firestore';
+import { collection, doc, addDoc, getDoc, getDocs, query, orderBy } from 'firebase/firestore';
 import { useEffect, useState } from 'react';
 
 import { toast } from 'react-toastify';
@@ -23,6 +23,7 @@ function About() {
 
     const fetchAboutProject = ()=>{
       const projectDoc = doc(database, 'site-vitals', 'about-project');
+      setIsLoadedProj(false);
 
       getDoc(projectDoc)
         .then((projectDesc)=>{
@@ -35,6 +36,7 @@ function About() {
     }
 
     const fetchTeam = ()=>{
+      setIsLoadedTeam(false);
       getDocs(queryTeam)
       .then((docSnapshot)=>{
         let teamArray = [];
@@ -57,6 +59,29 @@ function About() {
       
     },[])
 
+
+    const addTeamMember = (e) =>{
+      e.preventDefault();
+      setIsLoadedTeam(false);
+
+      addDoc(teamCollection, {
+        name:'', 
+        nickname:'',
+        pic:'',
+        primaryLink: '',
+        secondaryLink: '',
+        title: '',
+        desc: ''
+      })
+      .then(()=>{
+        setIsLoadedTeam(true);
+        fetchTeam();
+      })
+      .catch((err) =>{
+        toast(err.message);
+      })
+    }
+
   return (
     <main className='dash-main' id='dash-about'>
         
@@ -77,14 +102,14 @@ function About() {
         
         <section className='aboutTeam'>
           <h3>Project Members</h3>
-          <button className='btnAccent' title='Add a new member of the project'>Add New</button>
+          <button className='btnAccent' title='Add a new member of the project' onClick={addTeamMember}>Add New</button>
           <div className='teamCards'>
           {!isLoadedTeam ?
               
               (<Loader />) :
 
               (teamMembers.map((member)=>
-              <Cards memberId={member.id} key={member.id}/>
+              <Cards key={member.id} memberId={member.id}  refreshTeam={fetchTeam}/>
               ))
               }
             

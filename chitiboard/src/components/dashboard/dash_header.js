@@ -47,8 +47,8 @@ function Header({currSection, user, currUser, editor, setEditor}) {
             {userTab &&
               <section id="userTab" className='lightOverlay'>
               <div className="userTabInfo">
-                <h3>Hola, {user.displayName}</h3>
-                <p>Como estas?</p>
+                <h3>Hi, {user.displayName}</h3>
+                <p>Good to see you!</p>
               </div>
               <button className="btnAccentHollow" onClick={(event)=>signOutter(event)}>Sign out!</button>
               </section>
