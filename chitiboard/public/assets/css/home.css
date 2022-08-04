@@ -1,3 +1,15 @@
+/* header for all */
+
+
+
+/* main home */
 #homeBody{
     background-color: var(--bgColor);
+}
+
+
+
+/* footer for all */
+footer#site-footer{
+    background-color: var(--primaryColor);
 }

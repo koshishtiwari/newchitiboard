@@ -4,6 +4,8 @@ import { useState, useEffect } from 'react';
 
 import Markdown from 'markdown-to-jsx';
 import Loader from '../loader';
+import Site_Header from '../header';
+import Site_Footer from '../footer';
 
 
 
@@ -41,34 +43,41 @@ function Posts() {
   },[])
 
   return (
+    <>
+    <Site_Header />
+
     <section className='data' id='postData'>
-            <div className='data-table'>
-              {(postsArray.length < 1) ?
-              
-              (<Loader message/>) :
+          <div className='data-table'>
+            {(postsArray.length < 1) ?
+            
+            (<Loader message/>) :
 
-              (postsArray.map((post)=>
-                <div key={post.id} className="data-document lightOverlay">
-                  <h1>{post.title}</h1>
-                  
-                  <div className='postsMeta'>
-                    <p>{post.author}</p>
-                    <p><span className='postCreated'>{post.banako}</span>
-                      <span className='postModified'>{post.milako}</span>
-                    </p>
-                  </div>
-
-                  <img alt={post.title} src={post.ftImgRef}></img>
-                  <article className='postContents'>
-                    <Markdown>{post.text}</Markdown>
-                  </article>
-                  
+            (postsArray.map((post)=>
+              <div key={post.id} className="data-document lightOverlay">
+                <h1>{post.title}</h1>
+                
+                <div className='postsMeta'>
+                  <p>{post.author}</p>
+                  <p><span className='postCreated'>{post.banako}</span>
+                    <span className='postModified'>{post.milako}</span>
+                  </p>
                 </div>
-              ))
-              }
-              
-            </div>
-        </section>
+
+                <img alt={post.title} src={post.ftImgRef}></img>
+                <article className='postContents'>
+                  <Markdown>{post.text}</Markdown>
+                </article>
+                
+              </div>
+            ))
+            }
+            
+          </div>
+    </section>
+
+    <Site_Footer />
+    </>
+    
   );
 }
   
