@@ -7,7 +7,7 @@ import 'react-toastify/dist/ReactToastify.min.css';
 import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 
 // pages imports
-import Home from './components/home';
+import Home from './components/homePage';
 import About from './components/aboutPage'
 import Posts from './components/posts';
 // dashboard
