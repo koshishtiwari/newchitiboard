@@ -46,6 +46,7 @@ function Posts() {
     <>
     <Site_Header />
 
+    <div className='wrapper'>
     <section className='data' id='postData'>
           <div className='data-table'>
             {(postsArray.length < 1) ?
@@ -74,6 +75,8 @@ function Posts() {
             
           </div>
     </section>
+    </div>
+    
 
     <Site_Footer />
     </>

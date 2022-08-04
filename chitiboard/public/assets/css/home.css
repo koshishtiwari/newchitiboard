@@ -1,15 +1,166 @@
 /* header for all */
+header.pageHeader{
+    display: flex;
+    position: relative;
+    z-index: 99;
+    padding: 10px 15px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--lightText);
+}
 
+.heroImg header.pageHeader{
+    border: none;
+    background: hsl(126deg 100% 99% / 97%);
+    top: 15px;
+    border-radius: var(--borderRadius);
+}
+
+/* Branding */
+.siteLogo{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+    text-decoration: none;
+    padding-left: 10px;
+}
+
+.siteLogo img{
+    width: 15%;
+    min-width: 44px;
+    max-width: 220px;
+}
+.siteLogo .siteTitle{
+    font-size: 1.5em;
+    font-weight: bold;
+    margin: 0;
+    color: var(--primaryColor);
+}
+
+/* Top Nav */
+.topNav-menu{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 8px;
+    text-align: center;
+}
+.topNav-menu a.topNav-menu-item{
+    padding: 12px;
+    text-decoration: none;
+    color: var(--primaryColor);
+    font-size: 1.1em;
+    border-radius: var(--borderRadius);
+    flex-grow: 1;
+    min-width: 100px;
+    transition: all 0.2s ease-in;
+}
+
+.topNav-menu a.topNav-menu-item:hover{
+    background: var(--primaryColor);
+    color: var(--bgColor);
+    transition: all 0.2s ease-out;
+}
 
 
 /* main home */
+.wrapper{
+    padding: 0 20px;
+    margin: 0 auto;
+}
+
 #homeBody{
     background-color: var(--bgColor);
 }
+
+/* Hero Image in front page */
+.heroImg{
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+}
+.heroImg::after {
+    content: "";
+    display: block;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    background: linear-gradient(to bottom,transparent 0,rgb(63 58 58 / 98%) 127%);
+}
+
+.heroTextWrap{
+    position: relative;
+    top: 60vh;
+    padding-left: 50px;
+    padding-right: 15px;
+    z-index: 22;
+}
+.heroTitle{
+    color: hsl(47deg 37% 94%);
+    font-size: 3.5em;
+    line-height: 1.3em;
+    margin: 0;
+}
+p.heroText{
+    color: hsl(49deg 4% 75%);
+    font-size: 1.2em;
+
+}
+
 
 
 
 /* footer for all */
 footer#site-footer{
-    background-color: var(--primaryColor);
+    margin-top: 20px;
+    padding: 15px;
+    border-top: 1px solid var(--primaryColor);
+}
+
+
+
+
+/* media queries */
+/* put these in overridesjs */
+@media screen and (max-width: 426px) {
+    .topNav-menu a.topNav-menu-item{
+        font-size: 1em;
+    }
+    .siteLogo .siteTitle{
+        display: none;
+    }
+    
+    .siteLogo img {
+        width: 25%;
+    }
+
+    .heroTextWrap{
+        top: 45vh;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}
+
+/* post vertical on mobiles */
+@media screen and (max-width: 680px) {
+    .postFeeds{
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+/* for larger screens */
+@media screen and (min-width: 1024px) {
+    .wrapper{
+        width: 75vw;
+    }
+
+    .postMeta{
+        max-width: 35vw;
+    }
 }

@@ -150,7 +150,7 @@ aside.dash-sidebar{
 
 
 /* footer */
-footer{
+footer#dashFooter{
     padding: 10px;
 }
 

@@ -20,9 +20,12 @@ function Site_Footer() {
 
 
   return (
+    <div className='wrapper'>
     <footer id="site-footer">
       <div>{footerContent}</div>
     </footer>
+    </div>
+    
   );
 }
     

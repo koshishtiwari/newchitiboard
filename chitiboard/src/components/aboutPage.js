@@ -8,9 +8,12 @@ function About() {
       <>
     <Site_Header />
     
+    <div className="wrapper">
     <section id="aboutBody">
       <h1>this is About</h1>
     </section>
+    </div>
+    
 
     <Site_Footer />
     </>

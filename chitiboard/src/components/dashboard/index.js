@@ -89,7 +89,7 @@ function Dashboard() {
 
         </nav>
         </div>
-        <footer>
+        <footer id='dashFooter'>
           <p>\(o_o)/ \(-_-)/ \('O')/</p>
         </footer>
 
