@@ -19,8 +19,7 @@ function Posts() {
   const postsCollection = collection(database, 'posts');
   const queryPosts = query(postsCollection, orderBy('modifiedAt'));
 
-  
-  const fetchAllPosts = ()=>{
+  useEffect(()=>{
     getDocs(queryPosts)
     .then((docSnapshot)=>{
       let postsAray = [];
@@ -36,10 +35,6 @@ function Posts() {
     .catch(err=>{
       console.log(err.message);
     });
-  }
-
-  useEffect(()=>{
-    fetchAllPosts();
   },[])
 
   return (
@@ -47,33 +42,37 @@ function Posts() {
     <SiteHeader />
 
     <div className='wrapper'>
-    <section className='data' id='postData'>
-          <div className='data-table'>
-            {(postsArray.length < 1) ?
+    <section id='postFeed'>
+      <h2>Posts</h2>
+      <div className='data-table'>
+        {(postsArray.length < 1) ?
+        
+        (<Loader message/>) :
+
+        (postsArray.map((post)=>
+          <div key={post.id} className="data-document lightOverlay">
+            <h3>{post.title}</h3>
             
-            (<Loader message/>) :
-
-            (postsArray.map((post)=>
-              <div key={post.id} className="data-document lightOverlay">
-                <h1>{post.title}</h1>
-                
-                <div className='postsMeta'>
-                  <p>{post.author}</p>
-                  <p><span className='postCreated'>{post.banako}</span>
-                    <span className='postModified'>{post.milako}</span>
-                  </p>
-                </div>
-
-                <img alt={post.title} src={post.ftImgRef}></img>
-                <article className='postContents'>
-                  <Markdown>{post.text}</Markdown>
-                </article>
-                
-              </div>
-            ))
-            }
+            <div className='postsMeta'>
+              <p>{post.author}</p>
+              <p><span className='postCreated'>{post.banako}</span>
+                <span className='postModified'>{post.milako}</span>
+              </p>
+            </div>
+            <section className='postFeedMain'>
+            
+            <article className='postContents'>
+              <Markdown>{post.brief}</Markdown>
+            </article>
+            <img className='postImage' alt={post.title} src={post.ftImgRef}></img>
+            </section>
+            
             
           </div>
+        ))
+        }
+        
+      </div>
     </section>
     </div>
     

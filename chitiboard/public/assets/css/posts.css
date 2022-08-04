@@ -1,2 +1,29 @@
 /* styling for the posts */
-/* see the markdown sample posts look for necessary tags to style */
+#postFeed{
+    padding-top: 20px;
+}
+
+#postFeed h2{
+    margin-bottom: 10px;
+    padding-left: 10px;
+}
+
+.postFeedMain{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    column-gap: 10px;
+    row-gap: 10px;
+}
+
+.postFeedMain .postContents{
+    flex-basis: 60%;
+    flex-grow: 1;
+}
+
+.postFeedMain .postImage{
+    border-radius: var(--borderRadius);
+    flex-basis: 20%;
+    max-width: 250px;
+}

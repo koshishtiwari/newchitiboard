@@ -106,6 +106,11 @@ function Settings() {
   const updateFooter = (e) =>{
     e.preventDefault();
     setIsLoadedFooter(false);
+    updateDoc(footerDoc, footer)
+    .then(()=>{
+      setIsLoadedFooter(true);
+    })
+    .catch(err=>toast(err.message));
   }
 
   useEffect(()=>{

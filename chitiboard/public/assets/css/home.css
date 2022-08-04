@@ -66,16 +66,6 @@ header.pageHeader{
 }
 
 
-/* main home */
-.wrapper{
-    padding: 0 20px;
-    margin: 0 auto;
-}
-
-#homeBody{
-    background-color: var(--bgColor);
-}
-
 /* Hero Image in front page */
 .heroImg{
     height: 100vh;
@@ -112,8 +102,75 @@ p.heroText{
 
 }
 
+/* main home */
+.wrapper{
+    padding: 0 20px;
+    margin: 0 auto;
+}
+
+#homeBody{
+    background-color: var(--bgColor);
+    margin-top: 20px;
+}
+
+#homeBody h2{
+    padding-left: 10px;
+}
+
+.homePostFeeds{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    row-gap: 15px;
+    column-gap: 15px;
+    margin-top: 20px;
+    align-items: start;
+    justify-content: start;
+}
+
+.homePostFeeds .postFeedMain{
+    justify-content: space-evenly;
+}
+
+.homePostFeeds .postFeedMain .postImage{
+    max-width: 320px;
+}
 
 
+/* contact section */
+#contactSection {
+    border-radius: var(--borderRadius);
+    background-color: var(--lightField);
+    border: 1px solid #eee;
+    padding: 20px;
+    margin-top: 20px;
+    text-align: center;
+    box-shadow: 0px 0px 13px 0px #6767671a;
+}
+
+#contactForm{
+    max-width: 750px;
+    margin: 0 auto;
+    margin-top: 20px;
+    display: grid;
+    grid-template-areas: "name email"
+                        "message message";
+    column-gap: 10px;
+}
+#contactForm input[type='text']{
+    grid-area: name;
+    width: 100%;
+}
+
+#contactForm input[type='email']{
+    grid-area: email;
+    width: 100%;
+}
+
+#contactForm textarea{
+    grid-area: message;
+    width: 100%;
+    resize: vertical;
+}
 
 /* footer for all */
 footer#site-footer{
@@ -126,7 +183,6 @@ footer#site-footer{
 
 
 /* media queries */
-/* put these in overridesjs */
 @media screen and (max-width: 426px) {
     .topNav-menu a.topNav-menu-item{
         font-size: 1em;
@@ -148,9 +204,8 @@ footer#site-footer{
 
 /* post vertical on mobiles */
 @media screen and (max-width: 680px) {
-    .postFeeds{
-        display: flex;
-        flex-direction: column;
+    .wrapper{
+        padding: 0 5px;
     }
 }
 
