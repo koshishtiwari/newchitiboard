@@ -6,7 +6,7 @@ import { database } from '../firebase_config';
 
 
 
-function Site_Footer() {
+function SiteFooter() {
   const [footerContent, setFooterContent] = useState('');
 
   useEffect(()=>{
@@ -29,4 +29,4 @@ function Site_Footer() {
   );
 }
     
-export default Site_Footer;
+export default SiteFooter;

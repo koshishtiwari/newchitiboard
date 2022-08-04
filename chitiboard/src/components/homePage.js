@@ -8,8 +8,8 @@ import { toast } from 'react-toastify';
 
 
 // site components
-import Site_Footer from "./footer";
-import Site_Header from './header';
+import SiteFooter from "./footer";
+import SiteHeader from './header';
 
 function Home() {
   const [heroSection, setHeroSection] = useState({heroImg:'', heroText:'', heroTitle:''});
@@ -26,7 +26,7 @@ function Home() {
   return (
     <>
     <div className='heroImg' style={{backgroundImage: `url(${heroSection.heroImg})`}}>
-    <Site_Header />
+    <SiteHeader />
 
     <div className='heroTextWrap'>
       <h2 className='heroTitle'>{heroSection.heroTitle}</h2>
@@ -43,7 +43,7 @@ function Home() {
     </div>
     
 
-    <Site_Footer />
+    <SiteFooter />
     </>
     
   );

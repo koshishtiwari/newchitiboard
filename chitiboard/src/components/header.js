@@ -5,7 +5,7 @@ import { database } from '../firebase_config';
 import { toast } from 'react-toastify';
 
 
-function Site_Header() {
+function SiteHeader() {
 
   const [siteVital, setSiteVital] = useState({});
 
@@ -37,4 +37,4 @@ function Site_Header() {
   );
 }
     
-export default Site_Header;
+export default SiteHeader;

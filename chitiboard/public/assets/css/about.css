@@ -1,4 +1,48 @@
 /* styling for the about page */
-#aboutBody{
-    background-color: var(--bgColor);
+#aboutSection{
+    margin-top: 10px;
+}
+
+#aboutProject{
+    padding: 10px 20px;
+}
+
+#aboutTeam{
+    text-align: center;
+    margin-top: 30px;
+    border-top: 1px solid var(--primaryColor);
+    padding-top: 20px;
+}
+#aboutTeam .teamCards{
+    justify-content: center;
+}
+
+#aboutTeam .cardsShow{
+    background-color: var(--lightField);
+    border-color: var(--darkField);
+}
+#aboutTeam .cardsShow img{
+    border-radius: 50%;
+    max-width: 120px;
+}
+
+#aboutTeam .cardsShow em{
+    color: var(--primaryColor);
+}
+
+#aboutTeam .cardsShow .memberLinks{
+    width: fit-content;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    margin: 0 auto;
+    column-gap: 5px;
+}
+#aboutTeam .cardsShow .memberLinks a{
+    padding: 10px 15px;
+}
+#aboutTeam .cardsShow .memberDesc{
+    text-align: left;
+    padding: 10px;
+    border-top: 1px solid var(--primaryColor);
 }

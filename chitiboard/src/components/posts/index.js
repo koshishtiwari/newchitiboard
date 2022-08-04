@@ -4,8 +4,8 @@ import { useState, useEffect } from 'react';
 
 import Markdown from 'markdown-to-jsx';
 import Loader from '../loader';
-import Site_Header from '../header';
-import Site_Footer from '../footer';
+import SiteHeader from '../header';
+import SiteFooter from '../footer';
 
 
 
@@ -44,7 +44,7 @@ function Posts() {
 
   return (
     <>
-    <Site_Header />
+    <SiteHeader />
 
     <div className='wrapper'>
     <section className='data' id='postData'>
@@ -78,7 +78,7 @@ function Posts() {
     </div>
     
 
-    <Site_Footer />
+    <SiteFooter />
     </>
     
   );
