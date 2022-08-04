@@ -1,4 +1,4 @@
-import { authenticator } from '../../chiti_firebase';
+import { authenticator } from '../../firebase_config';
 import { signOut } from 'firebase/auth';
 
 import { useState } from 'react';

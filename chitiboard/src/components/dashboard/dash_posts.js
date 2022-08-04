@@ -1,4 +1,4 @@
-import { database, getDate } from '../../chiti_firebase';
+import { database, getDate } from '../../firebase_config';
 import { collection, getDocs, query, orderBy } from 'firebase/firestore';
 import { useEffect, useState } from 'react';
 // toast messages

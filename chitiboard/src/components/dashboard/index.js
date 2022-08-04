@@ -1,6 +1,5 @@
 import { useState } from 'react';
 
-import { authenticator } from '../../chiti_firebase';
 
 // dashboard componnents
 import Info from './dash_info';

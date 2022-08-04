@@ -5,7 +5,7 @@ import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import { IoPersonCircleOutline } from 'react-icons/io5';
 import {toast} from 'react-toastify';
 
-import { storage } from '../../chiti_firebase';
+import { storage } from '../../firebase_config';
 import Loader from '../loader';
 
 

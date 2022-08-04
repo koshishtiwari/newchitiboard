@@ -1,7 +1,7 @@
 import { collection, doc, addDoc, deleteDoc, updateDoc, serverTimestamp, getDoc } from 'firebase/firestore';
 import { getDownloadURL, ref, uploadBytes, deleteObject } from "firebase/storage";
 
-import { database, storage, getDate } from '../../chiti_firebase';
+import { database, storage, getDate } from '../../firebase_config';
 import { toast } from 'react-toastify';
 import { useEffect, useState } from 'react';
 
@@ -169,10 +169,10 @@ function Editor({user, setEditor, features}) {
           </div>
 
           <div className='formElement'>
-            <label htmlFor='ftImageInput' id='ftImageLabel'>Featured Image 
+            <label htmlFor='ftImageInput' className='imageLabel'>Featured Image 
             {!postImage ? 
-            (isLoadingImg) ? (<Loader />):(<div className='postFeatImage'></div>)
-            :(<img alt="featured Image" src={postImage} className='postFeatImage'></img>)}
+            (isLoadingImg) ? (<Loader />):(<div className='bigImageLoader'></div>)
+            :(<img alt="featured Image" src={postImage} className='bigImageLoader'></img>)}
             </label>
             
             <input type={"file"} id='ftImageInput' onChange={setImg} accept={'images/*'}></input>

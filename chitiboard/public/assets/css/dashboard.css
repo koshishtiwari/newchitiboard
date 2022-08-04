@@ -399,16 +399,16 @@ footer{
     align-items: flex-start;
 }
 
-#editPost input[type='file']{
+.formElement input[type='file']{
     display: none;
 }
 
-#ftImageLabel{
+.imageLabel{
     display: flex;
     flex-direction: column;
 }
 
-.postFeatImage{
+.bigImageLoader{
     min-height: 200px;
     background: var(--primaryColor);
     max-width: 900px;
@@ -416,8 +416,7 @@ footer{
     border-radius: var(--borderRadius);
     cursor: pointer;
 }
-
-#editPost .formElement{
+.formElement{
     width: 100%;
 }
 
@@ -484,9 +483,24 @@ footer{
 
 
 /* dash Settings */
+#dash-settings{
+    display: flex;
+    flex-direction: column;
+    row-gap: 50px;
+    padding-right: 5px;
+}
+
 #dash-settings form{
     display: flex;
     flex-direction: column;
     row-gap: 20px;
     align-items: flex-start;
+    max-width: 900px;
+}
+
+#siteLogoInput svg, #siteLogoInput img{
+    cursor: pointer;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
 }

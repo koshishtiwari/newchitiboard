@@ -1,7 +1,7 @@
 import { doc, deleteDoc, updateDoc, getDoc } from 'firebase/firestore';
 import { getDownloadURL, ref, uploadBytes, deleteObject } from "firebase/storage";
 
-import { database, storage } from '../../chiti_firebase';
+import { database, storage } from '../../firebase_config';
 import { toast } from 'react-toastify';
 import { useEffect, useState } from 'react';
 
@@ -69,6 +69,7 @@ function Cards({memberId, refreshTeam}) {
                 })
                 .catch(err=>toast(err.message));
             })
+            .catch(err=>toast(err.message));
       
     }
 

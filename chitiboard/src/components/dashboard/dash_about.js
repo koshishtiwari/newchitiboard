@@ -1,4 +1,4 @@
-import { database } from '../../chiti_firebase';
+import { database } from '../../firebase_config';
 import { collection, doc, addDoc, getDoc, getDocs, updateDoc, query, orderBy } from 'firebase/firestore';
 import { useEffect, useState } from 'react';
 

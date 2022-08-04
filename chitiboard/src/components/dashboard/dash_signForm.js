@@ -1,6 +1,6 @@
-import { FIREBASE_APP, authenticator } from '../../chiti_firebase';
+import { FIREBASE_APP, authenticator } from '../../firebase_config';
 import { signInWithEmailAndPassword } from 'firebase/auth';
-import { useState } from 'react';
+
 
 import {toast } from 'react-toastify';
 
