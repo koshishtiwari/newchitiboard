@@ -9,6 +9,8 @@ import Settings from './dash_settings';
 import About from './dash_about';
 import Header from './dash_header';
 import SignIn from './dash_signForm';
+import DashResponses from './dash_responses';
+
 
 // icons
 import { MdSpaceDashboard } from "react-icons/md";
@@ -16,6 +18,7 @@ import { IoInformationCircleOutline } from 'react-icons/io5';
 import { IoReaderOutline } from 'react-icons/io5';
 import { IoAt } from 'react-icons/io5';
 import { IoOptionsOutline } from 'react-icons/io5';
+import { IoChatboxEllipsesOutline} from 'react-icons/io5';
 
 
 // dashboard main
@@ -24,7 +27,7 @@ function Dashboard() {
   const [currUser, setCurrUser] = useState();
 
   // sections of the dashboard as states
-  const [currSection, setCurrSection] = useState("Chitboard");
+  const [currSection, setCurrSection] = useState("Info");
 
   // the editor window
   const [editor, setEditor] = useState();
@@ -42,6 +45,8 @@ function Dashboard() {
       case "Site Settings":
         return <Settings user = {currUser}/>
         break;
+      case "Responses" :
+        return <DashResponses user={currUser} />
       default:
       return <Info  currUser = {setCurrUser} user = {currUser} />
       break;
@@ -59,31 +64,38 @@ function Dashboard() {
           <span className='wideScreen'>dashbuda</span>
         </h2>
         <nav className='sidebar'>
-          <div className='sidebarItem' id='dash-infoTab' onClick={()=>{setCurrSection("Chitiboard")}}>
+          <div className='sidebarItem' id='dash-infoTab' onClick={()=>{setCurrSection("Info")}} {...currSection == "Info" && {style : {background: 'var(--primaryColor)', filter:' brightness(0.8)'}}}>
             <p>
               <span className='smScreen'><IoInformationCircleOutline /></span>
               <span className='wideScreen'>Info</span>
             </p>
           </div>
           
-          <div className='sidebarItem' id='dash-postsTab' onClick={()=>{setCurrSection("Posts")}}>
+          <div className='sidebarItem' id='dash-postsTab' onClick={()=>{setCurrSection("Posts")}} {...currSection == "Posts" && {style : {background: 'var(--primaryColor)', filter:' brightness(0.8)'}}}>
             <p>
               <span className='smScreen'><IoReaderOutline /></span>
               <span className='wideScreen'>Posts</span>
             </p>
           </div>
 
-          <div className='sidebarItem' id='dash-aboutTab' onClick={()=>{setCurrSection("About")}}>
+          <div className='sidebarItem' id='dash-aboutTab' onClick={()=>{setCurrSection("About")}} {...currSection == "About" && {style : {background: 'var(--primaryColor)', filter:' brightness(0.8)'}}}>
             <p>
               <span className='smScreen'><IoAt /></span>
               <span className='wideScreen'>About</span>
             </p>
           </div>
 
-          <div className='sidebarItem' id='dash-settingsTab' onClick={()=>{setCurrSection("Site Settings")}}>
+          <div className='sidebarItem' id='dash-settingsTab' onClick={()=>{setCurrSection("Site Settings")}} {...currSection == "Site Settings" && {style : {background: 'var(--primaryColor)', filter:' brightness(0.8)'}}}>
             <p>
               <span className='smScreen'><IoOptionsOutline /></span>
               <span className='wideScreen'>Settings</span>
+            </p>
+          </div>
+
+          <div className='sidebarItem' id='dash-settingsTab' onClick={()=>{setCurrSection("Responses")}} {...currSection == "Responses" && {style : {background: 'var(--primaryColor)', filter:' brightness(0.8)'}}}>
+            <p>
+              <span className='smScreen'><IoChatboxEllipsesOutline /></span>
+              <span className='wideScreen'>Responses</span>
             </p>
           </div>
 

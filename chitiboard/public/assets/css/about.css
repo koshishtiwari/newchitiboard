@@ -19,7 +19,7 @@
 
 #aboutTeam .cardsShow{
     background-color: var(--lightField);
-    border-color: var(--darkField);
+    border-color: hsl(0deg 0% 94%);
 }
 #aboutTeam .cardsShow img{
     border-radius: 50%;

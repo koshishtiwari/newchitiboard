@@ -1,4 +1,4 @@
-import { collection, doc, getDoc, getDocs, query, orderBy, limit } from 'firebase/firestore';
+import { collection, doc, getDoc, getDocs, query, orderBy, limit, addDoc, serverTimestamp } from 'firebase/firestore';
 import { useEffect, useState } from 'react';
 import Markdown from 'markdown-to-jsx';
 
@@ -17,7 +17,8 @@ function Home() {
   const [heroSection, setHeroSection] = useState({heroImg:'', heroText:'', heroTitle:''});
   const [postsArray, setpostsArray] = useState([]);
 
-  const [inquiries, setInquiries] = useState({});
+  const [responses, setResponses] = useState({name:'', email:'', messages:''});
+  const [responseState, setResponseState] = useState('');
 
   // post tanne
   const postsCollection = collection(database, 'posts');
@@ -45,6 +46,23 @@ function Home() {
     .catch(err=>toast(err.message));
 
   },[])
+
+  const submitContact = (e)=>{
+    e.preventDefault();
+    if(!responses.name | !responses.email | !responses.messages){
+      toast("Please fill out the Form before submitting")
+      return
+    }
+
+    setResponseState('submitting');
+
+    addDoc(collection(database, 'responses'), {...responses, time:serverTimestamp()})
+    .then(()=>{
+      setResponseState('submitted');
+    })
+    .catch(err=>toast(err.message));
+
+  }
 
   return (
     <>
@@ -96,12 +114,20 @@ function Home() {
     </section>
     <section id='contactSection'>
       <h2>Say us Hi !</h2>
-      <form id='contactForm'>
-        <input type={'text'} placeholder={'Your Name'}></input>
-        <input type={'email'} placeholder={'Email'}></input>
-        <textarea placeholder='Your messages'></textarea>
+      {responseState == 'submitting' ? (<p>Please wait while we submit your responses...</p>)
+      :(responseState == 'submitted') ? (<p>Thank you for your response. We will contact you soon !</p>)
+      :(
+        <form id='contact'>
+        <div id='contactForm'>
+        <input type={'text'} placeholder={'Your Name'} required value={responses.name} onChange={e=>setResponses({...responses, name:e.target.value})}></input>
+        <input type={'email'} placeholder={'Email'} required value={responses.email} onChange={e=>setResponses({...responses, email:e.target.value})}></input>
+        <textarea placeholder='Your messages' required value={responses.messages} onChange={e=>setResponses({...responses, messages:e.target.value})}></textarea>
+        </div>
+        <button onClick={submitContact}>Send Now</button>
       </form>
-      <button>Send</button>
+      )}
+      
+      
     </section>
     </div>
     
