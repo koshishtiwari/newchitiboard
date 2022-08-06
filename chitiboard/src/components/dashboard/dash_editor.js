@@ -174,7 +174,7 @@ function Editor({user, setEditor, features}) {
 
           <div className='formElement'>
             <label htmlFor='slugInput'>Custom slug (URL path) <br></br><em>This is required to view your post</em></label>
-            <input type={'text'} id='slugInput' value={postSlug} onChange={(e)=>setPostSlug(e.target.value)}></input>
+            <input type={'text'} placeholder='eg: blog-title' id='slugInput' value={postSlug} onChange={(e)=>setPostSlug(e.target.value)}></input>
           </div>
 
           <div className='formElement'>
