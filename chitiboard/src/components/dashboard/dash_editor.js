@@ -22,6 +22,7 @@ function Editor({user, setEditor, features}) {
    const [postText, setPostText] = useState('');
    const [postMilako, setPostMilako] = useState('Just now');
    const [postAuthor, setPostAuthor] = useState(user.displayName);
+   const [postSlug, setPostSlug] = useState('');
 
 
   // get the post
@@ -38,6 +39,7 @@ function Editor({user, setEditor, features}) {
           setPostImage(postData.ftImgRef);
           setPostMilako(getDate(postData.modifiedAt));
           setPostAuthor(postData.author);
+          setPostSlug(postData.slug);
 
         })
         .catch((err)=>{
@@ -81,6 +83,7 @@ function Editor({user, setEditor, features}) {
       text : postText,
       brief: postBrief,
       ftImgRef : postImage,
+      slug : postSlug,
 
       author : user.displayName,
       createdAt : serverTimestamp(),
@@ -111,6 +114,7 @@ function Editor({user, setEditor, features}) {
       text : postText,
       brief: postBrief,
       ftImgRef : postImage,
+      slug : postSlug,
       modifiedAt : serverTimestamp()
     })
     .then(()=>{
@@ -166,6 +170,11 @@ function Editor({user, setEditor, features}) {
           <div className='formElement'>
             <label htmlFor='titleInput' >Title of the post </label>
             <input type={"text"} id='titleInput' value={postTitle} onChange={(e)=>setPostTitle(e.target.value)}></input>
+          </div>
+
+          <div className='formElement'>
+            <label htmlFor='slugInput'>Custom slug (URL path) <br></br><em>This is required to view your post</em></label>
+            <input type={'text'} id='slugInput' value={postSlug} onChange={(e)=>setPostSlug(e.target.value)}></input>
           </div>
 
           <div className='formElement'>

@@ -10,6 +10,9 @@ import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import Home from './components/homePage';
 import About from './components/aboutPage'
 import Posts from './components/posts';
+import NoPage from './components/404';
+import PostSingle from './components/posts/postSingle';
+
 // dashboard
 import Dashboard from './components/dashboard';
 
@@ -24,7 +27,9 @@ function App() {
         <Route exact path='/' element={<Home />} />
         <Route path='/about' element={<About/>} />
         <Route path='/posts' element={<Posts/>} />
+        <Route path='/posts/:slug' element={< PostSingle/>}/>
         <Route path='/dashboard' element={<Dashboard/>} />
+        <Route path='*' element = {<NoPage/>} />
     </Routes>
 
     {/* display toasts globally on the site */}

@@ -1,5 +1,6 @@
 import { collection, doc, getDoc, getDocs, query, orderBy, limit, addDoc, serverTimestamp } from 'firebase/firestore';
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import Markdown from 'markdown-to-jsx';
 
 import { database, getDate } from '../firebase_config';
@@ -22,7 +23,7 @@ function Home() {
 
   // post tanne
   const postsCollection = collection(database, 'posts');
-  const queryPosts = query(postsCollection, orderBy('modifiedAt'), limit(5));
+  const queryPosts = query(postsCollection, orderBy('modifiedAt', 'desc'), limit(5));
 
   useEffect(()=>{
     getDoc(doc(database, 'site-vitals', 'home-page'))
@@ -84,10 +85,11 @@ function Home() {
       <div className='homePostFeeds'>
         {(postsArray.length < 1) ?
         
-        (<Loader message/>) :
+        (<Loader />) :
 
         (postsArray.map((post)=>
-          <div key={post.id} className="data-document lightOverlay">
+        <Link key={post.id} to = {`/posts/${post.slug}`}>
+          <div className="data-document lightOverlay">
             <h3>{post.title}</h3>
             
             <div className='postsMeta'>
@@ -106,12 +108,15 @@ function Home() {
             
             
           </div>
+        </Link>
+          
         ))
         }
         
       </div>
 
     </section>
+
     <section id='contactSection'>
       <h2>Say us Hi !</h2>
       {responseState == 'submitting' ? (<p>Please wait while we submit your responses...</p>)

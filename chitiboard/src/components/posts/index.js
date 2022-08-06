@@ -1,6 +1,7 @@
 import { database, getDate } from '../../firebase_config';
 import { collection, getDocs, query, orderBy } from 'firebase/firestore';
 import { useState, useEffect } from 'react';
+import { Link} from 'react-router-dom';
 
 import Markdown from 'markdown-to-jsx';
 import Loader from '../loader';
@@ -50,7 +51,8 @@ function Posts() {
         (<Loader message/>) :
 
         (postsArray.map((post)=>
-          <div key={post.id} className="data-document lightOverlay">
+          <Link key={post.id} to={post.slug}>
+            <div className="data-document lightOverlay">
             <h3>{post.title}</h3>
             
             <div className='postsMeta'>
@@ -69,6 +71,8 @@ function Posts() {
             
             
           </div>
+          </Link>
+          
         ))
         }
         
