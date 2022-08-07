@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 
-import Site_Header from "./header";
-import Site_Footer from "./footer";
+import SiteHeader from "./header";
+import SiteFooter from "./footer";
 
 function NoPage() {
 
@@ -9,7 +9,7 @@ const navigate = useNavigate();
 
   return (
     <>
-    <Site_Header/>
+    <SiteHeader/>
     <div className='wrapper'>
     <h2>Page Not Found</h2>
     <p>Looks like you stumbled upon page that don't exist yet !</p>
@@ -19,7 +19,7 @@ const navigate = useNavigate();
 
     </div>
     
-    <Site_Footer />
+    <SiteFooter />
     </>
     
     

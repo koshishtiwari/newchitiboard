@@ -7,8 +7,8 @@ import Markdown from 'markdown-to-jsx';
 import { database, getDate } from '../../firebase_config';
 import { toast } from 'react-toastify';
 
-import Site_Header from "../header";
-import Site_Footer from "../footer";
+import SiteHeader from "../header";
+import SiteFooter from "../footer";
 
 
 
@@ -36,19 +36,18 @@ function PostSingle() {
       const postData = snapshot.docs[0].data();
       setIsPost(true);
       setPostContent({...postData, banako: getDate(postData.createdAt), milako:getDate(postData.modifiedAt)});
-      console.log(postContent);
     })
     .catch((err)=>{setIsPost(false);});
     
-  },[])
+  },[slug])
 
   return (
     <>
-    <Site_Header />
+    <SiteHeader />
     <div className='wrapper'>
     {isPost? 
     (<div className='postContent'>
-      <h3>{postContent.title}</h3>
+      <h1>{postContent.title}</h1>
           
       <div className='postsMeta'>
         <p>{postContent.author}</p>
@@ -56,7 +55,7 @@ function PostSingle() {
           <span className='postModified'>{postContent.milako}</span>
         </p>
       </div>
-      <article className='postContentMain'>
+      <article className='postContentMain fromMarkdown'>
         <img className='postImage' alt={postContent.title} src={postContent.ftImgRef}></img>
         <Markdown>{postContent.text}</Markdown>
       </article>
@@ -70,7 +69,7 @@ function PostSingle() {
     </div>)}
 
     </div>
-    <Site_Footer />
+    <SiteFooter />
     </>
   );
 }

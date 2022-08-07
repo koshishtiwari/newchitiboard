@@ -50,4 +50,7 @@
     --dashBgColor : hsl(196deg 21% 93%);
     /* --dashBgImage : url(''); */
 
+    /* Code Blocks - background and foreground text color */
+    --codeBg: hsl(71deg 22% 90%);
+    --codeText: hsl(271deg 35% 44%);
 }

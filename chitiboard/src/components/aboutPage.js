@@ -52,7 +52,7 @@ function About() {
   
   <div className="wrapper">
   <section id="aboutSection">
-    <div id="aboutProject">
+    <div id="aboutProject" className='fromMarkdown'>
         <Markdown>{projDetails}</Markdown>
     </div>
 
@@ -70,7 +70,7 @@ function About() {
             <a href={member.primaryLink} target={'_blank'}><IoLinkOutline /></a>
             <a href={member.primaryLink} target={'_blank'}><IoGlobeOutline /></a>
           </div>
-          <div className='memberDesc'>
+          <div className='memberDesc fromMarkdown'>
           <Markdown>{member.desc}</Markdown>
           </div>
           

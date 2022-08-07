@@ -1,7 +1,4 @@
 /* styling for the about page */
-#aboutSection{
-    margin-top: 10px;
-}
 
 #aboutProject{
     padding: 10px 20px;
@@ -10,7 +7,6 @@
 #aboutTeam{
     text-align: center;
     margin-top: 30px;
-    border-top: 1px solid var(--primaryColor);
     padding-top: 20px;
 }
 #aboutTeam .teamCards{
@@ -44,5 +40,5 @@
 #aboutTeam .cardsShow .memberDesc{
     text-align: left;
     padding: 10px;
-    border-top: 1px solid var(--primaryColor);
+    border-top: 1px solid hsl(0deg 0% 89%);
 }

@@ -26,6 +26,9 @@
 
     --primaryFont: 'Quicksand', sans-serif;
     --headingsFont: 'Domine', serif;
+
+    --codeBg: hsl(71deg 22% 90%);
+    --codeText: hsl(271deg 35% 44%);
 }
 
 *{
@@ -210,4 +213,56 @@ input, textarea{
 
 #dataLoading svg{
     fill: var(--primaryColor);
+}
+
+/* Styling for markdown display */
+.fromMarkdown{
+
+}
+
+.fromMarkdown h1, .fromMarkdown h2, .fromMarkdown h3, .fromMarkdown h4, .fromMarkdown h5, .fromMarkdown h6{
+    margin: 0.5em 0;
+}
+
+.fromMarkdown p{
+    margin: 0.4em 0;
+}
+.fromMarkdown li, .fromMarkdown footer{
+    color: var(--darkText);
+}
+
+.fromMarkdown pre{
+    background-color: var(--codeBg);
+    color: var(--codeText);
+    padding: 10px 15px;
+    border-radius: var(--borderRadius);
+    overflow-x: auto;
+}
+
+.fromMarkdown a{
+    border-bottom: 1px dashed var(--accentColor);
+    color: var(--accentColor);
+}
+.fromMarkdown a:hover{
+    border-bottom: 1px solid var(--accentColor);
+}
+
+.fromMarkdown blockquote{
+    border-left: 0.5rem solid var(--accentColor);
+    margin-left: 1.2rem;
+    border-radius: 0.2rem;
+    background-color: var(--lightField);
+    padding: 5px;
+    padding-left: 0.9rem;
+}
+.fromMarkdown table{
+    border-collapse: collapse;
+}
+.fromMarkdown table thead{
+    text-align: left;
+}
+
+.fromMarkdown table th, .fromMarkdown table td{
+    padding: 0.7rem 1rem;
+    border: 1px solid var(--darkField);
 }

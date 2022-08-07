@@ -1,5 +1,6 @@
 import { doc, getDoc } from 'firebase/firestore';
 import { useEffect, useState } from 'react';
+import {Link} from 'react-router-dom';
 
 import { database } from '../firebase_config';
 import { toast } from 'react-toastify';
@@ -20,17 +21,17 @@ function SiteHeader() {
   return (
     <div className="wrapper">
       <header className="pageHeader">
-        <a className="siteLogo" href="/">
+        <Link to='/' className="siteLogo" >
           {siteVital.logo && <img src={siteVital.logo} alt="Site Logo"></img>}
           <p className="siteTitle">{siteVital.name}</p>
-        </a>
+        </Link>
         <nav className="topNav-menu">
-          <a className="topNav-menu-item" href="/about">
+          <Link to='/about' className="topNav-menu-item">
             <span>About us</span>
-          </a>
-          <a className="topNav-menu-item" href="/posts">
+          </Link>
+          <Link to ='/posts' className="topNav-menu-item" >
             <span>Posts</span>
-          </a>
+          </Link>
         </nav>
       </header>
     </div>

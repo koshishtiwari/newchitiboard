@@ -145,7 +145,7 @@ function Settings() {
     })
     .catch(err=>toast(err.message));
 
-  },[])
+  },[siteMainDoc, homePageDoc, footerDoc])
 
   return (
     <main className='dash-main' id='dash-settings'>

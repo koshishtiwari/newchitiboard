@@ -98,7 +98,7 @@ function Cards({memberId, refreshTeam}) {
         e.preventDefault();
         setIsLoaded(false);
 
-        if(teamMember.pic!= ''){
+        if(teamMember.pic !== ''){
             const memberPicRef = ref(storage, `images/team-${memberId}`);
             deleteObject(memberPicRef)
             .then(()=>{

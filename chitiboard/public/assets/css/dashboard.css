@@ -326,7 +326,7 @@ footer#dashFooter{
     transition: all 0.2s ease-in;
 }
 
-.data-document .postsMeta{
+.postsMeta{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;

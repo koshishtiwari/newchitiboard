@@ -1,4 +1,5 @@
 import { doc, getDoc } from 'firebase/firestore';
+import Markdown from 'markdown-to-jsx';
 import { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 import { database } from '../firebase_config';
@@ -21,8 +22,8 @@ function SiteFooter() {
 
   return (
     <div className='wrapper'>
-    <footer id="site-footer">
-      <div>{footerContent}</div>
+    <footer id="site-footer" className='fromMarkdown'>
+      <Markdown>{footerContent}</Markdown>
     </footer>
     </div>
     

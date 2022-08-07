@@ -27,3 +27,18 @@
     flex-basis: 20%;
     max-width: 250px;
 }
+
+
+/* Single post styles */
+
+.postContent{
+    padding: 10px 20px;
+}
+
+.postContent>h1{
+    margin: 10px 0;
+}
+
+.postContentMain{
+    margin-top: 30px;
+}

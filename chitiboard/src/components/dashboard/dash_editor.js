@@ -131,7 +131,7 @@ function Editor({user, setEditor, features}) {
     setIsLoaded(false);
     if(!features.novo){
 
-      if(postImage != ''){
+      if(postImage !== ''){
         deleteObject(ref(storage, postImage))
         .then(()=>{
             
