@@ -16,6 +16,16 @@ function Editor({user, setEditor, features}) {
   const [isLoadingImg, setIsLoadingImg] = useState(false);
 
    // state to store post data
+   const [postDetails, setPostDetails] = useState({
+    title: '',
+    text : '',
+    brief: '',
+    ftImgRef : '',
+    slug : '',
+    author : user.displayName,
+    milako: 'Just now'
+   });
+
    const [postTitle, setPostTitle] = useState('');
    const [postImage, setPostImage] = useState('');
    const [postBrief, setPostBrief] = useState('');
@@ -33,6 +43,16 @@ function Editor({user, setEditor, features}) {
       getDoc(thisPost)
         .then((postSnap)=>{
           const postData = postSnap.data();
+          setPostDetails({
+            title: postData.title,
+            brief: postData.brief,
+            text: postData.text,
+            ftImgRef: postData.ftImgRef,
+            slug: postData.slug,
+            author: postData.author,
+            milako: getDate(postData.modifiedAt)
+          });
+          
           setPostTitle(postData.title);
           setPostBrief(postData.brief);
           setPostText(postData.text);

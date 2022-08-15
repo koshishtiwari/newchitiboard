@@ -39,7 +39,7 @@ function PostSingle() {
     })
     .catch((err)=>{setIsPost(false);});
     
-  },[slug])
+  },[])
 
   return (
     <>

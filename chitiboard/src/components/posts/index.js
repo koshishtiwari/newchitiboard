@@ -36,7 +36,7 @@ function Posts() {
     .catch(err=>{
       console.log(err.message);
     });
-  },[queryPosts])
+  },[])
 
   return (
     <>

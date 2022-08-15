@@ -7,8 +7,6 @@ import Loader  from './../loader';
 // ----------------------------------------------
 
 
-
-// dashboard main
 function DashResponses({user}) {
   // hold the posts data
   const [responses, setResponses] = useState([]);

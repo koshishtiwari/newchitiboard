@@ -46,7 +46,7 @@ function Home() {
     })
     .catch(err=>toast(err.message));
 
-  },[queryPosts])
+  },[])
 
   const submitContact = (e)=>{
     e.preventDefault();
