@@ -15,7 +15,7 @@ function Editor({user, setEditor, features}) {
   const [isLoaded, setIsLoaded] = useState(true);
   const [isLoadingImg, setIsLoadingImg] = useState(false);
 
-   // state to store post data
+   // store post data
    const [postDetails, setPostDetails] = useState({
     title: '',
     text : '',
@@ -25,15 +25,6 @@ function Editor({user, setEditor, features}) {
     author : user.displayName,
     milako: 'Just now'
    });
-
-   const [postTitle, setPostTitle] = useState('');
-   const [postImage, setPostImage] = useState('');
-   const [postBrief, setPostBrief] = useState('');
-   const [postText, setPostText] = useState('');
-   const [postMilako, setPostMilako] = useState('Just now');
-   const [postAuthor, setPostAuthor] = useState(user.displayName);
-   const [postSlug, setPostSlug] = useState('');
-
 
   // get the post
   const getPostSnap = ()=>{
@@ -52,14 +43,6 @@ function Editor({user, setEditor, features}) {
             author: postData.author,
             milako: getDate(postData.modifiedAt)
           });
-          
-          setPostTitle(postData.title);
-          setPostBrief(postData.brief);
-          setPostText(postData.text);
-          setPostImage(postData.ftImgRef);
-          setPostMilako(getDate(postData.modifiedAt));
-          setPostAuthor(postData.author);
-          setPostSlug(postData.slug);
 
         })
         .catch((err)=>{
@@ -76,8 +59,10 @@ function Editor({user, setEditor, features}) {
   // upload Image
   const setImg = (e)=>{
     const uploadedImg = e.target.files[0];
-  
-    setPostImage(null);
+    
+    // just to show loader when the new image is being uplaoded
+    setPostDetails({...postDetails, ftImgRef: null});
+
     setIsLoadingImg(true);
     
     const postImageRef = ref(storage, `images/post-${uploadedImg.lastModified}`);
@@ -86,7 +71,8 @@ function Editor({user, setEditor, features}) {
         .then((snapshot)=>{
             getDownloadURL(snapshot.ref)
             .then((url)=>{
-                setPostImage(url);
+                setPostDetails({...postDetails, ftImgRef: url});
+
                 setIsLoadingImg(false);
             })
             .catch(err=>toast(err.message));
@@ -99,11 +85,11 @@ function Editor({user, setEditor, features}) {
     setIsLoaded(false);
 
     addDoc(posts, {
-      title: postTitle,
-      text : postText,
-      brief: postBrief,
-      ftImgRef : postImage,
-      slug : postSlug,
+      title: postDetails.title,
+      text : postDetails.text,
+      brief: postDetails.brief,
+      ftImgRef : postDetails.ftImgRef,
+      slug : postDetails.slug,
 
       author : user.displayName,
       createdAt : serverTimestamp(),
@@ -130,11 +116,11 @@ function Editor({user, setEditor, features}) {
       const thisPost = doc(database, 'posts', features.id);
    
     updateDoc(thisPost, {
-      title: postTitle,
-      text : postText,
-      brief: postBrief,
-      ftImgRef : postImage,
-      slug : postSlug,
+      title: postDetails.title,
+      text : postDetails.text,
+      brief: postDetails.brief,
+      ftImgRef : postDetails.ftImgRef,
+      slug : postDetails.slug,
       modifiedAt : serverTimestamp()
     })
     .then(()=>{
@@ -151,13 +137,13 @@ function Editor({user, setEditor, features}) {
     setIsLoaded(false);
     if(!features.novo){
 
-      if(postImage !== ''){
-        deleteObject(ref(storage, postImage))
+      if(postDetails.ftImgRef !== ''){
+        deleteObject(ref(storage, postDetails.ftImgRef))
         .then(()=>{
             
         })
         .catch(err=>toast(err.message));
-    }
+      }
       // ref to the current post if the editor is on update mode i.e features.novo = false
       const thisPost = doc(database, 'posts', features.id);
    
@@ -189,19 +175,19 @@ function Editor({user, setEditor, features}) {
         <form id='editPost' onSubmit={(e)=>e.preventDefault()}>
           <div className='formElement'>
             <label htmlFor='titleInput' >Title of the post </label>
-            <input type={"text"} id='titleInput' value={postTitle} onChange={(e)=>setPostTitle(e.target.value)}></input>
+            <input type={"text"} id='titleInput' value={postDetails.title} onChange={(e)=>setPostDetails({...postDetails, title: e.target.value})}></input>
           </div>
 
           <div className='formElement'>
             <label htmlFor='slugInput'>Custom slug (URL path) <br></br><em>This is required to view your post</em></label>
-            <input type={'text'} placeholder='eg: blog-title' id='slugInput' value={postSlug} onChange={(e)=>setPostSlug(e.target.value)}></input>
+            <input type={'text'} placeholder='eg: blog-title' id='slugInput' value={postDetails.slug} onChange={(e)=>setPostDetails({...postDetails, slug: e.target.value})}></input>
           </div>
 
           <div className='formElement'>
             <label htmlFor='ftImageInput' className='imageLabel'>Featured Image 
-            {!postImage ? 
+            {!postDetails.ftImgRef ? 
             (isLoadingImg) ? (<Loader />):(<div className='bigImageLoader'></div>)
-            :(<img alt="featured Image" src={postImage} className='bigImageLoader'></img>)}
+            :(<img alt="featured Image" src={postDetails.ftImgRef} className='bigImageLoader'></img>)}
             </label>
             
             <input type={"file"} id='ftImageInput' onChange={setImg} accept={'images/*'}></input>
@@ -209,12 +195,12 @@ function Editor({user, setEditor, features}) {
 
           <div className='formElement'>
             <label htmlFor='briefInput' >Brief Summary</label>
-            <textarea id='briefInput' rows={10} value={postBrief} onChange={(e)=>setPostBrief(e.target.value)}></textarea>
+            <textarea id='briefInput' rows={10} value={postDetails.brief} onChange={(e)=>setPostDetails({...postDetails, brief: e.target.value})}></textarea>
           </div>
 
           <div className='formElement'>
             <label htmlFor='textInput' >Everything</label>
-            <textarea id='textInput' rows={30} value={postText} onChange={(e)=>setPostText(e.target.value)}></textarea>
+            <textarea id='textInput' rows={30} value={postDetails.text} onChange={(e)=>setPostDetails({...postDetails, text: e.target.value})}></textarea>
           </div>
         
         </form>
@@ -223,8 +209,8 @@ function Editor({user, setEditor, features}) {
         <section className='editorMeta'>
           <div className='postVitals'>
             <h4>Post Vitals</h4>
-            <p>Author: {postAuthor}</p>
-            <p>Last updated: {postMilako}</p>
+            <p>Author: {postDetails.author}</p>
+            <p>Last updated: {postDetails.milako}</p>
           </div>
           
           {(!features.novo) ?

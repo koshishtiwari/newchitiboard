@@ -1,4 +1,4 @@
-import { FIREBASE_APP, authenticator } from '../../firebase_config';
+import { authenticator } from '../../firebase_config';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 
 
