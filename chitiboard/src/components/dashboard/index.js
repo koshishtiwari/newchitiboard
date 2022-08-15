@@ -102,7 +102,7 @@ function Dashboard() {
         </nav>
         </div>
         <footer id='dashFooter'>
-          <p>\(o_o)/ \(-_-)/ \('O')/</p>
+          <p>v-0.9.0 (2022)</p>
         </footer>
 
       </aside>
