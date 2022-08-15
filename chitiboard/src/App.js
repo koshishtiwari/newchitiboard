@@ -1,4 +1,3 @@
-// Main entry for the app
 // imports
 import React from 'react';
 import { ToastContainer } from 'react-toastify';
