@@ -1,6 +1,7 @@
 import { doc, getDoc } from 'firebase/firestore';
 import { useEffect, useState } from 'react';
 import {Link} from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 
 import { database } from '../firebase_config';
 import { toast } from 'react-toastify';
@@ -20,6 +21,11 @@ function SiteHeader() {
 
   return (
     <div className="wrapper">
+      <Helmet>
+        <title>{siteVital.name}</title>
+        <meta name="description" content={siteVital.desc} />
+      </Helmet>
+      
       <header className="pageHeader">
         <Link to='/' className="siteLogo" >
           {siteVital.logo && <img src={siteVital.logo} alt="Site Logo"></img>}
