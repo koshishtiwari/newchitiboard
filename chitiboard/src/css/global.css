@@ -112,17 +112,6 @@ a:hover{
     color: var(--lightText);
 }
 
-/* global figcaption */
-figcaption{
-    padding: 0px 5px;
-    font-style: italic;
-    color: hsl(0deg 0% 54%);
-}
-figcaption span{
-    color: var(--primaryColor);
-    font-size: 0.85em;
-}
-
 
 button, .button{
     text-decoration: none;

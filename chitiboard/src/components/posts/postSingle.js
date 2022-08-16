@@ -1,11 +1,11 @@
 import { collection, getDocs, query, where } from 'firebase/firestore';
 import { useEffect, useState } from 'react';
-import {useParams } from 'react-router-dom';
+import {useParams, useNavigate } from 'react-router-dom';
 
 import Markdown from 'markdown-to-jsx';
 
 import { database, getDate } from '../../firebase_config';
-import { toast } from 'react-toastify';
+
 
 import SiteHeader from "../header";
 import SiteFooter from "../footer";
@@ -26,6 +26,7 @@ function PostSingle() {
 
   const [isPost, setIsPost] = useState(true);
   const {slug} = useParams();
+  const navigate = useNavigate();
 
   useEffect(()=>{
     const posts = collection(database, 'posts');
@@ -64,8 +65,10 @@ function PostSingle() {
     
     ):
     (<div>
+      <h2>Post Not Found</h2>
       <p>The post you are looking for does not exist. This button will take you to all the posts in our site</p>
-      <button> <a href='/posts'>All Posts</a></button>
+      <br></br>
+      <button onClick={()=>{navigate("/posts")}}>All Posts</button>
     </div>)}
 
     </div>
