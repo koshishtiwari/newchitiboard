@@ -15,7 +15,9 @@ import PostSingle from './components/posts/postSingle';
 // dashboard
 import Dashboard from './components/dashboard';
 
-import './overrides.css'
+// css
+import './style.css';
+
 
 function App() {
   return (
