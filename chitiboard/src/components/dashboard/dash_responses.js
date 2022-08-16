@@ -49,7 +49,7 @@ function DashResponses({user}) {
 
   if (user){
     return (
-      <main className='dash-main' id='dash-posts'>
+      <main className='dash-main' id='dash-responses'>
         <section className='dash-dataInfo'>
           <p id='datainfoType'> Total (<span id='datainfoCount'>{responses.length}</span>) Responses</p>
         </section>

@@ -152,6 +152,9 @@ aside.dash-sidebar{
 /* footer */
 footer#dashFooter{
     padding: 10px;
+    font-size: 0.7em;
+    filter: brightness(2.2);
+    text-align: center;
 }
 
 /* media queries */ 
@@ -280,6 +283,9 @@ footer#dashFooter{
 
 /* Dash Posts */
 /* the meta of the data styles */
+#dash-posts{
+    padding-bottom: 5px;
+}
 .dash-dataInfo{
     display: flex;
     flex-direction: row;
@@ -295,7 +301,7 @@ footer#dashFooter{
 /* the main data */
 .dash-main .data{
     overflow-y: scroll;
-    height: 77vh;
+    height: 92%;
     margin-top: 20px;
 }
 /* postData field styles */
@@ -507,6 +513,9 @@ footer#dashFooter{
 
 
 /* Dash Responses */
+#dash-responses {
+    padding-bottom: 0px;
+}
 .responseItem{
     display: flex;
     row-gap: 15px;
